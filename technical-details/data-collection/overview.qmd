@@ -2,9 +2,26 @@
 
 In this section, provide a high-level overview for technical staff, summarizing the key tasks and processes carried out here. Include the following elements:
 
-- **Goals**: Clearly define the purpose of the tasks or analysis being conducted.
-- **Motivation**: Explain the reasoning behind the work, such as solving a specific problem, improving a system, or optimizing performance.
-- **Objectives**: Outline the specific outcomes you aim to achieve, whether it's implementing a solution, analyzing data, or building a model.
+## Goals
+Identify the key factors affecting the popularity  official music video( view count) on Youtube by analyzing various features of official mv on Youtube and characteristics of corresponding songs on Spotify.
+
+## Motivation
+ View count of music video on YouTube, the world’s largest video- sharing platform is crucial for measuring the popularity and success of mv and song.
+ 
+ Understanding the key factors that drive and impact the mv popularity can help music producers, singers improve mv content and promotion strategies.
+ 
+ Nowdays, it seems that few people have quantified the key factors needed to achieve a successful mv based on mv data, and most people trust their own industry experience, intuition, and artistic aesthetics, etc.
+ 
+ Combing the data of Youtube and Spotify provides us with a more comprehensive view, since the user behavior on these two platforms are likely to influence each other.
+
+## Objectives
+Determine the primary factors that impact the mv view count, including:<br>
+    - YouTube features: days since published, like count, comment count, mean comment sentiment score, etc.<br>
+    - Spotify features: singer_popularity, duration , song_popularity, etc.
+
+Explore the correlation between Youtube and Spotify features and mv view count to identify the key traits.
+
+Based on the analysis, summarize and propose mv optimization suggestions to increase mv view count for singers, music producers and record labels.
 
 This overview should give technical staff a clear understanding of the context and importance of the work, while guiding them on what to focus on in the details that follow.
 

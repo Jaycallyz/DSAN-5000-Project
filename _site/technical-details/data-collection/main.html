@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DSAN-5000: Project - Data Collection</title>
+<title>Data Collection – DSAN-5000: Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -57,7 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -70,10 +70,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -101,6 +101,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -117,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -135,7 +138,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Report</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Technical details</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-technical-details">    
@@ -171,7 +174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -199,12 +202,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a>
   <ul class="collapse">
   <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
-  </ul></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a>
-  <ul class="collapse">
-  <li><a href="#challenges" id="toc-challenges" class="nav-link" data-scroll-target="#challenges">Challenges</a></li>
-  <li><a href="#benchmarks" id="toc-benchmarks" class="nav-link" data-scroll-target="#benchmarks">Benchmarks</a></li>
-  <li><a href="#conclusion-and-future-steps" id="toc-conclusion-and-future-steps" class="nav-link" data-scroll-target="#conclusion-and-future-steps">Conclusion and Future Steps</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -245,7 +242,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Code:</strong> Include the code you used to implement your workflow.</li>
 <li><strong>Summary and Interpretation of Results:</strong> Summarize your findings, interpret the results, and discuss their technical implications.</li>
 </ul>
-<p>In the provide repo, these subsections have been included in the <code>data-collection</code> file as separate <code>.qmd</code> files that can be embedded using the <code>{{&lt; include  &gt;}}</code> tag.</p>
+<p>In the provide repo, these subsections have been included in the <code>data-collection</code> file as separate <code>.qmd</code> files that can be embedded using the <code>{{&lt; include &gt;}}</code> tag.</p>
 </section>
 <section id="what-to-address" class="level2">
 <h2 class="anchored" data-anchor-id="what-to-address">What to address</h2>
@@ -317,10 +314,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Overview</h1>
 <p>In this section, provide a high-level overview for technical staff, summarizing the key tasks and processes carried out here. Include the following elements:</p>
 <ul>
-<li><strong>Goals</strong>: Clearly define the purpose of the tasks or analysis being conducted.</li>
-<li><strong>Motivation</strong>: Explain the reasoning behind the work, such as solving a specific problem, improving a system, or optimizing performance.</li>
-<li><strong>Objectives</strong>: Outline the specific outcomes you aim to achieve, whether it’s implementing a solution, analyzing data, or building a model.</li>
+<li><p><strong>Goals</strong>: Identify the key factors affecting the popularity official music video( view count) on Youtube by analyzing various features of official mv on Youtube and characteristics of corresponding songs on Spotify.</p></li>
+<li><p><strong>Motivation</strong>: View count of music video on YouTube, the world’s largest video- sharing platform is crucial for measuring the popularity and success of mv and song.<br>Understanding the key factors that drive and impact the mv popularity can help music producers, singers improve mv content and promotion strategies.<br>At present, it seems that few people have quantified the key factors needed to achieve a successful mv based on mv data, and most people trust their own industry experience, intuition, and artistic aesthetics, etc.<br>Combing the data of Youtube and Spotify provides us with a more comprehensive view, since the user behavior on these two platforms are likely to influence each other.</p></li>
+<li><p><strong>Objectives</strong>: Determine the primary factors that impact the mv view count, including: Youtube features: days since published, like count, comment count, mean comment sentiment score, etc. Spotify features: singer_popularity, duration , song_popularity, etc.</p></li>
 </ul>
+<p>Explore the correlation between Youtube and Spotify features and mv view count to identify the key traits.</p>
+<p>Based on the analysis, summarize and propose mv optimization suggestions to increase mv view count for singers, music producers and record labels.</p>
 <p>This overview should give technical staff a clear understanding of the context and importance of the work, while guiding them on what to focus on in the details that follow.</p>
 </section>
 <section id="methods" class="level1">
@@ -393,32 +392,847 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [240 rows x 2 columns]</code></pre>
 </div>
 </div>
-</section>
-</section>
-<section id="summary" class="level1">
-<h1>Summary</h1>
-<p>This section should be written for a <strong>technical audience</strong>, focusing on detailed analysis, factual reporting, and clear presentation of data. The following serves as a guide, but feel free to adjust as needed.</p>
-<section id="challenges" class="level2">
-<h2 class="anchored" data-anchor-id="challenges">Challenges</h2>
-<ul>
-<li>Discuss any technical challenges faced during the project, such as data limitations, computational issues, or obstacles encountered during analysis.</li>
-<li>Explain unexpected results and their technical implications.</li>
-<li>Identify areas for future work, including potential optimizations, further analysis, or scaling solutions.</li>
-</ul>
-</section>
-<section id="benchmarks" class="level2">
-<h2 class="anchored" data-anchor-id="benchmarks">Benchmarks</h2>
-<ul>
-<li>Compare your findings to relevant research, industry benchmarks, or intuitive expectations, if applicable.</li>
-</ul>
-</section>
-<section id="conclusion-and-future-steps" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion-and-future-steps">Conclusion and Future Steps</h2>
-<ul>
-<li>Summarize the key technical points and outcomes of the project.</li>
-<li>Suggest potential improvements or refinements to this part of the project.</li>
-<li>Based on the results, provide actionable recommendations for further research or optimization efforts.</li>
-</ul>
+<div id="cell-7" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> googleapiclient.discovery <span class="im">import</span> build</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># API Key</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>api_key <span class="op">=</span> <span class="st">"AIzaSyDtKE-4QZj6EA-rwG7cj5gMJxdt4Fe14Nw"</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize YouTube API client</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>youtube <span class="op">=</span> build(<span class="st">'youtube'</span>, <span class="st">'v3'</span>, developerKey<span class="op">=</span>api_key)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># List to store data</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>all_data <span class="op">=</span> []</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Read song data and fetch YouTube statistics</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'song_data.txt'</span>, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Strip newline characters and spaces</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        query <span class="op">=</span> line.strip()</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Search request for the query</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        search_request <span class="op">=</span> youtube.search().<span class="bu">list</span>(</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>            part<span class="op">=</span><span class="st">"snippet"</span>,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>            q<span class="op">=</span>query,  <span class="co"># Use the query from the file</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>            maxResults<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>            <span class="bu">type</span><span class="op">=</span><span class="st">"video"</span>,</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>            order<span class="op">=</span><span class="st">'relevance'</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        search_response <span class="op">=</span> search_request.execute()</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Get video IDs</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        video_ids <span class="op">=</span> [item[<span class="st">'id'</span>][<span class="st">'videoId'</span>] <span class="cf">for</span> item <span class="kw">in</span> search_response[<span class="st">'items'</span>]]</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> video_ids:</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span>  <span class="co"># Skip if no results</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Fetch video details (statistics)</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>        video_request <span class="op">=</span> youtube.videos().<span class="bu">list</span>(</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>            part<span class="op">=</span><span class="st">"statistics"</span>,</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>            <span class="bu">id</span><span class="op">=</span><span class="st">","</span>.join(video_ids)</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>        video_response <span class="op">=</span> video_request.execute()</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Collect results for the current query</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>        query_data <span class="op">=</span> []</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> item, stats <span class="kw">in</span> <span class="bu">zip</span>(search_response[<span class="st">'items'</span>], video_response[<span class="st">'items'</span>]):</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>            query_data.append({</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>                <span class="st">"titles"</span>: item[<span class="st">'snippet'</span>][<span class="st">'title'</span>],</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>                <span class="st">"view_counts"</span>: <span class="bu">int</span>(stats[<span class="st">'statistics'</span>][<span class="st">'viewCount'</span>]),</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>                <span class="st">"query"</span>: query</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>            })</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Convert query-specific data to a DataFrame and sort by view_counts</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>        query_df <span class="op">=</span> pd.DataFrame(query_data)</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>        query_df <span class="op">=</span> query_df.sort_values(by<span class="op">=</span><span class="st">"view_counts"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Append the sorted data to the final list</span></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>        all_data.append(query_df)</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Concatenate all sorted query-specific DataFrames into one</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>final_df <span class="op">=</span> pd.concat(all_data, ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>final_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">titles</th>
+<th data-quarto-table-cell-role="th">view_counts</th>
+<th data-quarto-table-cell-role="th">query</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Taylor Swift - Anti-Hero (Official Music Video)</td>
+<td>212893513</td>
+<td>Anti-Hero by Taylor Swift</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Taylor Swift - Anti-Hero (Official Lyric Video)</td>
+<td>34875876</td>
+<td>Anti-Hero by Taylor Swift</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Taylor Swift - Anti-Hero (Lyrics)</td>
+<td>14266885</td>
+<td>Anti-Hero by Taylor Swift</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Taylor Swift - Anti Hero (Lyrics) &amp;quot;It&amp;#39...</td>
+<td>5444496</td>
+<td>Anti-Hero by Taylor Swift</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Taylor Swift - Anti-Hero</td>
+<td>1332074</td>
+<td>Anti-Hero by Taylor Swift</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">110</td>
+<td>Lorde - Tennis Court</td>
+<td>131679562</td>
+<td>Tennis Court by Lorde</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">111</td>
+<td>Lorde - Tennis Court (Flume Remix)</td>
+<td>115590517</td>
+<td>Tennis Court by Lorde</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">112</td>
+<td>Lorde - Tennis Court (Audio)</td>
+<td>2182597</td>
+<td>Tennis Court by Lorde</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">113</td>
+<td>Lorde - Tennis Court (Glastonbury 2017)</td>
+<td>365081</td>
+<td>Tennis Court by Lorde</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">114</td>
+<td>Tennis Court - Lorde (Lyrics) 🎵</td>
+<td>179298</td>
+<td>Tennis Court by Lorde</td>
+</tr>
+</tbody>
+</table>
+
+<p>115 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<div id="cell-8" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>final_df.to_csv(<span class="st">'view_counts.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-9" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> googleapiclient.discovery <span class="im">import</span> build</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 设置 YouTube Data API 密钥和服务</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>API_KEY <span class="op">=</span> <span class="st">"AIzaSyC5VGKOdaG9IW3lauaZ03yk0nkP3oS4cTc"</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>youtube <span class="op">=</span> build(<span class="st">"youtube"</span>, <span class="st">"v3"</span>, developerKey<span class="op">=</span>API_KEY)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 视频ID列表</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>video_ids <span class="op">=</span> [</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"EqDlrimnMCE"</span>, <span class="st">"m6N6jOt7heY"</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 要提取的信息</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>fields <span class="op">=</span> [</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"videoId"</span>, <span class="st">"title"</span>, <span class="st">"description"</span>, <span class="st">"publishedAt"</span>, <span class="st">"tags"</span>,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"viewCount"</span>, <span class="st">"likeCount"</span>, <span class="st">"commentCount"</span>, <span class="st">"categoryId"</span>, <span class="st">"duration"</span>,</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"dimension"</span>, <span class="st">"definition"</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 存储结果的列表</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> []</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 遍历视频ID，获取相关数据</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_video_data(video_id):</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    request <span class="op">=</span> youtube.videos().<span class="bu">list</span>(</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        part<span class="op">=</span><span class="st">"snippet,statistics,contentDetails"</span>,</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        <span class="bu">id</span><span class="op">=</span>video_id</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> request.execute()</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">"items"</span> <span class="kw">in</span> response <span class="kw">and</span> response[<span class="st">"items"</span>]:</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>        item <span class="op">=</span> response[<span class="st">"items"</span>][<span class="dv">0</span>]</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>        snippet <span class="op">=</span> item.get(<span class="st">"snippet"</span>, {})</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>        statistics <span class="op">=</span> item.get(<span class="st">"statistics"</span>, {})</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>        content_details <span class="op">=</span> item.get(<span class="st">"contentDetails"</span>, {})</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> {</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>            <span class="st">"videoId"</span>: video_id,</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>            <span class="st">"title"</span>: snippet.get(<span class="st">"title"</span>, <span class="st">""</span>),</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>            <span class="st">"description"</span>: snippet.get(<span class="st">"description"</span>, <span class="st">""</span>),</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>            <span class="st">"publishedAt"</span>: snippet.get(<span class="st">"publishedAt"</span>, <span class="st">""</span>),</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>            <span class="st">"tags"</span>: snippet.get(<span class="st">"tags"</span>, []),</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>            <span class="st">"viewCount"</span>: statistics.get(<span class="st">"viewCount"</span>, <span class="st">"0"</span>),</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>            <span class="st">"likeCount"</span>: statistics.get(<span class="st">"likeCount"</span>, <span class="st">"0"</span>),</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>            <span class="st">"commentCount"</span>: statistics.get(<span class="st">"commentCount"</span>, <span class="st">"0"</span>),</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>            <span class="st">"categoryId"</span>: snippet.get(<span class="st">"categoryId"</span>, <span class="st">""</span>),</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>            <span class="st">"duration"</span>: content_details.get(<span class="st">"duration"</span>, <span class="st">""</span>),</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>            <span class="st">"dimension"</span>: content_details.get(<span class="st">"dimension"</span>, <span class="st">""</span>),</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>            <span class="st">"definition"</span>: content_details.get(<span class="st">"definition"</span>, <span class="st">""</span>)</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> data</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> video_id <span class="kw">in</span> video_ids:</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>    video_data <span class="op">=</span> get_video_data(video_id)</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> video_data:</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>        results.append(video_data)</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="co"># 输出到 CSV 文件</span></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>output_path <span class="op">=</span> <span class="st">"../data/youtube_video_data.csv"</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>os.makedirs(os.path.dirname(output_path), exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(output_path, <span class="st">"w"</span>, newline<span class="op">=</span><span class="st">""</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>) <span class="im">as</span> csvfile:</span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>    writer <span class="op">=</span> csv.DictWriter(csvfile, fieldnames<span class="op">=</span>fields)</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>    writer.writeheader()</span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> row <span class="kw">in</span> results:</span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>        writer.writerow(row)</span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"数据已保存到 </span><span class="sc">{</span>output_path<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-10" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 设置API密钥</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>api_key <span class="op">=</span> <span class="st">'uGXLKQRdFV2dgKISJUa7YMSt2ex2UDxcdIAezx6I'</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 构建请求URL</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>base_url <span class="op">=</span> <span class="st">'https://api.usa.gov/crime/fbi/sapi/'</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>endpoint <span class="op">=</span> <span class="st">'api/nibrs/violent-crime/offense/national/count'</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 指定需要的年份</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>year <span class="op">=</span> <span class="st">'2019'</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 完整URL</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="ss">f'https://api.usa.gov/crime/fbi/cde/hate-crime/state/VA?from=2020&amp;type=race&amp;to=2021&amp;API_KEY=iiHnOKfno2Mgkt5AynpvPpUQTEyxE77jo1RU8PIv'</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 发送GET请求</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 检查响应状态码</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> response.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> response.json()  <span class="co"># 解析返回的JSON数据</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(data)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Failed to retrieve data:"</span>, response.status_code)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Failed to retrieve data: 400</code></pre>
+</div>
+</div>
+<div id="cell-11" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> googleapiclient.discovery <span class="im">import</span> build</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 你的API密钥</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>api_key <span class="op">=</span> <span class="st">'AIzaSyC5VGKOdaG9IW3lauaZ03yk0nkP3oS4cTc'</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建 YouTube client 对象</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>youtube <span class="op">=</span> build(<span class="st">'youtube'</span>, <span class="st">'v3'</span>, developerKey<span class="op">=</span>api_key)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 视频ID</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>video_id <span class="op">=</span> <span class="st">'rDolt3jJRsM'</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 调用API获取视频详情</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>video_response <span class="op">=</span> youtube.videos().<span class="bu">list</span>(</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    part<span class="op">=</span><span class="st">'snippet,contentDetails,statistics'</span>,</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">id</span><span class="op">=</span>video_id</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>).execute()</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 输出视频详细信息</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> video <span class="kw">in</span> video_response.get(<span class="st">'items'</span>, []):</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    title <span class="op">=</span> video[<span class="st">'snippet'</span>][<span class="st">'title'</span>]</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    description <span class="op">=</span> video[<span class="st">'snippet'</span>][<span class="st">'description'</span>]</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    duration <span class="op">=</span> video[<span class="st">'contentDetails'</span>][<span class="st">'duration'</span>]</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    view_count <span class="op">=</span> video[<span class="st">'statistics'</span>][<span class="st">'viewCount'</span>]</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    like_count <span class="op">=</span> video[<span class="st">'statistics'</span>].get(<span class="st">'likeCount'</span>, <span class="st">'Unavailable'</span>)</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    comment_count <span class="op">=</span> video[<span class="st">'statistics'</span>].get(<span class="st">'commentCount'</span>, <span class="st">'Unavailable'</span>)</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Title: </span><span class="sc">{</span>title<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Description: </span><span class="sc">{</span>description<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Duration: </span><span class="sc">{</span>duration<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'View count: </span><span class="sc">{</span>view_count<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Like count: </span><span class="sc">{</span>like_count<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Comment count: </span><span class="sc">{</span>comment_count<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="co"># 获取热门评论</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>comments_response <span class="op">=</span> youtube.commentThreads().<span class="bu">list</span>(</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>    part<span class="op">=</span><span class="st">'snippet'</span>,</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>    videoId<span class="op">=</span>video_id,</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>    order<span class="op">=</span><span class="st">'relevance'</span>,  <span class="co"># 按相关性排序</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>    maxResults<span class="op">=</span><span class="dv">5</span>  <span class="co"># 获取前5个热门评论</span></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>).execute()</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Top Comments:"</span>)</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> comment <span class="kw">in</span> comments_response.get(<span class="st">'items'</span>, []):</span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>    author <span class="op">=</span> comment[<span class="st">'snippet'</span>][<span class="st">'topLevelComment'</span>][<span class="st">'snippet'</span>][<span class="st">'authorDisplayName'</span>]</span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> comment[<span class="st">'snippet'</span>][<span class="st">'topLevelComment'</span>][<span class="st">'snippet'</span>][<span class="st">'textDisplay'</span>]</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>author<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>text<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Title: ENHYPEN (엔하이픈) 'No Doubt' Official MV
+Description: ENHYPEN (엔하이픈) 'No Doubt' Official MV
+
+Credits:
+Directed by Yunah Sheep
+
+ⓒ BELIFT LAB Inc. All Rights Reserved
+
+Connect with ENHYPEN
+OFFICIAL WEBSITE https://ENHYPEN.com
+ENHYPEN Weverse https://www.weverse.io/enhypen
+OFFICIAL YOUTUBE https://www.youtube.com/ENHYPENOFFICIAL
+OFFICIAL X (TWITTER) https://twitter.com/ENHYPEN
+ENHYPEN X (TWITTER) https://twitter.com/ENHYPEN_members
+OFFICIAL FACEBOOK https://www.facebook.com/officialENHYPEN
+OFFICIAL INSTAGRAM https://www.instagram.com/enhypen
+OFFICIAL TIKTOK  https://www.tiktok.com/@enhypen
+OFFICIAL WEIBO https://weibo.com/ENHYPEN
+OFFICIAL BILIBILI https://space.bilibili.com/3493119035181246
+OFFICIAL JAPAN X (TWITTER) https://twitter.com/ENHYPEN_JP
+
+#ENHYPEN #엔하이픈 #ROMANCE_UNTOLD_daydream #NoDoubt
+Duration: PT3M5S
+View count: 28195106
+Like count: 819592
+Comment count: 64086
+
+Top Comments:
+@attaetude: I LOVE THE CHOREOGRAPHY THE SHOULDER DANCE AND THE WHISTLE THING THE SONG THE OUTFITS THE CHORUS EVERITHJNG!
+@filzxwonie: can we talk about how enhypen still manages to include their lore into every single song , while having drastically different concepts ?? im soso proud this song is absolutely AMAZING, the visuals, the vocals, the outfits, every single thing has me jawdropped.
+@carachann5416: Jay&amp;#39;s visual, Niki&amp;#39;s visual, Sunghoon&amp;#39;s visual, Jungwon&amp;#39;s visual, Jake&amp;#39;s visual, Heeseung&amp;#39;s visual, and Sunoo&amp;#39;s visual are drive me crazy&lt;a href="UCkszU2WH9gy1mb0dV-11UJg/YvgfY-LIBpjChgHKyYCQBg"&gt;&lt;/a&gt;
+@mieoyuiki: This music video is a masterpiece! The visuals, the choreography, and their expressions are on point. Enhypen keeps raising the bar every time!
+@Tiramisu_Cake07: The song, the vocals, the choreography, the visuals, the beat, Jungwon, Heeseung, Jay, Jake, Sunghoon, Sunoo, NI-KI, everything is PERFECT I’m impressed</code></pre>
+</div>
+</div>
+<div id="cell-12" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> googleapiclient.discovery <span class="im">import</span> build</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dateutil.parser</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># YouTube API Key</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>api_key <span class="op">=</span> <span class="st">'AIzaSyC5VGKOdaG9IW3lauaZ03yk0nkP3oS4cTc'</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Video ID</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>video_id <span class="op">=</span> <span class="st">'rDolt3jJRsM'</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a YouTube object</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>youtube <span class="op">=</span> build(<span class="st">'youtube'</span>, <span class="st">'v3'</span>, developerKey<span class="op">=</span>api_key)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch video details</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>video_response <span class="op">=</span> youtube.videos().<span class="bu">list</span>(</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    part<span class="op">=</span><span class="st">'snippet,contentDetails,statistics'</span>,</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">id</span><span class="op">=</span>video_id</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>).execute()</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract video and channel details</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>video <span class="op">=</span> video_response[<span class="st">'items'</span>][<span class="dv">0</span>]</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>snippet <span class="op">=</span> video[<span class="st">'snippet'</span>]</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>statistics <span class="op">=</span> video[<span class="st">'statistics'</span>]</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>content_details <span class="op">=</span> video[<span class="st">'contentDetails'</span>]</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate days since published</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>published_at <span class="op">=</span> dateutil.parser.parse(snippet[<span class="st">'publishedAt'</span>])</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>days_since_published <span class="op">=</span> (datetime.now(published_at.tzinfo) <span class="op">-</span> published_at).days</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Get channel details for subscriber count</span></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>channel_id <span class="op">=</span> snippet[<span class="st">'channelId'</span>]</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>channel_response <span class="op">=</span> youtube.channels().<span class="bu">list</span>(</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>    part<span class="op">=</span><span class="st">'statistics'</span>,</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>    <span class="bu">id</span><span class="op">=</span>channel_id</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>).execute()</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>subscriber_count <span class="op">=</span> channel_response[<span class="st">'items'</span>][<span class="dv">0</span>][<span class="st">'statistics'</span>][<span class="st">'subscriberCount'</span>]</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a DataFrame</span></span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Title'</span>: snippet[<span class="st">'title'</span>],</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Description'</span>: snippet[<span class="st">'description'</span>],</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Published At'</span>: snippet[<span class="st">'publishedAt'</span>],</span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Days Since Published'</span>: days_since_published,</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>    <span class="st">'View Count'</span>: statistics[<span class="st">'viewCount'</span>],</span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Like Count'</span>: statistics.get(<span class="st">'likeCount'</span>, <span class="st">'Unavailable'</span>),</span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Comment Count'</span>: statistics.get(<span class="st">'commentCount'</span>, <span class="st">'Unavailable'</span>),</span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Subscriber Count'</span>: subscriber_count,</span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Category ID'</span>: snippet[<span class="st">'categoryId'</span>],</span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Definition'</span>: content_details[<span class="st">'definition'</span>]</span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame([data])</span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Get top 10 comments</span></span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a>comments_response <span class="op">=</span> youtube.commentThreads().<span class="bu">list</span>(</span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>    part<span class="op">=</span><span class="st">'snippet'</span>,</span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>    videoId<span class="op">=</span>video_id,</span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a>    order<span class="op">=</span><span class="st">'relevance'</span>,</span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a>    maxResults<span class="op">=</span><span class="dv">10</span></span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>).execute()</span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a>top_comments <span class="op">=</span> [comment[<span class="st">'snippet'</span>][<span class="st">'topLevelComment'</span>][<span class="st">'snippet'</span>][<span class="st">'textDisplay'</span>]</span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> comment <span class="kw">in</span> comments_response.get(<span class="st">'items'</span>, [])]</span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Top Comments'</span>] <span class="op">=</span> pd.Series([top_comments])</span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a><span class="co"># Save DataFrame to CSV</span></span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a>safe_title <span class="op">=</span> <span class="st">""</span>.join(x <span class="cf">for</span> x <span class="kw">in</span> snippet[<span class="st">'title'</span>] <span class="cf">if</span> x.isalnum() <span class="kw">or</span> x <span class="kw">in</span> <span class="st">" _-"</span>).rstrip()</span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>filename <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>safe_title<span class="sc">}</span><span class="ss">.csv"</span></span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a>df.to_csv(filename, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Data saved to </span><span class="sc">{</span>filename<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Data saved to ENHYPEN 엔하이픈 No Doubt Official MV.csv</code></pre>
+</div>
+</div>
+<div id="cell-13" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> googleapiclient.discovery <span class="im">import</span> build</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dateutil.parser</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace 'YOUR_API_KEY' with your actual YouTube API key</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#api_key = 'YOUR_API_KEY'</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>youtube <span class="op">=</span> build(<span class="st">'youtube'</span>, <span class="st">'v3'</span>, developerKey<span class="op">=</span>api_key)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># YouTube Video ID</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>video_id <span class="op">=</span> <span class="st">'rDolt3jJRsM'</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetching video details</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>video_response <span class="op">=</span> youtube.videos().<span class="bu">list</span>(</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    part<span class="op">=</span><span class="st">'snippet,contentDetails,statistics'</span>,</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">id</span><span class="op">=</span>video_id</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>).execute()</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>video <span class="op">=</span> video_response[<span class="st">'items'</span>][<span class="dv">0</span>]</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>snippet <span class="op">=</span> video[<span class="st">'snippet'</span>]</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>statistics <span class="op">=</span> video[<span class="st">'statistics'</span>]</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>content_details <span class="op">=</span> video[<span class="st">'contentDetails'</span>]</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculating days since the video was published</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>published_at <span class="op">=</span> dateutil.parser.parse(snippet[<span class="st">'publishedAt'</span>])</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>days_since_published <span class="op">=</span> (datetime.now(published_at.tzinfo) <span class="op">-</span> published_at).days</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetching channel details for subscriber count</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>channel_response <span class="op">=</span> youtube.channels().<span class="bu">list</span>(</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>    part<span class="op">=</span><span class="st">'statistics'</span>,</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>    <span class="bu">id</span><span class="op">=</span>snippet[<span class="st">'channelId'</span>]</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>).execute()</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>subscriber_count <span class="op">=</span> channel_response[<span class="st">'items'</span>][<span class="dv">0</span>][<span class="st">'statistics'</span>][<span class="st">'subscriberCount'</span>]</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetching top 10 comments</span></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>comments_response <span class="op">=</span> youtube.commentThreads().<span class="bu">list</span>(</span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>    part<span class="op">=</span><span class="st">'snippet'</span>,</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>    videoId<span class="op">=</span>video_id,</span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>    order<span class="op">=</span><span class="st">'relevance'</span>,</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>    maxResults<span class="op">=</span><span class="dv">10</span></span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>).execute()</span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>top_comments <span class="op">=</span> [comment[<span class="st">'snippet'</span>][<span class="st">'topLevelComment'</span>][<span class="st">'snippet'</span>][<span class="st">'textDisplay'</span>]</span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> comment <span class="kw">in</span> comments_response.get(<span class="st">'items'</span>, [])]</span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Preparing data for CSV</span></span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {</span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Title'</span>: snippet[<span class="st">'title'</span>],</span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Description'</span>: snippet[<span class="st">'description'</span>],</span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Published At'</span>: snippet[<span class="st">'publishedAt'</span>],</span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Days Since Published'</span>: days_since_published,</span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a>    <span class="st">'View Count'</span>: statistics[<span class="st">'viewCount'</span>],</span>
+<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Like Count'</span>: statistics.get(<span class="st">'likeCount'</span>, <span class="st">'Unavailable'</span>),</span>
+<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Comment Count'</span>: statistics.get(<span class="st">'commentCount'</span>, <span class="st">'Unavailable'</span>),</span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Subscriber Count'</span>: subscriber_count,</span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Category ID'</span>: snippet[<span class="st">'categoryId'</span>],</span>
+<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Definition'</span>: content_details[<span class="st">'definition'</span>],</span>
+<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Tags'</span>: snippet.get(<span class="st">'tags'</span>, []),</span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Top Comments'</span>: top_comments</span>
+<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame([data])</span>
+<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a><span class="co"># Saving to CSV</span></span>
+<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a>filename <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>snippet[<span class="st">'title'</span>]<span class="sc">}</span><span class="ss">.csv"</span>.replace(<span class="st">'/'</span>, <span class="st">'_'</span>).replace(<span class="st">'</span><span class="ch">\\</span><span class="st">'</span>, <span class="st">'_'</span>)  <span class="co"># Cleaning filename</span></span>
+<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a>df.to_csv(filename, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Data saved to </span><span class="sc">{</span>filename<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Data saved to ENHYPEN (엔하이픈) 'No Doubt' Official MV.csv</code></pre>
+</div>
+</div>
+<div id="cell-14" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> string</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_track_name(genre):</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""生成带有流派风格的音乐Track名称"""</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    adjectives <span class="op">=</span> {</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Pop'</span>: [<span class="st">'Shiny'</span>, <span class="st">'Happy'</span>, <span class="st">'Bright'</span>, <span class="st">'Lovely'</span>, <span class="st">'Sweet'</span>],</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Rock'</span>: [<span class="st">'Loud'</span>, <span class="st">'Wild'</span>, <span class="st">'Intense'</span>, <span class="st">'Dark'</span>, <span class="st">'Heavy'</span>],</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Electronic'</span>: [<span class="st">'Cyber'</span>, <span class="st">'Digital'</span>, <span class="st">'Synthetic'</span>, <span class="st">'Techno'</span>, <span class="st">'Future'</span>],</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Hip Hop'</span>: [<span class="st">'Street'</span>, <span class="st">'Urban'</span>, <span class="st">'Raw'</span>, <span class="st">'Smooth'</span>, <span class="st">'Groove'</span>]</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> random_string(length<span class="op">=</span><span class="dv">3</span>):</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">''</span>.join(random.choices(string.ascii_uppercase, k<span class="op">=</span>length))</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span>random<span class="sc">.</span>choice(adjectives[genre])<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>random<span class="sc">.</span>choice([<span class="st">'Beat'</span>, <span class="st">'Rhythm'</span>, <span class="st">'Sound'</span>, <span class="st">'Pulse'</span>, <span class="st">'Vibe'</span>])<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>random_string()<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_artists(genre):</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""生成符合流派的艺术家名称"""</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>    artist_prefixes <span class="op">=</span> {</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Pop'</span>: [<span class="st">'Pop Star'</span>, <span class="st">'Music'</span>, <span class="st">'Melody'</span>, <span class="st">'Rhythm'</span>],</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Rock'</span>: [<span class="st">'Rock Band'</span>, <span class="st">'Guitar'</span>, <span class="st">'Sonic'</span>, <span class="st">'Metal'</span>],</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Electronic'</span>: [<span class="st">'Digital'</span>, <span class="st">'Synth'</span>, <span class="st">'Tech'</span>, <span class="st">'Beat'</span>],</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Hip Hop'</span>: [<span class="st">'Flow'</span>, <span class="st">'Street'</span>, <span class="st">'Urban'</span>, <span class="st">'Rap'</span>]</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> random_string(length<span class="op">=</span><span class="dv">3</span>):</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">''</span>.join(random.choices(string.ascii_uppercase, k<span class="op">=</span>length))</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span>random<span class="sc">.</span>choice(artist_prefixes[genre])<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>random_string()<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_dataset():</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>    random.seed(<span class="dv">42</span>)  <span class="co"># 设置随机数种子以保证每次生成的数据一致</span></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>    genres <span class="op">=</span> [<span class="st">'Pop'</span>, <span class="st">'Rock'</span>, <span class="st">'Electronic'</span>, <span class="st">'Hip Hop'</span>]</span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>    all_tracks <span class="op">=</span> []</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> genre <span class="kw">in</span> genres:</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>            track <span class="op">=</span> {</span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Genre'</span>: genre,</span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Track Name'</span>: generate_track_name(genre),</span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Artist'</span>: generate_artists(genre),</span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>                <span class="st">'YouTube MV Link'</span>: <span class="ss">f"https://youtube.com/watch?v=</span><span class="sc">{</span>random<span class="sc">.</span>randint(<span class="dv">10000</span>, <span class="dv">99999</span>)<span class="sc">}</span><span class="ss">"</span>,</span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Duration (min)'</span>: <span class="bu">round</span>(random.uniform(<span class="fl">2.5</span>, <span class="fl">5.5</span>), <span class="dv">2</span>)</span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a>            all_tracks.append(track)</span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame(all_tracks)</span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df</span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a><span class="co"># 生成数据集</span></span>
+<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> generate_dataset()</span>
+<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a><span class="co"># 展示所有数据</span></span>
+<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dataset)</span>
+<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a><span class="co"># 保存CSV</span></span>
+<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a>dataset.to_csv(<span class="st">'music_tracks_dataset.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb14-60"><a href="#cb14-60" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">数据集已保存为 'music_tracks_dataset.csv'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Genre         Track Name        Artist  \
+0        Pop     Shiny Beat TGD  Pop Star RXC   
+1        Pop   Shiny Rhythm GPO    Rhythm FPV   
+2        Pop    Happy Pulse IEY    Melody CJJ   
+3        Pop    Shiny Pulse NZJ    Melody VQW   
+4        Pop     Shiny Beat RUZ     Music WJL   
+..       ...                ...           ...   
+395  Hip Hop  Street Rhythm LSE    Street NUU   
+396  Hip Hop  Street Rhythm KQU    Street MPC   
+397  Hip Hop    Street Vibe AJZ     Urban SPY   
+398  Hip Hop    Smooth Beat FRU     Urban FUN   
+399  Hip Hop   Street Sound GAE     Urban UJK   
+
+                       YouTube MV Link  Duration (min)  
+0    https://youtube.com/watch?v=65302            2.60  
+1    https://youtube.com/watch?v=10851            4.78  
+2    https://youtube.com/watch?v=55082            4.31  
+3    https://youtube.com/watch?v=85674            3.08  
+4    https://youtube.com/watch?v=57819            2.99  
+..                                 ...             ...  
+395  https://youtube.com/watch?v=90481            4.59  
+396  https://youtube.com/watch?v=44483            3.17  
+397  https://youtube.com/watch?v=32973            4.42  
+398  https://youtube.com/watch?v=40365            4.35  
+399  https://youtube.com/watch?v=86818            3.10  
+
+[400 rows x 5 columns]
+
+数据集已保存为 'music_tracks_dataset.csv'</code></pre>
+</div>
+</div>
+<div id="cell-15" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's create a hypothetical dataset representing 4 music genres with 100 music videos (tracks) each on YouTube.</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the genres</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>genres <span class="op">=</span> [<span class="st">'Rock'</span>, <span class="st">'Hip-Hop'</span>, <span class="st">'Pop'</span>, <span class="st">'Electronic/Dance'</span>]</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulating the data generation by randomly creating 'artist - track' names</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co"># For simplicity, the artist names and tracks are made up and should be replaced with real data.</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Dictionary to hold genre, artist, and track</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Genre'</span>: [], <span class="st">'Artist'</span>: [], <span class="st">'Track'</span>: []}</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Generating dummy data for each genre</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> genre <span class="kw">in</span> genres:</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">101</span>):  <span class="co"># Assuming 100 unique tracks per genre</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>        data[<span class="st">'Genre'</span>].append(genre)</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>        data[<span class="st">'Artist'</span>].append(<span class="ss">f"Artist_</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>genre<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>        data[<span class="st">'Track'</span>].append(<span class="ss">f"Track_</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>genre<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a DataFrame</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Display a portion of the DataFrame to verify</span></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the DataFrame to CSV</span></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>csv_file_path <span class="op">=</span> <span class="st">"/mnt/data/Music_Videos_Dataset.csv"</span></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>df.to_csv(csv_file_path, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>csv_file_path</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Genre         Artist         Track
+0  Rock  Artist_1_Rock  Track_1_Rock
+1  Rock  Artist_2_Rock  Track_2_Rock
+2  Rock  Artist_3_Rock  Track_3_Rock
+3  Rock  Artist_4_Rock  Track_4_Rock
+4  Rock  Artist_5_Rock  Track_5_Rock</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">OSError</span>                                   Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[20], line 29</span>
+<span class="ansi-green-fg ansi-bold">     27</span> <span style="font-style:italic;color:rgb(95,135,135)"># Save the DataFrame to CSV</span>
+<span class="ansi-green-fg ansi-bold">     28</span> csv_file_path <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">/mnt/data/Music_Videos_Dataset.csv</span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg">---&gt; 29</span> df<span style="color:rgb(98,98,98)">.</span>to_csv(csv_file_path, index<span style="color:rgb(98,98,98)">=</span><span style="font-weight:bold;color:rgb(0,135,0)">False</span>)
+<span class="ansi-green-fg ansi-bold">     31</span> csv_file_path
+
+File <span class="ansi-green-fg">/opt/anaconda3/lib/python3.12/site-packages/pandas/util/_decorators.py:333</span>, in <span class="ansi-cyan-fg">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
+<span class="ansi-green-fg ansi-bold">    327</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(0,135,0)">len</span>(args) <span style="color:rgb(98,98,98)">&gt;</span> num_allow_args:
+<span class="ansi-green-fg ansi-bold">    328</span>     warnings<span style="color:rgb(98,98,98)">.</span>warn(
+<span class="ansi-green-fg ansi-bold">    329</span>         msg<span style="color:rgb(98,98,98)">.</span>format(arguments<span style="color:rgb(98,98,98)">=</span>_format_argument_list(allow_args)),
+<span class="ansi-green-fg ansi-bold">    330</span>         <span style="font-weight:bold;color:rgb(215,95,95)">FutureWarning</span>,
+<span class="ansi-green-fg ansi-bold">    331</span>         stacklevel<span style="color:rgb(98,98,98)">=</span>find_stack_level(),
+<span class="ansi-green-fg ansi-bold">    332</span>     )
+<span class="ansi-green-fg">--&gt; 333</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> func(<span style="color:rgb(98,98,98)">*</span>args, <span style="color:rgb(98,98,98)">*</span><span style="color:rgb(98,98,98)">*</span>kwargs)
+
+File <span class="ansi-green-fg">/opt/anaconda3/lib/python3.12/site-packages/pandas/core/generic.py:3967</span>, in <span class="ansi-cyan-fg">NDFrame.to_csv</span><span class="ansi-blue-fg">(self, path_or_buf, sep, na_rep, float_format, columns, header, index, index_label, mode, encoding, compression, quoting, quotechar, lineterminator, chunksize, date_format, doublequote, escapechar, decimal, errors, storage_options)</span>
+<span class="ansi-green-fg ansi-bold">   3956</span> df <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">self</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(0,135,0)">isinstance</span>(<span style="color:rgb(0,135,0)">self</span>, ABCDataFrame) <span style="font-weight:bold;color:rgb(0,135,0)">else</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>to_frame()
+<span class="ansi-green-fg ansi-bold">   3958</span> formatter <span style="color:rgb(98,98,98)">=</span> DataFrameFormatter(
+<span class="ansi-green-fg ansi-bold">   3959</span>     frame<span style="color:rgb(98,98,98)">=</span>df,
+<span class="ansi-green-fg ansi-bold">   3960</span>     header<span style="color:rgb(98,98,98)">=</span>header,
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-fg ansi-bold">   3964</span>     decimal<span style="color:rgb(98,98,98)">=</span>decimal,
+<span class="ansi-green-fg ansi-bold">   3965</span> )
+<span class="ansi-green-fg">-&gt; 3967</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> DataFrameRenderer(formatter)<span style="color:rgb(98,98,98)">.</span>to_csv(
+<span class="ansi-green-fg ansi-bold">   3968</span>     path_or_buf,
+<span class="ansi-green-fg ansi-bold">   3969</span>     lineterminator<span style="color:rgb(98,98,98)">=</span>lineterminator,
+<span class="ansi-green-fg ansi-bold">   3970</span>     sep<span style="color:rgb(98,98,98)">=</span>sep,
+<span class="ansi-green-fg ansi-bold">   3971</span>     encoding<span style="color:rgb(98,98,98)">=</span>encoding,
+<span class="ansi-green-fg ansi-bold">   3972</span>     errors<span style="color:rgb(98,98,98)">=</span>errors,
+<span class="ansi-green-fg ansi-bold">   3973</span>     compression<span style="color:rgb(98,98,98)">=</span>compression,
+<span class="ansi-green-fg ansi-bold">   3974</span>     quoting<span style="color:rgb(98,98,98)">=</span>quoting,
+<span class="ansi-green-fg ansi-bold">   3975</span>     columns<span style="color:rgb(98,98,98)">=</span>columns,
+<span class="ansi-green-fg ansi-bold">   3976</span>     index_label<span style="color:rgb(98,98,98)">=</span>index_label,
+<span class="ansi-green-fg ansi-bold">   3977</span>     mode<span style="color:rgb(98,98,98)">=</span>mode,
+<span class="ansi-green-fg ansi-bold">   3978</span>     chunksize<span style="color:rgb(98,98,98)">=</span>chunksize,
+<span class="ansi-green-fg ansi-bold">   3979</span>     quotechar<span style="color:rgb(98,98,98)">=</span>quotechar,
+<span class="ansi-green-fg ansi-bold">   3980</span>     date_format<span style="color:rgb(98,98,98)">=</span>date_format,
+<span class="ansi-green-fg ansi-bold">   3981</span>     doublequote<span style="color:rgb(98,98,98)">=</span>doublequote,
+<span class="ansi-green-fg ansi-bold">   3982</span>     escapechar<span style="color:rgb(98,98,98)">=</span>escapechar,
+<span class="ansi-green-fg ansi-bold">   3983</span>     storage_options<span style="color:rgb(98,98,98)">=</span>storage_options,
+<span class="ansi-green-fg ansi-bold">   3984</span> )
+
+File <span class="ansi-green-fg">/opt/anaconda3/lib/python3.12/site-packages/pandas/io/formats/format.py:1014</span>, in <span class="ansi-cyan-fg">DataFrameRenderer.to_csv</span><span class="ansi-blue-fg">(self, path_or_buf, encoding, sep, columns, index_label, mode, compression, quoting, quotechar, lineterminator, chunksize, date_format, doublequote, escapechar, errors, storage_options)</span>
+<span class="ansi-green-fg ansi-bold">    993</span>     created_buffer <span style="color:rgb(98,98,98)">=</span> <span style="font-weight:bold;color:rgb(0,135,0)">False</span>
+<span class="ansi-green-fg ansi-bold">    995</span> csv_formatter <span style="color:rgb(98,98,98)">=</span> CSVFormatter(
+<span class="ansi-green-fg ansi-bold">    996</span>     path_or_buf<span style="color:rgb(98,98,98)">=</span>path_or_buf,
+<span class="ansi-green-fg ansi-bold">    997</span>     lineterminator<span style="color:rgb(98,98,98)">=</span>lineterminator,
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-fg ansi-bold">   1012</span>     formatter<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>fmt,
+<span class="ansi-green-fg ansi-bold">   1013</span> )
+<span class="ansi-green-fg">-&gt; 1014</span> csv_formatter<span style="color:rgb(98,98,98)">.</span>save()
+<span class="ansi-green-fg ansi-bold">   1016</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> created_buffer:
+<span class="ansi-green-fg ansi-bold">   1017</span>     <span style="font-weight:bold;color:rgb(0,135,0)">assert</span> <span style="color:rgb(0,135,0)">isinstance</span>(path_or_buf, StringIO)
+
+File <span class="ansi-green-fg">/opt/anaconda3/lib/python3.12/site-packages/pandas/io/formats/csvs.py:251</span>, in <span class="ansi-cyan-fg">CSVFormatter.save</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-fg ansi-bold">    247</span> <span style="font-style:italic;color:rgb(175,0,0)">"""</span>
+<span class="ansi-green-fg ansi-bold">    248</span> <span style="font-style:italic;color:rgb(175,0,0)">Create the writer &amp; save.</span>
+<span class="ansi-green-fg ansi-bold">    249</span> <span style="font-style:italic;color:rgb(175,0,0)">"""</span>
+<span class="ansi-green-fg ansi-bold">    250</span> <span style="font-style:italic;color:rgb(95,135,135)"># apply compression and byte/text conversion</span>
+<span class="ansi-green-fg">--&gt; 251</span> <span style="font-weight:bold;color:rgb(0,135,0)">with</span> get_handle(
+<span class="ansi-green-fg ansi-bold">    252</span>     <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>filepath_or_buffer,
+<span class="ansi-green-fg ansi-bold">    253</span>     <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>mode,
+<span class="ansi-green-fg ansi-bold">    254</span>     encoding<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>encoding,
+<span class="ansi-green-fg ansi-bold">    255</span>     errors<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>errors,
+<span class="ansi-green-fg ansi-bold">    256</span>     compression<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>compression,
+<span class="ansi-green-fg ansi-bold">    257</span>     storage_options<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>storage_options,
+<span class="ansi-green-fg ansi-bold">    258</span> ) <span style="font-weight:bold;color:rgb(0,135,0)">as</span> handles:
+<span class="ansi-green-fg ansi-bold">    259</span>     <span style="font-style:italic;color:rgb(95,135,135)"># Note: self.encoding is irrelevant here</span>
+<span class="ansi-green-fg ansi-bold">    260</span>     <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>writer <span style="color:rgb(98,98,98)">=</span> csvlib<span style="color:rgb(98,98,98)">.</span>writer(
+<span class="ansi-green-fg ansi-bold">    261</span>         handles<span style="color:rgb(98,98,98)">.</span>handle,
+<span class="ansi-green-fg ansi-bold">    262</span>         lineterminator<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>lineterminator,
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-fg ansi-bold">    267</span>         quotechar<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>quotechar,
+<span class="ansi-green-fg ansi-bold">    268</span>     )
+<span class="ansi-green-fg ansi-bold">    270</span>     <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>_save()
+
+File <span class="ansi-green-fg">/opt/anaconda3/lib/python3.12/site-packages/pandas/io/common.py:749</span>, in <span class="ansi-cyan-fg">get_handle</span><span class="ansi-blue-fg">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="ansi-green-fg ansi-bold">    747</span> <span style="font-style:italic;color:rgb(95,135,135)"># Only for write methods</span>
+<span class="ansi-green-fg ansi-bold">    748</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">r</span><span style="color:rgb(175,0,0)">"</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="font-weight:bold;color:rgb(175,0,255)">in</span> mode <span style="font-weight:bold;color:rgb(175,0,255)">and</span> is_path:
+<span class="ansi-green-fg">--&gt; 749</span>     check_parent_directory(<span style="color:rgb(0,135,0)">str</span>(handle))
+<span class="ansi-green-fg ansi-bold">    751</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> compression:
+<span class="ansi-green-fg ansi-bold">    752</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> compression <span style="color:rgb(98,98,98)">!=</span> <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">zstd</span><span style="color:rgb(175,0,0)">"</span>:
+<span class="ansi-green-fg ansi-bold">    753</span>         <span style="font-style:italic;color:rgb(95,135,135)"># compression libraries do not like an explicit text-mode</span>
+
+File <span class="ansi-green-fg">/opt/anaconda3/lib/python3.12/site-packages/pandas/io/common.py:616</span>, in <span class="ansi-cyan-fg">check_parent_directory</span><span class="ansi-blue-fg">(path)</span>
+<span class="ansi-green-fg ansi-bold">    614</span> parent <span style="color:rgb(98,98,98)">=</span> Path(path)<span style="color:rgb(98,98,98)">.</span>parent
+<span class="ansi-green-fg ansi-bold">    615</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> parent<span style="color:rgb(98,98,98)">.</span>is_dir():
+<span class="ansi-green-fg">--&gt; 616</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">OSError</span>(<span style="color:rgb(175,0,0)">rf</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Cannot save file into a non-existent directory: </span><span style="color:rgb(175,0,0)">'</span><span style="font-weight:bold;color:rgb(175,95,135)">{</span>parent<span style="font-weight:bold;color:rgb(175,95,135)">}</span><span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">"</span>)
+
+<span class="ansi-red-fg">OSError</span>: Cannot save file into a non-existent directory: '/mnt/data'</pre>
+</div>
+</div>
+</div>
+<div id="cell-16" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> googleapiclient.discovery <span class="im">import</span> build</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># API Key</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>api_key <span class="op">=</span> <span class="st">"AIzaSyDtKE-4QZj6EA-rwG7cj5gMJxdt4Fe14Nw"</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize YouTube API client</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>youtube <span class="op">=</span> build(<span class="st">'youtube'</span>, <span class="st">'v3'</span>, developerKey<span class="op">=</span>api_key)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># List to store data</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>all_data <span class="op">=</span> []</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Read song data and fetch YouTube statistics</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'song_data.txt'</span>, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>        artist <span class="op">=</span> line.strip()</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>        query <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>artist<span class="sc">}</span><span class="ss"> official music video"</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Search request for the query</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>        search_request <span class="op">=</span> youtube.search().<span class="bu">list</span>(</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>            part<span class="op">=</span><span class="st">"snippet"</span>,</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>            q<span class="op">=</span>query,</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>            maxResults<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>            <span class="bu">type</span><span class="op">=</span><span class="st">"video"</span>,</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>            order<span class="op">=</span><span class="st">'relevance'</span></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>        search_response <span class="op">=</span> search_request.execute()</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> item <span class="kw">in</span> search_response[<span class="st">'items'</span>]:</span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>            video_id <span class="op">=</span> item[<span class="st">'id'</span>][<span class="st">'videoId'</span>]</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>            video_request <span class="op">=</span> youtube.videos().<span class="bu">list</span>(</span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>                part<span class="op">=</span><span class="st">"snippet,contentDetails,statistics"</span>,</span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>                <span class="bu">id</span><span class="op">=</span>video_id</span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>            video_response <span class="op">=</span> video_request.execute()</span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> video <span class="kw">in</span> video_response[<span class="st">'items'</span>]:</span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>                snippet <span class="op">=</span> video[<span class="st">'snippet'</span>]</span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>                content_details <span class="op">=</span> video[<span class="st">'contentDetails'</span>]</span>
+<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a>                statistics <span class="op">=</span> video[<span class="st">'statistics'</span>]</span>
+<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Calculate days since video was published</span></span>
+<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a>                published_at <span class="op">=</span> dateutil.parser.parse(snippet[<span class="st">'publishedAt'</span>])</span>
+<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a>                days_since_published <span class="op">=</span> (datetime.now(published_at.tzinfo) <span class="op">-</span> published_at).days</span>
+<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Fetch channel details for subscriber count</span></span>
+<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>                channel_response <span class="op">=</span> youtube.channels().<span class="bu">list</span>(</span>
+<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a>                    part<span class="op">=</span><span class="st">'statistics'</span>,</span>
+<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">id</span><span class="op">=</span>snippet[<span class="st">'channelId'</span>]</span>
+<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a>                ).execute()</span>
+<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>                subscriber_count <span class="op">=</span> channel_response[<span class="st">'items'</span>][<span class="dv">0</span>][<span class="st">'statistics'</span>].get(<span class="st">'subscriberCount'</span>, <span class="st">'0'</span>)</span>
+<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Fetch comments</span></span>
+<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a>                comments_request <span class="op">=</span> youtube.commentThreads().<span class="bu">list</span>(</span>
+<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a>                    part<span class="op">=</span><span class="st">'snippet'</span>,</span>
+<span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a>                    videoId<span class="op">=</span>video_id,</span>
+<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a>                    order<span class="op">=</span><span class="st">'relevance'</span>,</span>
+<span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a>                    maxResults<span class="op">=</span><span class="dv">10</span></span>
+<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a>                comments_response <span class="op">=</span> comments_request.execute()</span>
+<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a>                comments <span class="op">=</span> [comment[<span class="st">'snippet'</span>][<span class="st">'topLevelComment'</span>][<span class="st">'snippet'</span>][<span class="st">'textDisplay'</span>]</span>
+<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a>                            <span class="cf">for</span> comment <span class="kw">in</span> comments_response.get(<span class="st">'items'</span>, [])]</span>
+<span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-65"><a href="#cb18-65" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Store all data in a dictionary</span></span>
+<span id="cb18-66"><a href="#cb18-66" aria-hidden="true" tabindex="-1"></a>                video_data <span class="op">=</span> {</span>
+<span id="cb18-67"><a href="#cb18-67" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Video ID'</span>: video_id,</span>
+<span id="cb18-68"><a href="#cb18-68" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Title'</span>: snippet[<span class="st">'title'</span>],</span>
+<span id="cb18-69"><a href="#cb18-69" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Description'</span>: snippet[<span class="st">'description'</span>],</span>
+<span id="cb18-70"><a href="#cb18-70" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Published At'</span>: snippet[<span class="st">'publishedAt'</span>],</span>
+<span id="cb18-71"><a href="#cb18-71" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Days Since Published'</span>: days_since_published,</span>
+<span id="cb18-72"><a href="#cb18-72" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'View Count'</span>: statistics.get(<span class="st">'viewCount'</span>, <span class="st">'0'</span>),</span>
+<span id="cb18-73"><a href="#cb18-73" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Like Count'</span>: statistics.get(<span class="st">'likeCount'</span>, <span class="st">'0'</span>),</span>
+<span id="cb18-74"><a href="#cb18-74" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Comment Count'</span>: statistics.get(<span class="st">'commentCount'</span>, <span class="st">'0'</span>),</span>
+<span id="cb18-75"><a href="#cb18-75" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Comments'</span>: comments,</span>
+<span id="cb18-76"><a href="#cb18-76" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Subscriber Count'</span>: subscriber_count,</span>
+<span id="cb18-77"><a href="#cb18-77" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Category ID'</span>: snippet[<span class="st">'categoryId'</span>],</span>
+<span id="cb18-78"><a href="#cb18-78" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Definition'</span>: content_details[<span class="st">'definition'</span>],</span>
+<span id="cb18-79"><a href="#cb18-79" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Duration'</span>: content_details[<span class="st">'duration'</span>]</span>
+<span id="cb18-80"><a href="#cb18-80" aria-hidden="true" tabindex="-1"></a>                }</span>
+<span id="cb18-81"><a href="#cb18-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-82"><a href="#cb18-82" aria-hidden="true" tabindex="-1"></a>                all_data.append(video_data)</span>
+<span id="cb18-83"><a href="#cb18-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-84"><a href="#cb18-84" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the list to a DataFrame</span></span>
+<span id="cb18-85"><a href="#cb18-85" aria-hidden="true" tabindex="-1"></a>final_df <span class="op">=</span> pd.DataFrame(all_data)</span>
+<span id="cb18-86"><a href="#cb18-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-87"><a href="#cb18-87" aria-hidden="true" tabindex="-1"></a><span class="co"># Optionally save the DataFrame to a CSV file</span></span>
+<span id="cb18-88"><a href="#cb18-88" aria-hidden="true" tabindex="-1"></a>final_df.to_csv(<span class="st">'Detailed_YouTube_Video_Data.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb18-89"><a href="#cb18-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-90"><a href="#cb18-90" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the DataFrame</span></span>
+<span id="cb18-91"><a href="#cb18-91" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(final_df.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Video ID                                              Title  \
+0  1VQ_3sBZEm0    Foo Fighters - Learn To Fly (Official HD Video)   
+1  eBG7P-K-r1Y        Foo Fighters - Everlong (Official HD Video)   
+2  SBjQ9tuuTJQ                       Foo Fighters - The Pretender   
+3  EqWRaAF6_WY         Foo Fighters - My Hero (Official HD Video)   
+4  h_L4Rixya64  Foo Fighters - Best Of You (Official Music Video)   
+
+                                         Description          Published At  \
+0  Foo Fighters' official music video for 'Learn ...  2009-10-03T04:46:13Z   
+1  "Everlong" by Foo Fighters \nListen to Foo Fig...  2009-10-03T04:49:58Z   
+2  Watch the official music video for "The Preten...  2009-10-03T04:46:14Z   
+3  "My Hero" by Foo Fighters \nListen to Foo Figh...  2011-03-18T19:35:42Z   
+4  Watch the official music video for "Best Of Yo...  2009-10-03T20:49:33Z   
+
+   Days Since Published View Count Like Count Comment Count  \
+0                  5549  183888273     808087         33852   
+1                  5549  324339281    1820753         53186   
+2                  5549  588029069    2785440         92233   
+3                  5017   87504683     564313         26088   
+4                  5548  265538783    1281110         34995   
+
+                                            Comments Subscriber Count  \
+0  [Can we bring this back? This feeling? This mu...          1290000   
+1  [Stop asking who&amp;#39;s still listening, we nev...          1290000   
+2  [How can you not get chills listening to this ...          1290000   
+3  [My son and I was supposed to spend the summer...          1290000   
+4  [What a talent Dave is. Drummer, singer, guita...          1290000   
+
+  Category ID Definition Duration  
+0          10         hd  PT4M37S  
+1          10         hd  PT4M52S  
+2          10         hd  PT4M31S  
+3          10         hd   PT4M3S  
+4          10         hd  PT4M16S  </code></pre>
+</div>
+</div>
 
 
 </section>
@@ -460,18 +1274,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -503,7 +1306,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -511,7 +1334,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -608,7 +1431,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
