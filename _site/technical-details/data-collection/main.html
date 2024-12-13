@@ -197,11 +197,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements:</a></li>
   </ul></li>
   <li><a href="#what-do-include-on-this-page" id="toc-what-do-include-on-this-page" class="nav-link" data-scroll-target="#what-do-include-on-this-page">What do include on this page</a></li>
-  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a>
+  <ul class="collapse">
+  <li><a href="#goals" id="toc-goals" class="nav-link" data-scroll-target="#goals">Goals</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
+  <li><a href="#objectives" id="toc-objectives" class="nav-link" data-scroll-target="#objectives">Objectives</a></li>
+  </ul></li>
   <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a></li>
   <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a>
   <ul class="collapse">
   <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  <li><a href="#youtube-data-collection" id="toc-youtube-data-collection" class="nav-link" data-scroll-target="#youtube-data-collection">1. YouTube Data Collection</a></li>
+  <li><a href="#acquiring-official-music-video-data" id="toc-acquiring-official-music-video-data" class="nav-link" data-scroll-target="#acquiring-official-music-video-data">1.1 Acquiring Official Music Video Data</a></li>
+  <li><a href="#merge-artist-name-and-music-genre-into-csv" id="toc-merge-artist-name-and-music-genre-into-csv" class="nav-link" data-scroll-target="#merge-artist-name-and-music-genre-into-csv">1.2 Merge artist name and music genre into csv</a></li>
+  <li><a href="#data-preprocessing" id="toc-data-preprocessing" class="nav-link" data-scroll-target="#data-preprocessing">1.3 Data preprocessing</a></li>
+  <li><a href="#spotify-collection" id="toc-spotify-collection" class="nav-link" data-scroll-target="#spotify-collection">2. Spotify Collection</a></li>
+  <li><a href="#acquiring-track-information" id="toc-acquiring-track-information" class="nav-link" data-scroll-target="#acquiring-track-information">2.1 Acquiring Track Information</a></li>
+  <li><a href="#obtaining-artist-information" id="toc-obtaining-artist-information" class="nav-link" data-scroll-target="#obtaining-artist-information">2.2 Obtaining Artist Information</a></li>
+  <li><a href="#data-integration-and-cleansing" id="toc-data-integration-and-cleansing" class="nav-link" data-scroll-target="#data-integration-and-cleansing">3. Data integration and cleansing</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -313,19 +326,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="overview" class="level1">
 <h1>Overview</h1>
 <p>In this section, provide a high-level overview for technical staff, summarizing the key tasks and processes carried out here. Include the following elements:</p>
-<ul>
-<li><p><strong>Goals</strong>: Identify the key factors affecting the popularity official music video( view count) on Youtube by analyzing various features of official mv on Youtube and characteristics of corresponding songs on Spotify.</p></li>
-<li><p><strong>Motivation</strong>: View count of music video on YouTube, the world’s largest video- sharing platform is crucial for measuring the popularity and success of mv and song.<br>Understanding the key factors that drive and impact the mv popularity can help music producers, singers improve mv content and promotion strategies.<br>At present, it seems that few people have quantified the key factors needed to achieve a successful mv based on mv data, and most people trust their own industry experience, intuition, and artistic aesthetics, etc.<br>Combing the data of Youtube and Spotify provides us with a more comprehensive view, since the user behavior on these two platforms are likely to influence each other.</p></li>
-<li><p><strong>Objectives</strong>: Determine the primary factors that impact the mv view count, including: Youtube features: days since published, like count, comment count, mean comment sentiment score, etc. Spotify features: singer_popularity, duration , song_popularity, etc.</p></li>
-</ul>
+<section id="goals" class="level2">
+<h2 class="anchored" data-anchor-id="goals">Goals</h2>
+<p>Identify the key factors affecting the popularity official music video( view count) on Youtube by analyzing various features of official mv on Youtube and characteristics of corresponding songs on Spotify.</p>
+</section>
+<section id="motivation" class="level2">
+<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
+<p>View count of music video on YouTube, the world’s largest video- sharing platform is crucial for measuring the popularity and success of mv and song.</p>
+<p>Understanding the key factors that drive and impact the mv popularity can help music producers, singers improve mv content and promotion strategies.</p>
+<p>Nowdays, it seems that few people have quantified the key factors needed to achieve a successful mv based on mv data, and most people trust their own industry experience, intuition, and artistic aesthetics, etc.</p>
+<p>Combing the data of Youtube and Spotify provides us with a more comprehensive view, since the user behavior on these two platforms are likely to influence each other.</p>
+</section>
+<section id="objectives" class="level2">
+<h2 class="anchored" data-anchor-id="objectives">Objectives</h2>
+<p>Determine the primary factors that impact the mv view count, including:<br> - YouTube features: days since published, like count, comment count, mean comment sentiment score, etc.<br> - Spotify features: singer_popularity, duration , song_popularity, etc.</p>
 <p>Explore the correlation between Youtube and Spotify features and mv view count to identify the key traits.</p>
 <p>Based on the analysis, summarize and propose mv optimization suggestions to increase mv view count for singers, music producers and record labels.</p>
 <p>This overview should give technical staff a clear understanding of the context and importance of the work, while guiding them on what to focus on in the details that follow.</p>
+</section>
 </section>
 <section id="methods" class="level1">
 <h1>Methods</h1>
 <p>In this section, provide an overview summary of the methods used on this page. This should include a brief description of the key techniques, algorithms, tools, or processes employed in your work. Make sure to outline the approach taken for data collection, processing, analysis, or any specific technical steps relevant to the project.</p>
 <p>If you are developing a package, include a reference to the relevant documentation and provide a link here for easy access. Ensure that the package details are properly documented in its dedicated section, but mentioned and connected here for a complete understanding of the methods used in this project.</p>
+<p><strong>my method:</strong> This project aims to explore the key factors affecting the view count of official mv on Youtube. We employed the dual- platform data collection method, combing the API interfaces of Youtube and Spotify to get the overall horizon. As for the music genre selection, we chose pop, hip-pop, rock, electronic music, jazz, and selected 20 representative artists for each genre, as well as the top five official music videos, to ensure the diversity and representativeness of the sample.</p>
+<p>The data collection method is divided into two main phases. Firstly, details of mv such as view count, like comment, top 10 comment, definition were obtained through Youtube API. Then, by using Spotify Web API, specialized traits on metrics on artists and tracks were collected.</p>
+<p>Finally, the data integration process uses artists name as the main matching key to ensure the data quality through a strict cleaning process.</p>
 </section>
 <section id="code" class="level1">
 <h1>Code</h1>
@@ -1104,7 +1130,14 @@ File <span class="ansi-green-fg">/opt/anaconda3/lib/python3.12/site-packages/pan
 </div>
 </div>
 </div>
-<div id="cell-16" class="cell" data-execution_count="25">
+<p><em>我从这里开始写的</em> # Data Collection This project collects music data through YouTube and Spotify APIs, covering information on the works of 20 representative artists in five genres: Electronic, Jazz, Hip-Hop, Pop and Rock. The data processing flow is as follows:</p>
+</section>
+<section id="youtube-data-collection" class="level2">
+<h2 class="anchored" data-anchor-id="youtube-data-collection">1. YouTube Data Collection</h2>
+</section>
+<section id="acquiring-official-music-video-data" class="level2">
+<h2 class="anchored" data-anchor-id="acquiring-official-music-video-data">1.1 Acquiring Official Music Video Data</h2>
+<div id="cell-18" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> googleapiclient.discovery <span class="im">import</span> build</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1196,6 +1229,125 @@ File <span class="ansi-green-fg">/opt/anaconda3/lib/python3.12/site-packages/pan
 <span id="cb18-89"><a href="#cb18-89" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-90"><a href="#cb18-90" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the DataFrame</span></span>
 <span id="cb18-91"><a href="#cb18-91" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(final_df.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[7], line 14</span>
+<span class="ansi-green-fg ansi-bold">     11</span> all_data <span style="color:rgb(98,98,98)">=</span> []
+<span class="ansi-green-fg ansi-bold">     13</span> <span style="font-style:italic;color:rgb(95,135,135)"># Read song data and fetch YouTube statistics</span>
+<span class="ansi-green-fg">---&gt; 14</span> <span style="font-weight:bold;color:rgb(0,135,0)">with</span> <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">open</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">song_data.txt</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">r</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span class="ansi-yellow-bg">)</span> <span style="font-weight:bold;color:rgb(0,135,0)">as</span> file:
+<span class="ansi-green-fg ansi-bold">     15</span>     <span style="font-weight:bold;color:rgb(0,135,0)">for</span> line <span style="font-weight:bold;color:rgb(175,0,255)">in</span> file:
+<span class="ansi-green-fg ansi-bold">     16</span>         artist <span style="color:rgb(98,98,98)">=</span> line<span style="color:rgb(98,98,98)">.</span>strip()
+
+File <span class="ansi-green-fg">~/Library/Python/3.12/lib/python/site-packages/IPython/core/interactiveshell.py:324</span>, in <span class="ansi-cyan-fg">_modified_open</span><span class="ansi-blue-fg">(file, *args, **kwargs)</span>
+<span class="ansi-green-fg ansi-bold">    317</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> file <span style="font-weight:bold;color:rgb(175,0,255)">in</span> {<span style="color:rgb(98,98,98)">0</span>, <span style="color:rgb(98,98,98)">1</span>, <span style="color:rgb(98,98,98)">2</span>}:
+<span class="ansi-green-fg ansi-bold">    318</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">ValueError</span>(
+<span class="ansi-green-fg ansi-bold">    319</span>         <span style="color:rgb(175,0,0)">f</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">IPython won</span><span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">t let you open fd=</span><span style="font-weight:bold;color:rgb(175,95,135)">{</span>file<span style="font-weight:bold;color:rgb(175,95,135)">}</span><span style="color:rgb(175,0,0)"> by default </span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg ansi-bold">    320</span>         <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">as it is likely to crash IPython. If you know what you are doing, </span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg ansi-bold">    321</span>         <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">you can use builtins</span><span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)"> open.</span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg ansi-bold">    322</span>     )
+<span class="ansi-green-fg">--&gt; 324</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">io_open</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">file</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
+
+<span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: 'song_data.txt'</pre>
+</div>
+</div>
+</div>
+<div id="cell-19" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> googleapiclient.discovery <span class="im">import</span> build</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dateutil.parser</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># API Key</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>api_key <span class="op">=</span> <span class="st">"AIzaSyDtKE-4QZj6EA-rwG7cj5gMJxdt4Fe14Nw"</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize YouTube API client</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>youtube <span class="op">=</span> build(<span class="st">'youtube'</span>, <span class="st">'v3'</span>, developerKey<span class="op">=</span>api_key)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co"># List to store data</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>all_data <span class="op">=</span> []</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Read song data and fetch YouTube statistics</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="co"># We should have put 20*5 names of singers, but for the sake of presentation, we choose three singers as a demonstration here </span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'find.txt'</span>, <span class="st">'r'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>        artist <span class="op">=</span> line.strip()</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>        query <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>artist<span class="sc">}</span><span class="ss"> official music video"</span></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Search request for the query</span></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>        search_request <span class="op">=</span> youtube.search().<span class="bu">list</span>(</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>            part<span class="op">=</span><span class="st">"snippet"</span>,</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>            q<span class="op">=</span>query,</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>            maxResults<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>            <span class="bu">type</span><span class="op">=</span><span class="st">"video"</span>,</span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>            order<span class="op">=</span><span class="st">'relevance'</span></span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>        search_response <span class="op">=</span> search_request.execute()</span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> item <span class="kw">in</span> search_response[<span class="st">'items'</span>]:</span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>            video_id <span class="op">=</span> item[<span class="st">'id'</span>][<span class="st">'videoId'</span>]</span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>            video_request <span class="op">=</span> youtube.videos().<span class="bu">list</span>(</span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>                part<span class="op">=</span><span class="st">"snippet,contentDetails,statistics"</span>,</span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>                <span class="bu">id</span><span class="op">=</span>video_id</span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>            video_response <span class="op">=</span> video_request.execute()</span>
+<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> video <span class="kw">in</span> video_response[<span class="st">'items'</span>]:</span>
+<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a>                snippet <span class="op">=</span> video[<span class="st">'snippet'</span>]</span>
+<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>                content_details <span class="op">=</span> video[<span class="st">'contentDetails'</span>]</span>
+<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a>                statistics <span class="op">=</span> video[<span class="st">'statistics'</span>]</span>
+<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Calculate days since video was published</span></span>
+<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a>                published_at <span class="op">=</span> dateutil.parser.parse(snippet[<span class="st">'publishedAt'</span>])</span>
+<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a>                days_since_published <span class="op">=</span> (datetime.now(published_at.tzinfo) <span class="op">-</span> published_at).days</span>
+<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Fetch channel details for subscriber count</span></span>
+<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a>                channel_response <span class="op">=</span> youtube.channels().<span class="bu">list</span>(</span>
+<span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a>                    part<span class="op">=</span><span class="st">'statistics'</span>,</span>
+<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">id</span><span class="op">=</span>snippet[<span class="st">'channelId'</span>]</span>
+<span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a>                ).execute()</span>
+<span id="cb19-54"><a href="#cb19-54" aria-hidden="true" tabindex="-1"></a>                subscriber_count <span class="op">=</span> channel_response[<span class="st">'items'</span>][<span class="dv">0</span>][<span class="st">'statistics'</span>].get(<span class="st">'subscriberCount'</span>, <span class="st">'0'</span>)</span>
+<span id="cb19-55"><a href="#cb19-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-56"><a href="#cb19-56" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Fetch comments</span></span>
+<span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a>                comments_request <span class="op">=</span> youtube.commentThreads().<span class="bu">list</span>(</span>
+<span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a>                    part<span class="op">=</span><span class="st">'snippet'</span>,</span>
+<span id="cb19-59"><a href="#cb19-59" aria-hidden="true" tabindex="-1"></a>                    videoId<span class="op">=</span>video_id,</span>
+<span id="cb19-60"><a href="#cb19-60" aria-hidden="true" tabindex="-1"></a>                    order<span class="op">=</span><span class="st">'relevance'</span>,</span>
+<span id="cb19-61"><a href="#cb19-61" aria-hidden="true" tabindex="-1"></a>                    maxResults<span class="op">=</span><span class="dv">10</span></span>
+<span id="cb19-62"><a href="#cb19-62" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb19-63"><a href="#cb19-63" aria-hidden="true" tabindex="-1"></a>                comments_response <span class="op">=</span> comments_request.execute()</span>
+<span id="cb19-64"><a href="#cb19-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-65"><a href="#cb19-65" aria-hidden="true" tabindex="-1"></a>                comments <span class="op">=</span> [comment[<span class="st">'snippet'</span>][<span class="st">'topLevelComment'</span>][<span class="st">'snippet'</span>][<span class="st">'textDisplay'</span>]</span>
+<span id="cb19-66"><a href="#cb19-66" aria-hidden="true" tabindex="-1"></a>                            <span class="cf">for</span> comment <span class="kw">in</span> comments_response.get(<span class="st">'items'</span>, [])]</span>
+<span id="cb19-67"><a href="#cb19-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-68"><a href="#cb19-68" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Store all data in a dictionary</span></span>
+<span id="cb19-69"><a href="#cb19-69" aria-hidden="true" tabindex="-1"></a>                video_data <span class="op">=</span> {</span>
+<span id="cb19-70"><a href="#cb19-70" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Video ID'</span>: video_id,</span>
+<span id="cb19-71"><a href="#cb19-71" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Title'</span>: snippet[<span class="st">'title'</span>],</span>
+<span id="cb19-72"><a href="#cb19-72" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Description'</span>: snippet[<span class="st">'description'</span>],</span>
+<span id="cb19-73"><a href="#cb19-73" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Published At'</span>: snippet[<span class="st">'publishedAt'</span>],</span>
+<span id="cb19-74"><a href="#cb19-74" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Days Since Published'</span>: days_since_published,</span>
+<span id="cb19-75"><a href="#cb19-75" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'View Count'</span>: statistics.get(<span class="st">'viewCount'</span>, <span class="st">'0'</span>),</span>
+<span id="cb19-76"><a href="#cb19-76" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Like Count'</span>: statistics.get(<span class="st">'likeCount'</span>, <span class="st">'0'</span>),</span>
+<span id="cb19-77"><a href="#cb19-77" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Comment Count'</span>: statistics.get(<span class="st">'commentCount'</span>, <span class="st">'0'</span>),</span>
+<span id="cb19-78"><a href="#cb19-78" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Comments'</span>: comments,</span>
+<span id="cb19-79"><a href="#cb19-79" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Subscriber Count'</span>: subscriber_count,</span>
+<span id="cb19-80"><a href="#cb19-80" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Category ID'</span>: snippet[<span class="st">'categoryId'</span>],</span>
+<span id="cb19-81"><a href="#cb19-81" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Definition'</span>: content_details[<span class="st">'definition'</span>],</span>
+<span id="cb19-82"><a href="#cb19-82" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Duration'</span>: content_details[<span class="st">'duration'</span>]</span>
+<span id="cb19-83"><a href="#cb19-83" aria-hidden="true" tabindex="-1"></a>                }</span>
+<span id="cb19-84"><a href="#cb19-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-85"><a href="#cb19-85" aria-hidden="true" tabindex="-1"></a>                all_data.append(video_data)</span>
+<span id="cb19-86"><a href="#cb19-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-87"><a href="#cb19-87" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the list to a DataFrame</span></span>
+<span id="cb19-88"><a href="#cb19-88" aria-hidden="true" tabindex="-1"></a>final_df <span class="op">=</span> pd.DataFrame(all_data)</span>
+<span id="cb19-89"><a href="#cb19-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-90"><a href="#cb19-90" aria-hidden="true" tabindex="-1"></a><span class="co"># Optionally save the DataFrame to a CSV file</span></span>
+<span id="cb19-91"><a href="#cb19-91" aria-hidden="true" tabindex="-1"></a>final_df.to_csv(<span class="st">'Example_Detailed_YouTube_Video_Data.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb19-92"><a href="#cb19-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-93"><a href="#cb19-93" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the DataFrame</span></span>
+<span id="cb19-94"><a href="#cb19-94" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(final_df.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Video ID                                              Title  \
 0  1VQ_3sBZEm0    Foo Fighters - Learn To Fly (Official HD Video)   
@@ -1212,18 +1364,18 @@ File <span class="ansi-green-fg">/opt/anaconda3/lib/python3.12/site-packages/pan
 4  Watch the official music video for "Best Of Yo...  2009-10-03T20:49:33Z   
 
    Days Since Published View Count Like Count Comment Count  \
-0                  5549  183888273     808087         33852   
-1                  5549  324339281    1820753         53186   
-2                  5549  588029069    2785440         92233   
-3                  5017   87504683     564313         26088   
-4                  5548  265538783    1281110         34995   
+0                  5550  183921366     808172         33856   
+1                  5550  324414087    1821270         53201   
+2                  5550  588092620    2785700         92245   
+3                  5018   87531478     564448         26099   
+4                  5549  265573360    1281212         34999   
 
                                             Comments Subscriber Count  \
-0  [Can we bring this back? This feeling? This mu...          1290000   
-1  [Stop asking who&amp;#39;s still listening, we nev...          1290000   
-2  [How can you not get chills listening to this ...          1290000   
+0  [I’m just realising how great Dave grohls acti...          1290000   
+1  [Dad died today. \r&lt;br&gt;1:20 am.\r&lt;br&gt;A five da...          1290000   
+2  [So thankful for this awesome song. I&amp;#39;ll b...          1290000   
 3  [My son and I was supposed to spend the summer...          1290000   
-4  [What a talent Dave is. Drummer, singer, guita...          1290000   
+4  [The emotion in his face and his voice transce...          1290000   
 
   Category ID Definition Duration  
 0          10         hd  PT4M37S  
@@ -1233,6 +1385,306 @@ File <span class="ansi-green-fg">/opt/anaconda3/lib/python3.12/site-packages/pan
 4          10         hd  PT4M16S  </code></pre>
 </div>
 </div>
+</section>
+<section id="merge-artist-name-and-music-genre-into-csv" class="level2">
+<h2 class="anchored" data-anchor-id="merge-artist-name-and-music-genre-into-csv">1.2 Merge artist name and music genre into csv</h2>
+<p>The row of the initial find.csv(include artist name and genre) is repeated five times per row to correspond to the five mv chosen by each artist (python) Then merge these two columns into the csv (copy manually)</p>
+<div id="cell-21" class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>input_file <span class="op">=</span> <span class="st">'./find.csv'</span>  </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>output_file <span class="op">=</span> <span class="st">'./Example_singer_info.csv'</span>  </span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the input CSV file</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(input_file)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty DataFrame to store repeated rows</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>repeated_df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Repeat each row 5 times and append it to the new DataFrame</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(df)):</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    repeated_df <span class="op">=</span> pd.concat([repeated_df, pd.DataFrame([df.iloc[i]] <span class="op">*</span> <span class="dv">5</span>)], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the processed DataFrame to a new CSV file</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>repeated_df.to_csv(output_file, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Data processed successfully and saved as </span><span class="sc">{</span>output_file<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Data processed successfully and saved as ./Example_singer_info.csv</code></pre>
+</div>
+</div>
+</section>
+<section id="data-preprocessing" class="level2">
+<h2 class="anchored" data-anchor-id="data-preprocessing">1.3 Data preprocessing</h2>
+<p>Extract the song name from the csv’s title and generate a new CSV file containing the singer’s and song’s name.</p>
+<div id="cell-23" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the CSV file with YouTube video data</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'./Example_Detailed_YouTube_Video_Data.csv'</span>, encoding<span class="op">=</span><span class="st">'MacRoman'</span>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to extract the song name from the title</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_song_name(title):</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Use regular expression to find text between " - " and "("</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    match <span class="op">=</span> re.search(<span class="vs">r' - (.*?) \(.*\)'</span>, title)</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> match:</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> match.group(<span class="dv">1</span>) </span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> title  </span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new DataFrame with extracted song names</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>new_df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Extracted Song Name'</span>: df[<span class="st">'Title'</span>].<span class="bu">apply</span>(extract_song_name)</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the new DataFrame to a CSV file in the current directory</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>output_file <span class="op">=</span> <span class="st">'./Example_extracted_song_names.csv'</span></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>new_df.to_csv(output_file, index<span class="op">=</span><span class="va">False</span>, encoding<span class="op">=</span><span class="st">'MacRoman'</span>)</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Song titles extracted and saved to </span><span class="sc">{</span>output_file<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Song titles extracted and saved to ./Example_extracted_song_names.csv</code></pre>
+</div>
+</div>
+<div id="cell-24" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>input_file <span class="op">=</span> <span class="st">'./Example_extracted_song_names.csv'</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(input_file, encoding<span class="op">=</span><span class="st">'MacRoman'</span>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to remove content inside brackets (e.g., [example])</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> remove_brackets(text):</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> re.sub(<span class="vs">r'\[.*?\]'</span>, <span class="st">''</span>, text)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the function to the 'Extracted Song Name' column</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Extracted Song Name'</span>] <span class="op">=</span> df[<span class="st">'Extracted Song Name'</span>].<span class="bu">apply</span>(remove_brackets)</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>output_file <span class="op">=</span> <span class="st">'./Example_extracted_song_names_cleaned.csv'</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>df.to_csv(output_file, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Processed data saved to </span><span class="sc">{</span>output_file<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processed data saved to ./Example_extracted_song_names_cleaned.csv</code></pre>
+</div>
+</div>
+<p>Manually merge example_extracted_song_name_cleaned.csv with example_artist_info.csv</p>
+</section>
+<section id="spotify-collection" class="level2">
+<h2 class="anchored" data-anchor-id="spotify-collection">2. Spotify Collection</h2>
+</section>
+<section id="acquiring-track-information" class="level2">
+<h2 class="anchored" data-anchor-id="acquiring-track-information">2.1 Acquiring Track Information</h2>
+<div id="cell-27" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> spotipy</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> spotipy.oauth2 <span class="im">import</span> SpotifyClientCredentials</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up Spotify client credentials</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>client_credentials_manager <span class="op">=</span> SpotifyClientCredentials(</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    client_id<span class="op">=</span><span class="st">'3e1596de002340b898f5d10c9aeae4ea'</span>,</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    client_secret<span class="op">=</span><span class="st">'526fa44678974475b0f6ba5d8efd16c4'</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>sp <span class="op">=</span> spotipy.Spotify(client_credentials_manager<span class="op">=</span>client_credentials_manager)</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Input and output file paths</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>input_file <span class="op">=</span> <span class="st">'./Example_extracted_song_names_cleaned.csv'</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>output_file <span class="op">=</span> <span class="st">'./Example_spotify_track_info.csv'</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the input CSV file</span></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(input_file, encoding<span class="op">=</span><span class="st">'MacRoman'</span>)</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize a list to store results</span></span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> []</span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Process each row in the DataFrame</span></span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _, row <span class="kw">in</span> df.iterrows():</span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>    song <span class="op">=</span> row[<span class="st">'Extracted Song Name'</span>]</span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>    artist <span class="op">=</span> row[<span class="st">'singer'</span>]</span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>    query <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>song<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>artist<span class="sc">}</span><span class="ss">'</span>  <span class="co"># Concatenate song and artist for the search query</span></span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Search for the track on Spotify</span></span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> sp.search(q<span class="op">=</span>query, limit<span class="op">=</span><span class="dv">1</span>, <span class="bu">type</span><span class="op">=</span><span class="st">'track'</span>)</span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>        tracks <span class="op">=</span> result.get(<span class="st">'tracks'</span>, {}).get(<span class="st">'items'</span>, [])</span>
+<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> tracks:</span>
+<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a>            <span class="co"># If a track is found, extract its details</span></span>
+<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>            track <span class="op">=</span> tracks[<span class="dv">0</span>]</span>
+<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a>            track_info <span class="op">=</span> {</span>
+<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Track Name'</span>: track[<span class="st">'name'</span>],</span>
+<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Artist Name'</span>: track[<span class="st">'artists'</span>][<span class="dv">0</span>][<span class="st">'name'</span>],</span>
+<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Album Name'</span>: track[<span class="st">'album'</span>][<span class="st">'name'</span>],</span>
+<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Popularity'</span>: track[<span class="st">'popularity'</span>],</span>
+<span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Duration (ms)'</span>: track[<span class="st">'duration_ms'</span>],</span>
+<span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Track ID'</span>: track[<span class="st">'id'</span>],</span>
+<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Spotify URL'</span>: track[<span class="st">'external_urls'</span>][<span class="st">'spotify'</span>]</span>
+<span id="cb27-44"><a href="#cb27-44" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb27-45"><a href="#cb27-45" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"Found: </span><span class="sc">{</span>track_info[<span class="st">'Track Name'</span>]<span class="sc">}</span><span class="ss"> by </span><span class="sc">{</span>track_info[<span class="st">'Artist Name'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb27-46"><a href="#cb27-46" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb27-47"><a href="#cb27-47" aria-hidden="true" tabindex="-1"></a>            <span class="co"># If no track is found, append placeholders</span></span>
+<span id="cb27-48"><a href="#cb27-48" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"Track not found: </span><span class="sc">{</span>query<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb27-49"><a href="#cb27-49" aria-hidden="true" tabindex="-1"></a>            track_info <span class="op">=</span> {</span>
+<span id="cb27-50"><a href="#cb27-50" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Track Name'</span>: song,</span>
+<span id="cb27-51"><a href="#cb27-51" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Artist Name'</span>: artist,</span>
+<span id="cb27-52"><a href="#cb27-52" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Album Name'</span>: <span class="va">None</span>,</span>
+<span id="cb27-53"><a href="#cb27-53" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Popularity'</span>: <span class="va">None</span>,</span>
+<span id="cb27-54"><a href="#cb27-54" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Duration (ms)'</span>: <span class="va">None</span>,</span>
+<span id="cb27-55"><a href="#cb27-55" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Track ID'</span>: <span class="va">None</span>,</span>
+<span id="cb27-56"><a href="#cb27-56" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Spotify URL'</span>: <span class="va">None</span></span>
+<span id="cb27-57"><a href="#cb27-57" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb27-58"><a href="#cb27-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-59"><a href="#cb27-59" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Append the result to the list</span></span>
+<span id="cb27-60"><a href="#cb27-60" aria-hidden="true" tabindex="-1"></a>        results.append(track_info)</span>
+<span id="cb27-61"><a href="#cb27-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-62"><a href="#cb27-62" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb27-63"><a href="#cb27-63" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Handle exceptions during the search</span></span>
+<span id="cb27-64"><a href="#cb27-64" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Error processing query '</span><span class="sc">{</span>query<span class="sc">}</span><span class="ss">': </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb27-65"><a href="#cb27-65" aria-hidden="true" tabindex="-1"></a>        results.append({</span>
+<span id="cb27-66"><a href="#cb27-66" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Track Name'</span>: song,</span>
+<span id="cb27-67"><a href="#cb27-67" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Artist Name'</span>: artist,</span>
+<span id="cb27-68"><a href="#cb27-68" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Album Name'</span>: <span class="va">None</span>,</span>
+<span id="cb27-69"><a href="#cb27-69" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Popularity'</span>: <span class="va">None</span>,</span>
+<span id="cb27-70"><a href="#cb27-70" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Duration (ms)'</span>: <span class="va">None</span>,</span>
+<span id="cb27-71"><a href="#cb27-71" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Track ID'</span>: <span class="va">None</span>,</span>
+<span id="cb27-72"><a href="#cb27-72" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Spotify URL'</span>: <span class="va">None</span></span>
+<span id="cb27-73"><a href="#cb27-73" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb27-74"><a href="#cb27-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-75"><a href="#cb27-75" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a DataFrame from the results</span></span>
+<span id="cb27-76"><a href="#cb27-76" aria-hidden="true" tabindex="-1"></a>output_df <span class="op">=</span> pd.DataFrame(results)</span>
+<span id="cb27-77"><a href="#cb27-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-78"><a href="#cb27-78" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the output DataFrame to a CSV file</span></span>
+<span id="cb27-79"><a href="#cb27-79" aria-hidden="true" tabindex="-1"></a>output_df.to_csv(output_file, index<span class="op">=</span><span class="va">False</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>)</span>
+<span id="cb27-80"><a href="#cb27-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-81"><a href="#cb27-81" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Processed data saved to: </span><span class="sc">{</span>output_file<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Found: Learn to Fly by Foo Fighters
+Found: Everlong by Foo Fighters
+Found: The Pretender by Foo Fighters
+Found: My Hero by Foo Fighters
+Found: Best of You by Foo Fighters
+Found: Mr. Brightside by The Killers
+Found: When You Were Young by The Killers
+Found: Mr. Brightside by The Killers
+Found: Somebody Told Me by The Killers
+Found: One Empty Grave by A Sound of Thunder
+Found: Basket Case by Green Day
+Found: When I Come Around by Green Day
+Found: American Idiot by Green Day
+Found: Boulevard of Broken Dreams by Green Day
+Found: Wake Me up When September Ends by Green Day
+Processed data saved to: ./Example_spotify_track_info.csv</code></pre>
+</div>
+</div>
+</section>
+<section id="obtaining-artist-information" class="level2">
+<h2 class="anchored" data-anchor-id="obtaining-artist-information">2.2 Obtaining Artist Information</h2>
+<div id="cell-29" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to obtain an access token for Spotify API</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_access_token(client_id, client_secret):</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    auth_url <span class="op">=</span> <span class="st">'https://accounts.spotify.com/api/token'</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    auth_data <span class="op">=</span> {</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">'grant_type'</span>: <span class="st">'client_credentials'</span>,</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">'client_id'</span>: client_id,</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">'client_secret'</span>: client_secret</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> requests.post(auth_url, data<span class="op">=</span>auth_data)</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> response.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> response.json()[<span class="st">'access_token'</span>]</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">'Failed to obtain access token'</span>)</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to get the Spotify artist ID using the artist name</span></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_artist_id(artist_name, access_token):</span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>    search_url <span class="op">=</span> <span class="ss">f'https://api.spotify.com/v1/search?q=</span><span class="sc">{</span>artist_name<span class="sc">}</span><span class="ss">&amp;type=artist&amp;limit=1'</span></span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>    headers <span class="op">=</span> {<span class="st">'Authorization'</span>: <span class="ss">f'Bearer </span><span class="sc">{</span>access_token<span class="sc">}</span><span class="ss">'</span>}</span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> requests.get(search_url, headers<span class="op">=</span>headers)</span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> response.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>        search_results <span class="op">=</span> response.json()</span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>        artists <span class="op">=</span> search_results[<span class="st">'artists'</span>][<span class="st">'items'</span>]</span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> artists:</span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> artists[<span class="dv">0</span>][<span class="st">'id'</span>]</span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to retrieve the artist's followers and popularity</span></span>
+<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_artist_followers(artist_id, access_token):</span>
+<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a>    artist_url <span class="op">=</span> <span class="ss">f'https://api.spotify.com/v1/artists/</span><span class="sc">{</span>artist_id<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a>    headers <span class="op">=</span> {<span class="st">'Authorization'</span>: <span class="ss">f'Bearer </span><span class="sc">{</span>access_token<span class="sc">}</span><span class="ss">'</span>}</span>
+<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> requests.get(artist_url, headers<span class="op">=</span>headers)</span>
+<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> response.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a>        artist_data <span class="op">=</span> response.json()</span>
+<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> artist_data[<span class="st">'followers'</span>][<span class="st">'total'</span>], artist_data[<span class="st">'popularity'</span>]</span>
+<span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">None</span>, <span class="va">None</span></span>
+<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-44"><a href="#cb29-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the input CSV file </span></span>
+<span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a>input_file <span class="op">=</span> <span class="st">'./Example_singer_info.csv'</span> </span>
+<span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(input_file)</span>
+<span id="cb29-47"><a href="#cb29-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-48"><a href="#cb29-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Spotify API credentials</span></span>
+<span id="cb29-49"><a href="#cb29-49" aria-hidden="true" tabindex="-1"></a>client_id <span class="op">=</span> <span class="st">'31aba57b31344fdebf98f51375d07834'</span> </span>
+<span id="cb29-50"><a href="#cb29-50" aria-hidden="true" tabindex="-1"></a>client_secret <span class="op">=</span> <span class="st">'2c4f929786784910bc9a843518785cae'</span>  </span>
+<span id="cb29-51"><a href="#cb29-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-52"><a href="#cb29-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtain Spotify API access token</span></span>
+<span id="cb29-53"><a href="#cb29-53" aria-hidden="true" tabindex="-1"></a>access_token <span class="op">=</span> get_access_token(client_id, client_secret)</span>
+<span id="cb29-54"><a href="#cb29-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-55"><a href="#cb29-55" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize lists to store followers and popularity data</span></span>
+<span id="cb29-56"><a href="#cb29-56" aria-hidden="true" tabindex="-1"></a>followers_list <span class="op">=</span> []</span>
+<span id="cb29-57"><a href="#cb29-57" aria-hidden="true" tabindex="-1"></a>popularity_list <span class="op">=</span> []</span>
+<span id="cb29-58"><a href="#cb29-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-59"><a href="#cb29-59" aria-hidden="true" tabindex="-1"></a><span class="co"># Process each artist in the DataFrame</span></span>
+<span id="cb29-60"><a href="#cb29-60" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> artist_name <span class="kw">in</span> df[<span class="st">'artist'</span>]:</span>
+<span id="cb29-61"><a href="#cb29-61" aria-hidden="true" tabindex="-1"></a>    artist_id <span class="op">=</span> get_artist_id(artist_name, access_token)</span>
+<span id="cb29-62"><a href="#cb29-62" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> artist_id:</span>
+<span id="cb29-63"><a href="#cb29-63" aria-hidden="true" tabindex="-1"></a>        followers, popularity <span class="op">=</span> get_artist_followers(artist_id, access_token)</span>
+<span id="cb29-64"><a href="#cb29-64" aria-hidden="true" tabindex="-1"></a>        followers_list.append(followers)</span>
+<span id="cb29-65"><a href="#cb29-65" aria-hidden="true" tabindex="-1"></a>        popularity_list.append(popularity)</span>
+<span id="cb29-66"><a href="#cb29-66" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb29-67"><a href="#cb29-67" aria-hidden="true" tabindex="-1"></a>        <span class="co"># If the artist is not found, append None</span></span>
+<span id="cb29-68"><a href="#cb29-68" aria-hidden="true" tabindex="-1"></a>        followers_list.append(<span class="va">None</span>)</span>
+<span id="cb29-69"><a href="#cb29-69" aria-hidden="true" tabindex="-1"></a>        popularity_list.append(<span class="va">None</span>)</span>
+<span id="cb29-70"><a href="#cb29-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-71"><a href="#cb29-71" aria-hidden="true" tabindex="-1"></a><span class="co"># Add followers and popularity data to the DataFrame</span></span>
+<span id="cb29-72"><a href="#cb29-72" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Followers'</span>] <span class="op">=</span> followers_list</span>
+<span id="cb29-73"><a href="#cb29-73" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Popularity'</span>] <span class="op">=</span> popularity_list</span>
+<span id="cb29-74"><a href="#cb29-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-75"><a href="#cb29-75" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the updated DataFrame to a new CSV file</span></span>
+<span id="cb29-76"><a href="#cb29-76" aria-hidden="true" tabindex="-1"></a>output_file <span class="op">=</span> <span class="st">'./Example_artist_data_with_followers_and_popularity.csv'</span>  </span>
+<span id="cb29-77"><a href="#cb29-77" aria-hidden="true" tabindex="-1"></a>df.to_csv(output_file, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb29-78"><a href="#cb29-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-79"><a href="#cb29-79" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Processed data saved to: </span><span class="sc">{</span>output_file<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processed data saved to: ./Example_artist_data_with_followers_and_popularity.csv</code></pre>
+</div>
+</div>
+</section>
+<section id="data-integration-and-cleansing" class="level2">
+<h2 class="anchored" data-anchor-id="data-integration-and-cleansing">3. Data integration and cleansing</h2>
+<p>First manually merge Spotify and YouTube csv. Then using Spotify and YouTube artists as the matching key, match to verify artist match, if not, then delete the mismatched rows.</p>
+<div id="cell-31" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>input_file <span class="op">=</span> <span class="st">'./Example_Detailed_YouTube_Video_Data.csv'</span> </span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(input_file, encoding<span class="op">=</span><span class="st">'MacRoman'</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter rows where 'Artist Name' matches 'Artist'</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>df_cleaned <span class="op">=</span> df[df[<span class="st">'Artist Name'</span>] <span class="op">==</span> df[<span class="st">'artist'</span>]]</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the cleaned DataFrame to a new CSV file</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>output_file <span class="op">=</span> <span class="st">'./Example_spotify_youtube.csv'</span>  </span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>df_cleaned.to_csv(output_file, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Cleaned data saved to: </span><span class="sc">{</span>output_file<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cleaned data saved to: ./Example_spotify_youtube.csv</code></pre>
+</div>
+</div>
+<p>Then we completed all the data collection steps!</p>
 
 
 </section>
