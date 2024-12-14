@@ -2,7 +2,7 @@
 # Data Cleaning and Preprocessing Documentation
 
 ## Introduction and Motivation
-This document outlines the steps taken to clean and preprocess the data from a dataset containing comments from Spotify and YouTube. The primary goal is to prepare the data for sentiment analysis and further statistical modeling, focusing on extracting meaningful insights about song popularity and engagement.
+This document outlines the steps taken to clean and preprocess the data from a dataset containing view/like/comment counts, relevant comments and populariy value from Spotify and YouTube. The primary goal is to prepare the data for sentiment analysis and further statistical modeling, focusing on extracting meaningful insights about song popularity and engagement.
 
 ## Overview of Methods
 The methods used include text cleaning, language detection, sentiment analysis, data transformation, and normalization. These techniques ensure that the data is in an appropriate format for analysis, removing any inconsistencies and ensuring quality and accuracy in the results.
@@ -56,6 +56,39 @@ df[columns_to_scale] = scaler.fit_transform(df[columns_to_scale])
 
 ### Data Storage
 The processed data is saved back to a CSV file, ensuring that all modifications are preserved for subsequent analysis.
+
+**Review Data Types**
+| Variable Name          | Data Type     | Description                                |
+|------------------------|---------------|--------------------------------------------|
+| singer                 | Categorical   | Artist or band name                        |
+| genre                  | Categorical   | Genre of the music                         |
+| Video ID               | Categorical   | Unique identifier for the video            |
+| Title                  | Categorical   | Title of the video                         |
+| Description            | Categorical   | Description of the video                   |
+| Published At           | Date-time     | Date and time the video was published      |
+| Days Since Published   | Numerical     | Number of days since the video was published |
+| View Count             | Numerical     | Total number of views on the video         |
+| Like Count             | Numerical     | Number of likes on the video               |
+| Comment Count          | Numerical     | Number of comments on the video            |
+| Comments               | Categorical   | List of 10 comments on the video              |
+| Subscriber Count       | Numerical     | Number of subscribers to the channel       |
+| Category ID            | Categorical   | YouTube category ID for the video          |
+| Definition             | Categorical   | Quality definition of the video            |
+| Duration               | Categorical   | Duration of the video in a human-readable format|
+| Track Name             | Categorical   | Name of the track                          |
+| Artist Name            | Categorical   | Name of the artist                         |
+| Artist                 | Categorical   | Name of the artist                         |
+| singer_followers       | Numerical     | Number of followers the singer has on Spotify |
+| singer_popularity      | Numerical     | Popularity rating of the singer            |
+| Album Name             | Categorical   | Name of the album                          |
+| Popularity             | Numerical     | Popularity rating of the track             |
+| Duration (ms)          | Numerical     | Duration of the track in milliseconds      |
+| Track ID               | Categorical   | Unique identifier for the track            |
+| Spotify URL            | Categorical   | URL to the track on Spotify                |
+| Mean Sentiment Score   | Numerical     | Average sentiment score of comments        |
+| Processed_Comments     | Categorical   | Processed list of comments                 |
+| Duration_seconds       | Numerical     | Duration of the video in seconds           |
+| genre_label            | Categorical   | Categorical label for the genre    
 
 ## Summary and Interpretation of Results
 The preprocessing steps significantly cleaned and transformed the raw data, making it suitable for accurate and insightful analysis. The sentiment scores provide a quantitative measure of public perception, which, combined with other song metrics, can be used to gauge popularity and engagement.
