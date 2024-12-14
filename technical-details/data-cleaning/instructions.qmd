@@ -165,6 +165,8 @@ for variable in variables_to_visualize:
     plot_data_comparisons(df_original, df_normalized, variable)
 ```
 
+The standardization has transformed the data into a scale where it is centered around zero, greatly reducing the range of values and making the distribution more compact. The normalization process highlights the underlying data structure more clearly by smoothing out extreme variations and focusing on the distribution's shape, facilitating more effective data analysis and model training.
+
 ### Data Storage
 The processed data is saved back to a CSV file, ensuring that all modifications are preserved for subsequent analysis.
 ```python
