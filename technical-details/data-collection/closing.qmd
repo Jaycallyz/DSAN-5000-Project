@@ -4,16 +4,17 @@ This section should be written for a **technical audience**, focusing on detaile
 
 ## Challenges
 
-- Discuss any technical challenges faced during the project, such as data limitations, computational issues, or obstacles encountered during analysis.
-- Explain unexpected results and their technical implications.
-- Identify areas for future work, including potential optimizations, further analysis, or scaling solutions.
+I encountered several technical challenges during the data collection process. First, when selecting artists, some singers may have turned off the music video comment section on YouTube, which caused me to have to re-search for other artists. In addition, Spotify's search engine is not always accurate, and even if I provide the song title and artist name, I still may not be able to find the target song. This is an issue for which I haven't found a perfect solution yet, considering that I may need to further clean up the song titles to make them more accurate in order to improve the accuracy of my searches. Although the original plan was to acquire 500 pieces of data, in the end only 376 pieces of data were successfully acquired. So we may have to make real-time adjustments when it comes to data collection.
+
+Another technical difficulty is that the YouTube API sometimes returns irrelevant data, so it is important to carefully review and filter out the results that meet the requirements. In addition, the use of matching key to find relevant data in the YouTube and Spotify APIs is very important to improve the matching accuracy and reliability of the data.
+
 
 ## Benchmarks
 
-- Compare your findings to relevant research, industry benchmarks, or intuitive expectations, if applicable.
+The challenge of the project was to optimize the use of the API and reduce the interference of irrelevant data. While most projects can collect large amounts of data through APIs, accurately finding the target data is still a common difficulty. Therefore, how to improve the quality of data through data cleansing and precise matching algorithms remains a direction for further research and improvement in the future.
 
 ## Conclusion and Future Steps
 
-- Summarize the key technical points and outcomes of the project.
-- Suggest potential improvements or refinements to this part of the project.
-- Based on the results, provide actionable recommendations for further research or optimization efforts.
+We can conclude that firstly, during the data collection process, despite the convenience provided by the use of APIs, the issues of exact matching and removal of irrelevant data still need to be addressed. Second, Spotify's search engine may need further optimization or more detailed preprocessing of the input data to improve the accuracy of the matches.
+
+Future steps could focus on optimizing the process of data collection and cleansing. For example, for the Spotify search problem, attempts could be made to improve the method of standardization of song titles or validation in combination with other data sources. On the other hand, further research can be done to improve the efficiency of data filtering in the YouTube API to ensure that the data collected is more in line with expectations and less interfered by irrelevant information. These improvements will help enhance the efficiency and quality of data collection and lay a solid foundation for subsequent analysis.
