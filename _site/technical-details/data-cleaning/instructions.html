@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -57,7 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -70,10 +70,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -101,6 +101,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -188,6 +191,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#suggested-page-structure" id="toc-suggested-page-structure" class="nav-link active" data-scroll-target="#suggested-page-structure">Suggested page structure</a></li>
   <li><a href="#general-comments" id="toc-general-comments" class="nav-link" data-scroll-target="#general-comments">General comments:</a></li>
   <li><a href="#what-to-address" id="toc-what-to-address" class="nav-link" data-scroll-target="#what-to-address">What to address</a></li>
+  <li><a href="#data-cleaning-and-preprocessing-documentation" id="toc-data-cleaning-and-preprocessing-documentation" class="nav-link" data-scroll-target="#data-cleaning-and-preprocessing-documentation">Data Cleaning and Preprocessing Documentation</a>
+  <ul class="collapse">
+  <li><a href="#introduction-and-motivation" id="toc-introduction-and-motivation" class="nav-link" data-scroll-target="#introduction-and-motivation">Introduction and Motivation</a></li>
+  <li><a href="#overview-of-methods" id="toc-overview-of-methods" class="nav-link" data-scroll-target="#overview-of-methods">Overview of Methods</a></li>
+  <li><a href="#code-implementation-and-description" id="toc-code-implementation-and-description" class="nav-link" data-scroll-target="#code-implementation-and-description">Code Implementation and Description</a>
+  <ul class="collapse">
+  <li><a href="#data-reading" id="toc-data-reading" class="nav-link" data-scroll-target="#data-reading">Data Reading</a></li>
+  <li><a href="#comment-cleaning-and-language-filtering" id="toc-comment-cleaning-and-language-filtering" class="nav-link" data-scroll-target="#comment-cleaning-and-language-filtering">Comment Cleaning and Language Filtering</a></li>
+  <li><a href="#sentiment-analysis" id="toc-sentiment-analysis" class="nav-link" data-scroll-target="#sentiment-analysis">Sentiment Analysis</a></li>
+  <li><a href="#data-transformations" id="toc-data-transformations" class="nav-link" data-scroll-target="#data-transformations">Data Transformations</a></li>
+  <li><a href="#data-normalization" id="toc-data-normalization" class="nav-link" data-scroll-target="#data-normalization">Data Normalization</a></li>
+  <li><a href="#data-storage" id="toc-data-storage" class="nav-link" data-scroll-target="#data-storage">Data Storage</a></li>
+  </ul></li>
+  <li><a href="#summary-and-interpretation-of-results" id="toc-summary-and-interpretation-of-results" class="nav-link" data-scroll-target="#summary-and-interpretation-of-results">Summary and Interpretation of Results</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -281,94 +299,549 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Data Filtering</strong>: Explain any subsetting or filtering of the data (e.g., selecting quantitative or qualitative columns).</li>
 <li><strong>Rationale</strong>: Justify why you chose to work with a particular subset of the data.</li>
 </ul>
-<div id="5f6ee347" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define your markdown content as a multi-line string</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>markdown_content <span class="op">=</span> <span class="st">"""</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st"># Data Cleaning and Preprocessing Documentation</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">## Introduction and Motivation</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">This document outlines the steps taken to clean and preprocess the data from a dataset containing comments from Spotify and YouTube. The primary goal is to prepare the data for sentiment analysis and further statistical modeling, focusing on extracting meaningful insights about song popularity and engagement.</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">## Overview of Methods</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="st">The methods used include text cleaning, language detection, sentiment analysis, data transformation, and normalization. These techniques ensure that the data is in an appropriate format for analysis, removing any inconsistencies and ensuring quality and accuracy in the results.</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="st">## Code Implementation and Description</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="st">### Data Reading</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="st">The raw data is loaded from a CSV file using Pandas, which provides a convenient framework for data manipulation in Python.</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="st">\```python</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="st">df = pd.read_csv('../../data/raw-data/spotify_youtube.csv', encoding='iso-8859-1')</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="st">\```</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="st">### Comment Cleaning and Language Filtering</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="st">Comments are cleaned by removing HTML tags, punctuation, numbers, and ensuring they are in English. This is crucial for the accuracy of the sentiment analysis.</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="st">\```python</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="st">def clean_comments(comments):</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="st">    # Cleaning code here...</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="st">    return english_comments</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="st">\```</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="st">### Sentiment Analysis</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="st">Using NLTK's VADER, we perform sentiment analysis on the cleaned English comments. This provides a mean sentiment score for each record, indicating the overall sentiment of the comments associated with each song.</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="st">\```python</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="st">def average_sentiment_score(comments):</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="st">    # Sentiment analysis code here...</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="st">    return score</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="st">\```</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="st">### Data Transformations</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="st">Several transformations are applied to the dataset:</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="st">- Converting video duration from ISO 8601 format to seconds.</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="st">- Binary encoding of video definition (HD or SD).</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="st">- Factorizing the 'genre' column to prepare for modeling.</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="st">\```python</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="st">df['Duration_seconds'] = df['Duration'].apply(duration_to_seconds)</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="st">df['Definition'] = df['Definition'].apply(convert_definition)</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="st">df['genre_label'] = pd.factorize(df['genre'])[0]</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="st">\```</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="st">### Data Normalization</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="st">Using `StandardScaler`, numerical columns are scaled to have zero mean and unit variance. This step is important for models that are sensitive to the magnitude of input features.</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="st">\```python</span></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="st">scaler = StandardScaler()</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="st">df[columns_to_scale] = scaler.fit_transform(df[columns_to_scale])</span></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="st">\```</span></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="st">### Data Storage</span></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="st">The processed data is saved back to a CSV file, ensuring that all modifications are preserved for subsequent analysis.</span></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="st">\```python</span></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="st">df.to_csv('../../data/processed-data/Normalized_Data_with_Sentiments.csv', index=False)</span></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="st">\```</span></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="st">## Summary and Interpretation of Results</span></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="st">The preprocessing steps significantly cleaned and transformed the raw data, making it suitable for accurate and insightful analysis. The sentiment scores provide a quantitative measure of public perception, which, combined with other song metrics, can be used to gauge popularity and engagement.</span></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="st">By documenting each step in this markdown file, we ensure that the process is transparent and reproducible, facilitating peer review and future analyses.</span></span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="co"># Write the content to a markdown file</span></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'Data_Processing_Documentation.md'</span>, <span class="st">'w'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>    <span class="bu">file</span>.write(markdown_content)</span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Markdown file has been created successfully."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Markdown file has been created successfully.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>&lt;&gt;:2: SyntaxWarning: invalid escape sequence '\`'
-&lt;&gt;:2: SyntaxWarning: invalid escape sequence '\`'
-/var/folders/qx/qwpm5zm52fzd9w3sfybpybzh0000gn/T/ipykernel_38008/2009676700.py:2: SyntaxWarning: invalid escape sequence '\`'
-  markdown_content = """</code></pre>
-</div>
-</div>
+</section>
+<section id="data-cleaning-and-preprocessing-documentation" class="level1">
+<h1>Data Cleaning and Preprocessing Documentation</h1>
+<section id="introduction-and-motivation" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-and-motivation">Introduction and Motivation</h2>
+<p>This document outlines the steps taken to clean and preprocess the data from a dataset containing view/like/comment counts, relevant comments and populariy value from Spotify and YouTube. The primary goal is to prepare the data for sentiment analysis and further statistical modeling, focusing on extracting meaningful insights about song popularity and engagement.</p>
+</section>
+<section id="overview-of-methods" class="level2">
+<h2 class="anchored" data-anchor-id="overview-of-methods">Overview of Methods</h2>
+<p>The methods used include text cleaning, language detection, sentiment analysis, data transformation, and normalization. These techniques ensure that the data is in an appropriate format for analysis, removing any inconsistencies and ensuring quality and accuracy in the results.</p>
+</section>
+<section id="code-implementation-and-description" class="level2">
+<h2 class="anchored" data-anchor-id="code-implementation-and-description">Code Implementation and Description</h2>
+<section id="data-reading" class="level3">
+<h3 class="anchored" data-anchor-id="data-reading">Data Reading</h3>
+<p>The raw data is loaded from a CSV file using Pandas, which provides a convenient framework for data manipulation in Python.</p>
+<div id="322c8256" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../../data/raw-data/spotify_youtube.csv'</span>, encoding<span class="op">=</span><span class="st">'iso-8859-1'</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
 
 
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">singer</th>
+<th data-quarto-table-cell-role="th">genre</th>
+<th data-quarto-table-cell-role="th">Video ID</th>
+<th data-quarto-table-cell-role="th">Title</th>
+<th data-quarto-table-cell-role="th">Description</th>
+<th data-quarto-table-cell-role="th">Published At</th>
+<th data-quarto-table-cell-role="th">Days Since Published</th>
+<th data-quarto-table-cell-role="th">View Count</th>
+<th data-quarto-table-cell-role="th">Like Count</th>
+<th data-quarto-table-cell-role="th">Comment Count</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">Artist Name</th>
+<th data-quarto-table-cell-role="th">Artist</th>
+<th data-quarto-table-cell-role="th">Genre</th>
+<th data-quarto-table-cell-role="th">singer_followers</th>
+<th data-quarto-table-cell-role="th">singer_popularity</th>
+<th data-quarto-table-cell-role="th">Album Name</th>
+<th data-quarto-table-cell-role="th">Popularity</th>
+<th data-quarto-table-cell-role="th">Duration (ms)</th>
+<th data-quarto-table-cell-role="th">Track ID</th>
+<th data-quarto-table-cell-role="th">Spotify URL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Foo Fighters</td>
+<td>rock</td>
+<td>1VQ_3sBZEm0</td>
+<td>Foo Fighters - Learn To Fly (Official HD Video)</td>
+<td>Foo Fighters' official music video for 'Learn ...</td>
+<td>2009-10-03T04:46:13Z</td>
+<td>5549</td>
+<td>183888273</td>
+<td>808087</td>
+<td>33852</td>
+<td>...</td>
+<td>Foo Fighters</td>
+<td>Foo Fighters</td>
+<td>rock</td>
+<td>12214832</td>
+<td>78</td>
+<td>There Is Nothing Left To Lose</td>
+<td>73</td>
+<td>235293</td>
+<td>5OQsiBsky2k2kDKy2bX2eT</td>
+<td>https://open.spotify.com/track/5OQsiBsky2k2kDK...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Foo Fighters</td>
+<td>rock</td>
+<td>eBG7P-K-r1Y</td>
+<td>Foo Fighters - Everlong (Official HD Video)</td>
+<td>"Everlong" by Foo Fighters \nListen to Foo Fig...</td>
+<td>2009-10-03T04:49:58Z</td>
+<td>5549</td>
+<td>324339281</td>
+<td>1820753</td>
+<td>53186</td>
+<td>...</td>
+<td>Foo Fighters</td>
+<td>Foo Fighters</td>
+<td>rock</td>
+<td>12214832</td>
+<td>78</td>
+<td>The Colour And The Shape</td>
+<td>80</td>
+<td>250546</td>
+<td>5UWwZ5lm5PKu6eKsHAGxOk</td>
+<td>https://open.spotify.com/track/5UWwZ5lm5PKu6eK...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Foo Fighters</td>
+<td>rock</td>
+<td>SBjQ9tuuTJQ</td>
+<td>Foo Fighters - The Pretender</td>
+<td>Watch the official music video for "The Preten...</td>
+<td>2009-10-03T04:46:14Z</td>
+<td>5549</td>
+<td>588029134</td>
+<td>2785440</td>
+<td>92233</td>
+<td>...</td>
+<td>Foo Fighters</td>
+<td>Foo Fighters</td>
+<td>rock</td>
+<td>12214832</td>
+<td>78</td>
+<td>Echoes, Silence, Patience &amp; Grace</td>
+<td>75</td>
+<td>269373</td>
+<td>7x8dCjCr0x6x2lXKujYD34</td>
+<td>https://open.spotify.com/track/7x8dCjCr0x6x2lX...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Foo Fighters</td>
+<td>rock</td>
+<td>EqWRaAF6_WY</td>
+<td>Foo Fighters - My Hero (Official HD Video)</td>
+<td>"My Hero" by Foo Fighters \nListen to Foo Figh...</td>
+<td>2011-03-18T19:35:42Z</td>
+<td>5017</td>
+<td>87504683</td>
+<td>564313</td>
+<td>26089</td>
+<td>...</td>
+<td>Foo Fighters</td>
+<td>Foo Fighters</td>
+<td>rock</td>
+<td>12214832</td>
+<td>78</td>
+<td>The Colour And The Shape</td>
+<td>72</td>
+<td>260026</td>
+<td>4dVbhS6OiYvFikshyaQaCN</td>
+<td>https://open.spotify.com/track/4dVbhS6OiYvFiks...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Foo Fighters</td>
+<td>rock</td>
+<td>h_L4Rixya64</td>
+<td>Foo Fighters - Best Of You (Official Music Video)</td>
+<td>Watch the official music video for "Best Of Yo...</td>
+<td>2009-10-03T20:49:33Z</td>
+<td>5548</td>
+<td>265538783</td>
+<td>1281111</td>
+<td>34995</td>
+<td>...</td>
+<td>Foo Fighters</td>
+<td>Foo Fighters</td>
+<td>rock</td>
+<td>12214832</td>
+<td>78</td>
+<td>In Your Honor</td>
+<td>72</td>
+<td>255626</td>
+<td>5FZxsHWIvUsmSK1IAvm2pp</td>
+<td>https://open.spotify.com/track/5FZxsHWIvUsmSK1...</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 26 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="comment-cleaning-and-language-filtering" class="level3">
+<h3 class="anchored" data-anchor-id="comment-cleaning-and-language-filtering">Comment Cleaning and Language Filtering</h3>
+<p>Comments are cleaned by removing HTML tags, punctuation, numbers, and ensuring they are in English. This is crucial for the accuracy of the sentiment analysis.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean_comments(comments):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Cleaning code here...</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> english_comments</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="sentiment-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="sentiment-analysis">Sentiment Analysis</h3>
+<p>Using NLTK’s VADER, we perform sentiment analysis on the cleaned English comments. This provides a mean sentiment score for each record, indicating the overall sentiment of the comments associated with each song.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> average_sentiment_score(comments):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sentiment analysis code here...</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="data-transformations" class="level3">
+<h3 class="anchored" data-anchor-id="data-transformations">Data Transformations</h3>
+<p>Several transformations are applied to the dataset: - Converting video duration from ISO 8601 format to seconds. - Binary encoding of video definition (HD or SD). - Factorizing the ‘genre’ column to prepare for modeling.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Duration_seconds'</span>] <span class="op">=</span> df[<span class="st">'Duration'</span>].<span class="bu">apply</span>(duration_to_seconds)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Definition'</span>] <span class="op">=</span> df[<span class="st">'Definition'</span>].<span class="bu">apply</span>(convert_definition)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'genre_label'</span>] <span class="op">=</span> pd.factorize(df[<span class="st">'genre'</span>])[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="data-normalization" class="level3">
+<h3 class="anchored" data-anchor-id="data-normalization">Data Normalization</h3>
+<p>Using <code>StandardScaler</code>, numerical columns are scaled to have zero mean and unit variance. This step is important for models that are sensitive to the magnitude of input features.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df[columns_to_scale] <span class="op">=</span> scaler.fit_transform(df[columns_to_scale])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="data-storage" class="level3">
+<h3 class="anchored" data-anchor-id="data-storage">Data Storage</h3>
+<p>The processed data is saved back to a CSV file, ensuring that all modifications are preserved for subsequent analysis.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">'../../data/processed-data/Normalized_Data_with_Sentiments.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b0889556" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../../data/processed-data/Normalized_Data_with_Sentiments.csv'</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">singer</th>
+<th data-quarto-table-cell-role="th">genre</th>
+<th data-quarto-table-cell-role="th">Video ID</th>
+<th data-quarto-table-cell-role="th">Title</th>
+<th data-quarto-table-cell-role="th">Description</th>
+<th data-quarto-table-cell-role="th">Published At</th>
+<th data-quarto-table-cell-role="th">Days Since Published</th>
+<th data-quarto-table-cell-role="th">View Count</th>
+<th data-quarto-table-cell-role="th">Like Count</th>
+<th data-quarto-table-cell-role="th">Comment Count</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">singer_popularity</th>
+<th data-quarto-table-cell-role="th">Album Name</th>
+<th data-quarto-table-cell-role="th">Popularity</th>
+<th data-quarto-table-cell-role="th">Duration (ms)</th>
+<th data-quarto-table-cell-role="th">Track ID</th>
+<th data-quarto-table-cell-role="th">Spotify URL</th>
+<th data-quarto-table-cell-role="th">Mean Sentiment Score</th>
+<th data-quarto-table-cell-role="th">Processed_Comments</th>
+<th data-quarto-table-cell-role="th">Duration_seconds</th>
+<th data-quarto-table-cell-role="th">genre_label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Foo Fighters</td>
+<td>rock</td>
+<td>1VQ_3sBZEm0</td>
+<td>Foo Fighters - Learn To Fly (Official HD Video)</td>
+<td>Foo Fighters' official music video for 'Learn ...</td>
+<td>2009-10-03T04:46:13Z</td>
+<td>1.168381</td>
+<td>-0.264997</td>
+<td>-0.403455</td>
+<td>-0.358746</td>
+<td>...</td>
+<td>-0.184437</td>
+<td>There Is Nothing Left To Lose</td>
+<td>73</td>
+<td>0.024286</td>
+<td>5OQsiBsky2k2kDKy2bX2eT</td>
+<td>https://open.spotify.com/track/5OQsiBsky2k2kDK...</td>
+<td>0.366239</td>
+<td>['can we bring this back this feeling this mus...</td>
+<td>-0.039614</td>
+<td>-1.319198</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Foo Fighters</td>
+<td>rock</td>
+<td>eBG7P-K-r1Y</td>
+<td>Foo Fighters - Everlong (Official HD Video)</td>
+<td>"Everlong" by Foo Fighters \nListen to Foo Fig...</td>
+<td>2009-10-03T04:49:58Z</td>
+<td>1.168381</td>
+<td>-0.065329</td>
+<td>-0.161714</td>
+<td>-0.250200</td>
+<td>...</td>
+<td>-0.184437</td>
+<td>The Colour And The Shape</td>
+<td>80</td>
+<td>0.248671</td>
+<td>5UWwZ5lm5PKu6eKsHAGxOk</td>
+<td>https://open.spotify.com/track/5UWwZ5lm5PKu6eK...</td>
+<td>-0.984291</td>
+<td>['stop asking whos still listening we never st...</td>
+<td>-0.001872</td>
+<td>-1.319198</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Foo Fighters</td>
+<td>rock</td>
+<td>SBjQ9tuuTJQ</td>
+<td>Foo Fighters - The Pretender</td>
+<td>Watch the official music video for "The Preten...</td>
+<td>2009-10-03T04:46:14Z</td>
+<td>1.168381</td>
+<td>0.309538</td>
+<td>0.068574</td>
+<td>-0.030982</td>
+<td>...</td>
+<td>-0.184437</td>
+<td>Echoes, Silence, Patience &amp; Grace</td>
+<td>75</td>
+<td>0.525632</td>
+<td>7x8dCjCr0x6x2lXKujYD34</td>
+<td>https://open.spotify.com/track/7x8dCjCr0x6x2lX...</td>
+<td>1.334540</td>
+<td>['how can you not get chills listening to this...</td>
+<td>-0.054710</td>
+<td>-1.319198</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Foo Fighters</td>
+<td>rock</td>
+<td>EqWRaAF6_WY</td>
+<td>Foo Fighters - My Hero (Official HD Video)</td>
+<td>"My Hero" by Foo Fighters \nListen to Foo Figh...</td>
+<td>2011-03-18T19:35:42Z</td>
+<td>0.902404</td>
+<td>-0.402018</td>
+<td>-0.461648</td>
+<td>-0.402329</td>
+<td>...</td>
+<td>-0.184437</td>
+<td>The Colour And The Shape</td>
+<td>72</td>
+<td>0.388130</td>
+<td>4dVbhS6OiYvFikshyaQaCN</td>
+<td>https://open.spotify.com/track/4dVbhS6OiYvFiks...</td>
+<td>1.577078</td>
+<td>['my son and i was supposed to spend the summe...</td>
+<td>-0.125161</td>
+<td>-1.319198</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Foo Fighters</td>
+<td>rock</td>
+<td>h_L4Rixya64</td>
+<td>Foo Fighters - Best Of You (Official Music Video)</td>
+<td>Watch the official music video for "Best Of Yo...</td>
+<td>2009-10-03T20:49:33Z</td>
+<td>1.167881</td>
+<td>-0.148921</td>
+<td>-0.290536</td>
+<td>-0.352329</td>
+<td>...</td>
+<td>-0.184437</td>
+<td>In Your Honor</td>
+<td>72</td>
+<td>0.323402</td>
+<td>5FZxsHWIvUsmSK1IAvm2pp</td>
+<td>https://open.spotify.com/track/5FZxsHWIvUsmSK1...</td>
+<td>0.468128</td>
+<td>['what a talent dave is drummer singer guitari...</td>
+<td>-0.092452</td>
+<td>-1.319198</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 30 columns</p>
+</div>
+</div>
+</div>
+<p><strong>Review Data Types</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 18%">
+<col style="width: 62%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable Name</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>singer</td>
+<td>Categorical</td>
+<td>Artist or band name</td>
+</tr>
+<tr class="even">
+<td>genre</td>
+<td>Categorical</td>
+<td>Genre of the music</td>
+</tr>
+<tr class="odd">
+<td>Video ID</td>
+<td>Categorical</td>
+<td>Unique identifier for the video</td>
+</tr>
+<tr class="even">
+<td>Title</td>
+<td>Categorical</td>
+<td>Title of the video</td>
+</tr>
+<tr class="odd">
+<td>Description</td>
+<td>Categorical</td>
+<td>Description of the video</td>
+</tr>
+<tr class="even">
+<td>Published At</td>
+<td>Date-time</td>
+<td>Date and time the video was published</td>
+</tr>
+<tr class="odd">
+<td>Days Since Published</td>
+<td>Numerical</td>
+<td>Number of days since the video was published</td>
+</tr>
+<tr class="even">
+<td>View Count</td>
+<td>Numerical</td>
+<td>Total number of views on the video</td>
+</tr>
+<tr class="odd">
+<td>Like Count</td>
+<td>Numerical</td>
+<td>Number of likes on the video</td>
+</tr>
+<tr class="even">
+<td>Comment Count</td>
+<td>Numerical</td>
+<td>Number of comments on the video</td>
+</tr>
+<tr class="odd">
+<td>Comments</td>
+<td>Categorical</td>
+<td>List of 10 comments on the video</td>
+</tr>
+<tr class="even">
+<td>Subscriber Count</td>
+<td>Numerical</td>
+<td>Number of subscribers to the channel</td>
+</tr>
+<tr class="odd">
+<td>Category ID</td>
+<td>Categorical</td>
+<td>YouTube category ID for the video</td>
+</tr>
+<tr class="even">
+<td>Definition</td>
+<td>Categorical</td>
+<td>Quality definition of the video</td>
+</tr>
+<tr class="odd">
+<td>Duration</td>
+<td>Categorical</td>
+<td>Duration of the video in a human-readable format</td>
+</tr>
+<tr class="even">
+<td>Track Name</td>
+<td>Categorical</td>
+<td>Name of the track</td>
+</tr>
+<tr class="odd">
+<td>Artist Name</td>
+<td>Categorical</td>
+<td>Name of the artist</td>
+</tr>
+<tr class="even">
+<td>Artist</td>
+<td>Categorical</td>
+<td>Name of the artist</td>
+</tr>
+<tr class="odd">
+<td>singer_followers</td>
+<td>Numerical</td>
+<td>Number of followers the singer has on Spotify</td>
+</tr>
+<tr class="even">
+<td>singer_popularity</td>
+<td>Numerical</td>
+<td>Popularity rating of the singer</td>
+</tr>
+<tr class="odd">
+<td>Album Name</td>
+<td>Categorical</td>
+<td>Name of the album</td>
+</tr>
+<tr class="even">
+<td>Popularity</td>
+<td>Numerical</td>
+<td>Popularity rating of the track</td>
+</tr>
+<tr class="odd">
+<td>Duration (ms)</td>
+<td>Numerical</td>
+<td>Duration of the track in milliseconds</td>
+</tr>
+<tr class="even">
+<td>Track ID</td>
+<td>Categorical</td>
+<td>Unique identifier for the track</td>
+</tr>
+<tr class="odd">
+<td>Spotify URL</td>
+<td>Categorical</td>
+<td>URL to the track on Spotify</td>
+</tr>
+<tr class="even">
+<td>Mean Sentiment Score</td>
+<td>Numerical</td>
+<td>Average sentiment score of comments</td>
+</tr>
+<tr class="odd">
+<td>Processed_Comments</td>
+<td>Categorical</td>
+<td>Processed list of comments</td>
+</tr>
+<tr class="even">
+<td>Duration_seconds</td>
+<td>Numerical</td>
+<td>Duration of the video in seconds</td>
+</tr>
+<tr class="odd">
+<td>genre_label</td>
+<td>Categorical</td>
+<td>Categorical label for the genre</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="summary-and-interpretation-of-results" class="level2">
+<h2 class="anchored" data-anchor-id="summary-and-interpretation-of-results">Summary and Interpretation of Results</h2>
+<p>The preprocessing steps significantly cleaned and transformed the raw data, making it suitable for accurate and insightful analysis. The sentiment scores provide a quantitative measure of public perception, which, combined with other song metrics, can be used to gauge popularity and engagement.</p>
+
+
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -454,6 +927,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -564,6 +1039,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
