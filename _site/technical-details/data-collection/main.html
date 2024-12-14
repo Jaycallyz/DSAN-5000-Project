@@ -203,10 +203,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a></li>
   <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a>
   <ul class="collapse">
-  <li><a href="#data-collection-process" id="toc-data-collection-process" class="nav-link" data-scroll-target="#data-collection-process">Data Collection Process</a></li>
+  <li><a href="#data-collection-process" id="toc-data-collection-process" class="nav-link" data-scroll-target="#data-collection-process">Data Collection Process</a>
+  <ul class="collapse">
   <li><a href="#youtube-data-collection" id="toc-youtube-data-collection" class="nav-link" data-scroll-target="#youtube-data-collection">1. YouTube Data Collection</a></li>
   <li><a href="#spotify-collection" id="toc-spotify-collection" class="nav-link" data-scroll-target="#spotify-collection">2. Spotify Collection</a></li>
-  <li><a href="#data-integration-and-cleansing" id="toc-data-integration-and-cleansing" class="nav-link" data-scroll-target="#data-integration-and-cleansing">3. Data integration and cleansing</a></li>
+  <li><a href="#data-integration-and-cleaning" id="toc-data-integration-and-cleaning" class="nav-link" data-scroll-target="#data-integration-and-cleaning">3. Data integration and cleaning</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -347,10 +349,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="code" class="level1">
 <h1>Code</h1>
-<section id="data-collection-process" class="level3">
-<h3 class="anchored" data-anchor-id="data-collection-process">Data Collection Process</h3>
+<section id="data-collection-process" class="level2">
+<h2 class="anchored" data-anchor-id="data-collection-process">Data Collection Process</h2>
 <p>This project collects music data through YouTube and Spotify APIs, covering information on the works of 20 representative artists in five genres: Electronic, Jazz, Hip-Hop, Pop and Rock. The data processing flow is as follows:</p>
-</section>
 <section id="youtube-data-collection" class="level3">
 <h3 class="anchored" data-anchor-id="youtube-data-collection">1. YouTube Data Collection</h3>
 <section id="acquiring-official-music-video-data" class="level4">
@@ -767,8 +768,8 @@ Processed data saved to: ./Example_spotify_track_info.csv</code></pre>
 </div>
 </section>
 </section>
-<section id="data-integration-and-cleansing" class="level3">
-<h3 class="anchored" data-anchor-id="data-integration-and-cleansing">3. Data integration and cleansing</h3>
+<section id="data-integration-and-cleaning" class="level3">
+<h3 class="anchored" data-anchor-id="data-integration-and-cleaning">3. Data integration and cleaning</h3>
 <p>First manually merge Spotify and YouTube csv. Then using Spotify and YouTube artists as the matching key, match to verify artist match, if not, then delete the mismatched rows.</p>
 <div id="cell-19" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -790,6 +791,7 @@ Processed data saved to: ./Example_spotify_track_info.csv</code></pre>
 <p>Then we completed all the data collection steps!</p>
 
 
+</section>
 </section>
 </section>
 
