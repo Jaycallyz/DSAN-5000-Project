@@ -133,7 +133,37 @@ df[columns_to_scale] = scaler.fit_transform(df[columns_to_scale])
 ```
 
 ### Before-and-After Visualizations
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
 
+# Load the normalized data
+df_normalized = pd.read_csv('../../data/processed-data/Normalized_Data_with_Sentiments.csv')
+
+def plot_data_comparisons(df_original, df_normalized, column_name):
+    fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+    
+    # Original Data Histogram
+    sns.histplot(df_original[column_name], ax=axes[0], kde=True, color='skyblue')
+    axes[0].set_title(f'Original {column_name}')
+    
+    # Normalized Data Histogram
+    sns.histplot(df_normalized[column_name], ax=axes[1], kde=True, color='olive')
+    axes[1].set_title(f'Normalized {column_name}')
+    
+    plt.tight_layout()
+    plt.show()
+
+# Assuming the original data is still available and named df
+df_original = pd.read_csv('../../data/raw-data/spotify_youtube.csv', encoding='iso-8859-1')
+
+# Example variables to visualize
+variables_to_visualize = ['View Count', 'Like Count', 'Subscriber Count']
+
+for variable in variables_to_visualize:
+    plot_data_comparisons(df_original, df_normalized, variable)
+```
 
 ### Data Storage
 The processed data is saved back to a CSV file, ensuring that all modifications are preserved for subsequent analysis.
