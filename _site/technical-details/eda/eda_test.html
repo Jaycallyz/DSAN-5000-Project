@@ -236,7 +236,7 @@ min               -0.336767          39.000000
 max                0.817367         100.000000  </code></pre>
 </div>
 </div>
-<div id="cell-3" class="cell" data-execution_count="49">
+<div id="cell-3" class="cell" data-execution_count="99">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Log10_View_Count'</span>] <span class="op">=</span> np.log10(df[<span class="st">'View Count'</span>].replace(<span class="dv">0</span>, np.nan))</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># calcultate Like Ratio</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Like_Ratio'</span>] <span class="op">=</span> df[<span class="st">'Like Count'</span>] <span class="op">/</span> df[<span class="st">'View Count'</span>] <span class="op">*</span> <span class="dv">100</span></span>
@@ -254,10 +254,10 @@ max                0.817367         100.000000  </code></pre>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_xlim(<span class="op">-</span><span class="dv">1</span>, <span class="dv">7</span>)</span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># subplot3: Distribution of Video Duration</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>sns.histplot(df[<span class="st">'Duration_seconds'</span>], kde<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>, <span class="dv">0</span>])</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>sns.histplot(df[<span class="st">'Duration (ms)'</span>], kde<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>, <span class="dv">0</span>])</span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_title(<span class="st">'Distribution of Video Duration'</span>)</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_xlabel(<span class="st">'Duration (seconds)'</span>)</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_xlim(<span class="dv">0</span>, <span class="dv">1200</span>) </span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_xlabel(<span class="st">'Duration (ms)'</span>)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co"># subplot4: Distribution of Mean Sentiment Score</span></span>
@@ -341,21 +341,19 @@ Name: count, dtype: int64</code></pre>
 </ul>
 <p>Correlation Analysis</p>
 <div id="cell-10" class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#numerical_cols = ['View Count', 'Like Count', 'Comment Count', 'Mean Sentiment Score', 'Duration_seconds', 'singer_popularity', 'singer_followers']</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>numerical_columns <span class="op">=</span> [<span class="st">'View Count'</span>, <span class="st">'Like Count'</span>, <span class="st">'Comment Count'</span>,<span class="st">'singer_followers'</span>,<span class="st">'singer_popularity'</span>, <span class="st">'Duration (ms)'</span>, <span class="st">'Mean Sentiment Score'</span>]</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate correlation matrix</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>correlation_matrix <span class="op">=</span> df[numerical_columns].corr()</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create correlation heatmap</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>sns.heatmap(correlation_matrix, </span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>            annot<span class="op">=</span><span class="va">True</span>,  <span class="co"># Show correlation values</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>            cmap<span class="op">=</span><span class="st">'coolwarm'</span>, </span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>            center<span class="op">=</span><span class="dv">0</span>,  </span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>            fmt<span class="op">=</span><span class="st">'.2f'</span>) </span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Correlation Matrix of Numerical Variables'</span>)</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>numerical_columns <span class="op">=</span> [<span class="st">'View Count'</span>, <span class="st">'Like Count'</span>, <span class="st">'Comment Count'</span>,<span class="st">'singer_followers'</span>,<span class="st">'singer_popularity'</span>, <span class="st">'Duration (ms)'</span>,<span class="st">'Duration_seconds'</span>, <span class="st">'Mean Sentiment Score'</span>]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate correlation matrix</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>correlation_matrix <span class="op">=</span> df[numerical_columns].corr()</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create correlation heatmap</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>sns.heatmap(correlation_matrix, </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>            annot<span class="op">=</span><span class="va">True</span>,  <span class="co"># Show correlation values</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>            cmap<span class="op">=</span><span class="st">'coolwarm'</span>, </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>            center<span class="op">=</span><span class="dv">0</span>,  </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>            fmt<span class="op">=</span><span class="st">'.2f'</span>) </span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Correlation Matrix of Numerical Variables'</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">

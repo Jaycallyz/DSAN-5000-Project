@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -275,6 +309,541 @@ ul.task-list li input[type="checkbox"] {
 <p>If you’re using a package for code organization, you can import it at this point. However, make sure that the <strong>actual workflow steps</strong>—including data processing, analysis, and other key tasks—are conducted and clearly demonstrated on this page. The goal is to show the technical flow of your project, highlighting how the code is executed to achieve your results.</p>
 <p>If relevant, link to additional documentation or external references that explain any complex components. This section should give readers a clear view of how the project is implemented from a technical perspective.</p>
 <p>Remember, this page is a technical narrative, NOT just a notebook with a collection of code cells, include in-line Prose, to describe what is going on.</p>
+<div id="cell-3" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">"../../data/processed-data/Updated_Data_with_Sentiments.csv"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(file_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-4" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># include interaction metrics (like count/view count %, comment count/ view count%) as factors</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'like_ratio'</span>] <span class="op">=</span> df[<span class="st">'Like Count'</span>] <span class="op">/</span> df[<span class="st">'View Count'</span>] <span class="op">*</span><span class="dv">100</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'comment_ratio'</span>] <span class="op">=</span> df[<span class="st">'Comment Count'</span>] <span class="op">/</span> df[<span class="st">'View Count'</span>] <span class="op">*</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Univariate Analysis</strong>:</p>
+<ul>
+<li><strong>Numerical Variables</strong>:
+<ul>
+<li>Provide summary statistics (mean, median, standard deviation).</li>
+<li>Visualize distributions using histograms or density plots.</li>
+</ul></li>
+</ul>
+<div id="cell-6" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>numeric_cols <span class="op">=</span> [<span class="st">'singer_popularity'</span>, <span class="st">'Days Since Published'</span>, <span class="st">'Subscriber Count'</span>, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                  <span class="st">'View Count'</span>, <span class="st">'Like Count'</span>, <span class="st">'Comment Count'</span>, <span class="st">'like_ratio'</span>, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                  <span class="st">'comment_ratio'</span>, <span class="st">'Duration_seconds'</span>, <span class="st">'Mean Sentiment Score'</span>]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Numerical Variables Summary Statistics:"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[numeric_cols].describe())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Numerical Variables Summary Statistics:
+       singer_popularity  Days Since Published  Subscriber Count  \
+count         375.000000            375.000000      3.750000e+02   
+mean           80.120000           3212.032000      8.392395e+06   
+std            11.509773           2002.848485      1.220033e+07   
+min            39.000000              0.000000      9.000000e+00   
+25%            77.000000           1473.500000      7.550000e+05   
+50%            81.000000           3391.000000      3.760000e+06   
+75%            87.000000           5374.500000      1.060000e+07   
+max           100.000000           6794.000000      6.040000e+07   
+
+         View Count    Like Count  Comment Count  like_ratio  comment_ratio  \
+count  3.750000e+02  3.750000e+02   3.750000e+02  375.000000     375.000000   
+mean   3.702933e+08  2.498181e+06   9.775152e+04    1.187740       0.053684   
+std    7.043627e+08  4.194654e+06   1.783573e+05    1.201180       0.083883   
+min    2.760000e+02  0.000000e+00   0.000000e+00    0.000000       0.000000   
+25%    1.374476e+07  1.327810e+05   4.136500e+03    0.557778       0.016598   
+50%    9.101476e+07  7.850650e+05   2.807200e+04    0.787268       0.026350   
+75%    3.711109e+08  2.878034e+06   1.032220e+05    1.402276       0.059631   
+max    6.379786e+09  3.378610e+07   1.184861e+06   12.401685       0.963266   
+
+       Duration_seconds  Mean Sentiment Score  
+count        375.000000            375.000000  
+mean         292.744000              0.325594  
+std          397.971143              0.225798  
+min           21.000000             -0.336767  
+25%          200.500000              0.169655  
+50%          239.000000              0.319200  
+75%          284.500000              0.484267  
+max         4835.000000              0.817367  </code></pre>
+</div>
+</div>
+<div id="cell-7" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># subplot1: Distribution of Log10(View Count)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>sns.histplot(np.log10(df[<span class="st">'View Count'</span>]), kde<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>, <span class="dv">0</span>])</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_title(<span class="st">'Distribution of Log10(View Count)'</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_xlabel(<span class="st">'Log10(View Count)'</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># subplot2: Like Ratio distribution</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>sns.histplot(df[<span class="st">'like_ratio'</span>], kde<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_title(<span class="st">'Distribution of Like Ratio (%)'</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_xlabel(<span class="st">'Like Ratio (%)'</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_xlim(<span class="op">-</span><span class="dv">1</span>, <span class="dv">7</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># subplot3: Comment Ratio distribution</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>sns.histplot(df[<span class="st">'comment_ratio'</span>], kde<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>, <span class="dv">0</span>])</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_title(<span class="st">'Distribution of Comment Ratio (%)'</span>)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_xlabel(<span class="st">'Comment Ratio (%)'</span>)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co"># subplot4: Distribution of Singer Popularity</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>sns.histplot(df[<span class="st">'singer_popularity'</span>], kde<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>, <span class="dv">1</span>])</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].set_title(<span class="st">'Distribution of Singer Popularity'</span>)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].set_xlabel(<span class="st">'Singer Popularity'</span>)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>For plot Distribution of Log10(View Count), it shows normal distribution characteristics. We can conclude that most of the videos have view counts between 10<sup>7-10</sup>9.</p>
+<p>For plot Like Ratio Distribution, it shows right skewed distribution. The Like Ratio of most videos is concentrated between 0-2%.</p>
+<p>For plot Comment Ratio Distribution, it shows a strong right-skewed distribution. Most videos have a comment ratio of less than 0.2%</p>
+<p>For plot Singer Popularity Distribution, it ranges from 40-100 scores. There is a clear peak at around 80.</p>
+<ul>
+<li><strong>Categorical Variables</strong>:
+<ul>
+<li>Present frequency counts and visualize distributions using bar charts or pie charts.</li>
+</ul></li>
+</ul>
+<div id="cell-10" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Genre distribution</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>genre_counts <span class="op">=</span> df[<span class="st">'genre'</span>].value_counts()</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span>genre_counts.index, y<span class="op">=</span>genre_counts.values)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Distribution of Music Genres'</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="41">
+<pre><code>([0, 1, 2, 3, 4],
+ [Text(0, 0, 'rock'),
+  Text(1, 0, 'pop'),
+  Text(2, 0, 'jazz'),
+  Text(3, 0, 'hip-pop'),
+  Text(4, 0, 'electronic')])</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-6-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Bivariate and Multivariate Analysis</strong>:</p>
+<ul>
+<li><strong>Correlation Analysis</strong>:
+<ul>
+<li>Analyze relationships between numerical variables using a correlation matrix.</li>
+<li>Visualize with heatmaps or pair plots and discuss any strong correlations.</li>
+</ul></li>
+</ul>
+<div id="cell-12" class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>numeric_cols <span class="op">=</span> [<span class="st">'singer_popularity'</span>, <span class="st">'Days Since Published'</span>, <span class="st">'Subscriber Count'</span>, </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                  <span class="st">'View Count'</span>, <span class="st">'like_ratio'</span>,<span class="st">'comment_ratio'</span>, <span class="st">'Duration_seconds'</span>, <span class="st">'Mean Sentiment Score'</span>]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>correlation_matrix <span class="op">=</span> df[numeric_cols].corr()</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create correlation heatmap</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>sns.heatmap(correlation_matrix, </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>            annot<span class="op">=</span><span class="va">True</span>, </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>            cmap<span class="op">=</span><span class="st">'coolwarm'</span>, </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>            center<span class="op">=</span><span class="dv">0</span>,  </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>            fmt<span class="op">=</span><span class="st">'.2f'</span>) </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Correlation Matrix of Numerical Variables'</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>From this plot, we observe three key positive correlations: A strong relationship between the rate of likes and comments (0.72) suggests that sticky subscriber behaviors such as likes and comments are closely related; A moderate correlation between the number of subscribers and the number of views (0.45) indicates that channels with a higher number of subscribers tend to get more views Another moderate correlation (0.41) shows that more popular artists tend to attract more channel subscribers.</p>
+<p>For negative correlations: A strong negative correlation (-0.56) between days of posting and the likes ratio demonstrates that videos posted for a longer period of time tend to have a lower likes ratio; A weak negative correlation (-0.30) between Singer_popularity and the average sentiment score interestingly suggests that more popular singers may receive lower sentiment scores in comments, which might be due to an increase in negative feedback as their popularity grows.</p>
+<p>In addition, Singer_popularity showed significant correlations with several features, making these features valuable predictors for assessing singer popularity.</p>
+<ul>
+<li><strong>Feature Pairings</strong>:
+<ul>
+<li>Analyze relationships between key variables, particularly those related to your target.</li>
+<li>Visualize with scatter plots, box plots, or violin plots.</li>
+</ul></li>
+</ul>
+<div id="cell-15" class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Feature Pairing Analysis</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Log10(View Count) vs Log10(Like Count) by Genre</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>df, </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                x<span class="op">=</span>np.log10(df[<span class="st">'View Count'</span>]), </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                y<span class="op">=</span>np.log10(df[<span class="st">'Like Count'</span>]),</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                hue<span class="op">=</span><span class="st">'genre'</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                ax<span class="op">=</span>axes[<span class="dv">0</span>, <span class="dv">0</span>])</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_title(<span class="st">'Log10(View Count) vs Log10(Like Count) by Genre'</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_xlabel(<span class="st">'Log10(View Count)'</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_ylabel(<span class="st">'Log10(Like Count)'</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Days Since Published vs Subscriber Count</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>df,</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>                x<span class="op">=</span><span class="st">'Days Since Published'</span>,</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>                y<span class="op">=</span>np.log10(df[<span class="st">'Subscriber Count'</span>] <span class="op">+</span> <span class="dv">1</span>),  <span class="co"># Log transform for scaling</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>                hue<span class="op">=</span><span class="st">'genre'</span>,</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>                ax<span class="op">=</span>axes[<span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_title(<span class="st">'Days Since Published vs Log10(Subscriber Count) by Genre'</span>)</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_xlabel(<span class="st">'Days Since Published'</span>)</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_ylabel(<span class="st">'Log10(Subscriber Count)'</span>)</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Duration vs Engagement Rate by Genre</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Engagement_Rate'</span>] <span class="op">=</span> (df[<span class="st">'Like Count'</span>] <span class="op">+</span> df[<span class="st">'Comment Count'</span>]) <span class="op">/</span> df[<span class="st">'View Count'</span>] <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>df,</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>                x<span class="op">=</span><span class="st">'Duration_seconds'</span>,</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>                y<span class="op">=</span><span class="st">'Engagement_Rate'</span>,</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>                hue<span class="op">=</span><span class="st">'genre'</span>,</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>                ax<span class="op">=</span>axes[<span class="dv">1</span>, <span class="dv">0</span>])</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_title(<span class="st">'Duration vs Engagement Rate by Genre'</span>)</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_xlabel(<span class="st">'Duration (seconds)'</span>)</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_ylabel(<span class="st">'Engagement Rate (%)'</span>)</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Singer Popularity Distribution by Genre</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df,</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span><span class="st">'genre'</span>,</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span><span class="st">'singer_popularity'</span>,</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>            ax<span class="op">=</span>axes[<span class="dv">1</span>, <span class="dv">1</span>])</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].set_title(<span class="st">'Singer Popularity Distribution by Genre'</span>)</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].set_xlabel(<span class="st">'Genre'</span>)</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].set_ylabel(<span class="st">'Singer Popularity'</span>)</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].set_xticklabels(axes[<span class="dv">1</span>, <span class="dv">1</span>].get_xticklabels(), rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: divide by zero encountered in log10
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/var/folders/qx/qwpm5zm52fzd9w3sfybpybzh0000gn/T/ipykernel_35679/4266964686.py:43: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+  axes[1, 1].set_xticklabels(axes[1, 1].get_xticklabels(), rotation=45)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-8-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>From plot Log10(View Count) vs Log10(Like Count), we can observe a strong positive correlation across all genres; Jazz music has generally low view count and like count, Pop, Hip-hop and Electronic music dominate in the high view count area, and the number of likes and view counts basically increase in a positive proportion, suggesting a consistent user behavior. The number of likes and views are basically increasing proportionally, indicating the consistency of user behavior.</p>
+<p>From plot days to release vs.&nbsp;number of subscribers (Log10), we observe that, similar to the chart of Log10 (number of views) vs.&nbsp;number of subscribers (number of likes), jazz have significantly fewer subscribers than other genres. In contrast, pop, hip-hop, rock, and electronic music typically have higher subscriber counts. The relationship between the time span of publication and the number of subscribers is not very clear and the distribution is spread out. Notably, from the dispersed distribution, the relatively low number of subscribers in the pop, hip-hop and electronic music genres compared to the other genres suggests that publication time has little effect on the number of subscribers.</p>
+<p>From plot Duration vs Engagement Rate, it can be observed that the engagement rate of most music videos is concentrated in the range of 0-4%, and the video duration is mainly concentrated in less than 1,000 seconds, which is shorter video may be more likely to get a higher engagement rate.</p>
+<p>From plot Singer Popularity Distribution, it can be observed that Hip-hop and Pop singers have the highest median popularity, Jazz singers have the lowest popularity distribution and the largest dispersion, and Electronic and Rock singers are at a medium level of popularity.</p>
+<ul>
+<li><strong>Crosstabulations</strong>:
+<ul>
+<li>For categorical variables, use crosstabs to explore relationships and visualize them with grouped bar plots.</li>
+</ul></li>
+</ul>
+<div id="cell-18" class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Cross-tabulation Analysis</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a cross-tab of genre and popularity categories</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'popularity_category'</span>] <span class="op">=</span> pd.qcut(df[<span class="st">'singer_popularity'</span>], </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                                  q<span class="op">=</span><span class="dv">3</span>, </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>                                  labels<span class="op">=</span>[<span class="st">'Low'</span>, <span class="st">'Medium'</span>, <span class="st">'High'</span>])</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Select the relevant numeric columns for cross-tabulation analysis</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>relevant_cols_for_crosstab <span class="op">=</span> [<span class="st">'singer_popularity'</span>, <span class="st">'View Count'</span>,<span class="st">'Days Since Published'</span>, <span class="st">'Mean Sentiment Score'</span>]</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a cross-tab of genre and popularity category</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>genre_popularity_crosstab <span class="op">=</span> pd.crosstab(df[<span class="st">'genre'</span>], </span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>                                       df[<span class="st">'popularity_category'</span>], </span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>                                       normalize<span class="op">=</span><span class="st">'index'</span>) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Genre-Popularity Cross-tabulation (%):"</span>)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(genre_popularity_crosstab)</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate summary statistics by genre for selected relevant columns</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>genre_summary <span class="op">=</span> df.groupby(<span class="st">'genre'</span>).agg({</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">'singer_popularity'</span>: <span class="st">'mean'</span>,</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">'View Count'</span>: <span class="st">'mean'</span>,</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">'like_ratio'</span>: <span class="st">'mean'</span>,</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">'comment_ratio'</span>: <span class="st">'mean'</span>,</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Mean Sentiment Score'</span>: <span class="st">'mean'</span>,</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>}).<span class="bu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Summary Statistics by Genre:"</span>)</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(genre_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Genre-Popularity Cross-tabulation (%):
+popularity_category        Low     Medium       High
+genre                                               
+electronic           57.894737  42.105263   0.000000
+hip-pop              12.857143  24.285714  62.857143
+jazz                 86.111111   6.944444   6.944444
+pop                   4.545455  38.636364  56.818182
+rock                 19.318182  55.681818  25.000000
+
+Summary Statistics by Genre:
+            singer_popularity    View Count  like_ratio  comment_ratio  \
+genre                                                                    
+electronic              78.04  4.812136e+08        1.25           0.05   
+hip-pop                 86.93  2.120770e+08        1.73           0.10   
+jazz                    63.74  1.062045e+07        1.26           0.05   
+pop                     87.49  6.973413e+08        1.15           0.06   
+rock                    82.09  3.915309e+08        0.69           0.03   
+
+            Mean Sentiment Score  
+genre                             
+electronic                  0.27  
+hip-pop                     0.18  
+jazz                        0.47  
+pop                         0.32  
+rock                        0.37  </code></pre>
+</div>
+</div>
+<p>The Genre-Popularity crosstab shows that Hip-hop and Pop are the strongest performers, Rock is in the middle of the pack, while Electronic and Jazz are weak.</p>
+<p>According to the summary statistics by genre, we can see that Pop has the highest View Count and singer_popularity. In terms of interaction metrics, Hip-hop has the highest interaction rate, while Rock has the lowest. As for the Mean Sentiment Score, the rankings are Jazz, Rock, Electronic and Hip-hop.</p>
+<p><strong>Data Distribution and Normalization</strong>:</p>
+<ul>
+<li><strong>Skewness and Kurtosis</strong>:</li>
+<li>Analyze and discuss the distribution of variables.</li>
+<li>Apply transformations (e.g., log transformation) if needed for skewed data.</li>
+<li><strong>Normalization</strong>:</li>
+<li>Apply normalization or scaling techniques (e.g., min-max scaling, z-score).</li>
+<li>Document and visualize the impact of normalization.</li>
+</ul>
+<div id="cell-21" class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler, MinMaxScaler</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Calculate Skewness and Kurtosis</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Skewness and Kurtosis Analysis:"</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> numeric_cols:</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    skew <span class="op">=</span> stats.skew(df[col].dropna())</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    kurt <span class="op">=</span> stats.kurtosis(df[col].dropna())</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">:"</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Skewness: </span><span class="sc">{</span>skew<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Kurtosis: </span><span class="sc">{</span>kurt<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> skew <span class="op">&gt;</span> <span class="dv">1</span> <span class="kw">or</span> skew <span class="op">&lt;</span> <span class="op">-</span><span class="dv">1</span>:  <span class="co"># Heavily skewed data</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>        df[<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">_log'</span>] <span class="op">=</span> np.log1p(df[col])  <span class="co"># log(1 + value) to avoid log(0)</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Log Transformation Applied to </span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Skewness and Kurtosis Analysis:
+
+singer_popularity:
+Skewness: -1.24
+Kurtosis: 2.09
+Log Transformation Applied to singer_popularity
+
+Days Since Published:
+Skewness: -0.20
+Kurtosis: -1.33
+
+Subscriber Count:
+Skewness: 2.39
+Kurtosis: 6.14
+Log Transformation Applied to Subscriber Count
+
+View Count:
+Skewness: 3.68
+Kurtosis: 18.98
+Log Transformation Applied to View Count
+
+like_ratio:
+Skewness: 4.72
+Kurtosis: 33.35
+Log Transformation Applied to like_ratio
+
+comment_ratio:
+Skewness: 5.67
+Kurtosis: 45.55
+Log Transformation Applied to comment_ratio
+
+Duration_seconds:
+Skewness: 8.98
+Kurtosis: 86.03
+Log Transformation Applied to Duration_seconds
+
+Mean Sentiment Score:
+Skewness: -0.09
+Kurtosis: -0.36</code></pre>
+</div>
+</div>
+<div id="cell-22" class="cell" data-execution_count="70">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Normalization (Min-Max and Z-score scaling)</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>scaler_minmax <span class="op">=</span> MinMaxScaler()</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>scaler_standard <span class="op">=</span> StandardScaler()</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply Min-Max scaling to numeric columns</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>df_minmax <span class="op">=</span> df.copy()</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>df_minmax[numeric_cols] <span class="op">=</span> scaler_minmax.fit_transform(df_minmax[numeric_cols])</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply Z-score normalization to numeric columns</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>df_standard <span class="op">=</span> df.copy()</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>df_standard[numeric_cols] <span class="op">=</span> scaler_standard.fit_transform(df_standard[numeric_cols])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-23" class="cell" data-execution_count="79">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Visualize the impact of normalization for all numeric columns</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">13</span>,<span class="dv">12</span>))</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the original, Min-Max scaled, and Z-score normalized distributions for each numeric column</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, col <span class="kw">in</span> <span class="bu">enumerate</span>(numeric_cols, start<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Original distribution</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="bu">len</span>(numeric_cols), <span class="dv">3</span>, i<span class="op">*</span><span class="dv">3</span><span class="op">-</span><span class="dv">2</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    sns.histplot(df[col], kde<span class="op">=</span><span class="va">True</span>, color<span class="op">=</span><span class="st">'blue'</span>, bins<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f'Original </span><span class="sc">{</span>col<span class="sc">}</span><span class="ss"> Distribution'</span>)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Min-Max scaled distribution</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="bu">len</span>(numeric_cols), <span class="dv">3</span>, i<span class="op">*</span><span class="dv">3</span><span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    sns.histplot(df_minmax[col], kde<span class="op">=</span><span class="va">True</span>, color<span class="op">=</span><span class="st">'green'</span>, bins<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f'Min-Max Scaled </span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Z-score normalized distribution</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="bu">len</span>(numeric_cols), <span class="dv">3</span>, i<span class="op">*</span><span class="dv">3</span>)</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    sns.histplot(df_standard[col], kde<span class="op">=</span><span class="va">True</span>, color<span class="op">=</span><span class="st">'red'</span>, bins<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f'Z-score Normalized </span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Statistical Insights</strong>:</p>
+<ul>
+<li>Conduct basic statistical tests (e.g., T-tests, ANOVA, chi-square) to explore relationships between variables.</li>
+<li>Summarize the statistical results and their implications for your analysis.</li>
+</ul>
+<div id="cell-25" class="cell" data-execution_count="102">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA test for view counts across genres</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> f_oneway</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>genres <span class="op">=</span> df[<span class="st">'Genre'</span>].unique()</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>genre_views <span class="op">=</span> [df[df[<span class="st">'Genre'</span>] <span class="op">==</span> genre][<span class="st">'View Count'</span>] <span class="cf">for</span> genre <span class="kw">in</span> genres]</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>f_stat, p_value <span class="op">=</span> f_oneway(<span class="op">*</span>genre_views)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== One-way ANOVA Test for View Count Across Genres ==="</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"F-statistic: </span><span class="sc">{</span>f_stat<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"p-value: </span><span class="sc">{</span>p_value<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>like_ratio_bins <span class="op">=</span> df[<span class="st">'like_ratio'</span>].unique()</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>like_ratio_views <span class="op">=</span> [df[df[<span class="st">'like_ratio'</span>] <span class="op">==</span> like_ratio][<span class="st">'View Count'</span>] <span class="cf">for</span> like_ratio <span class="kw">in</span> like_ratio_bins]</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>f_stat_like_ratio, p_value_like_ratio <span class="op">=</span> f_oneway(<span class="op">*</span>like_ratio_views)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== One-way ANOVA Test for View Count Across Like Ratio ==="</span>)</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"F-statistic: </span><span class="sc">{</span>f_stat_like_ratio<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"p-value: </span><span class="sc">{</span>p_value_like_ratio<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+=== One-way ANOVA Test for View Count Across Genres ===
+F-statistic: 11.9445
+p-value: 3.871891640564041e-09
+
+=== One-way ANOVA Test for View Count Across Like Ratio ===
+F-statistic: 12.005339777316456
+p-value: 0.07990432736153048</code></pre>
+</div>
+</div>
+<p>For the one-way ANOVA: Genres vs View Count the results showed an F-value of 11.9445 while the p-value was 3.87e-09, which is much less than 0.05. This indicates that there is a statistically significant difference in video viewership across music genres.</p>
+<p>For the one-way ANOVA: Like Ratio vs View Count , an F value of 12.0053 was obtained, but the p-value was 0.0799, which is greater than 0.05, which suggests that there may be a certain correlation between the LIKE Ratio and the amount of viewing, but from a statistical point of view, this difference is not statistically significant.</p>
+<div id="cell-27" class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># T-test for 'View Count' based on 'mean_sentiment_score'</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> ttest_ind</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>median_sentiment <span class="op">=</span> df[<span class="st">'Mean Sentiment Score'</span>].median()</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>high_sentiment <span class="op">=</span> df[df[<span class="st">'Mean Sentiment Score'</span>] <span class="op">&gt;</span> median_sentiment][<span class="st">'View Count'</span>]</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>low_sentiment <span class="op">=</span> df[df[<span class="st">'Mean Sentiment Score'</span>] <span class="op">&lt;=</span> median_sentiment][<span class="st">'View Count'</span>]</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co"># T-test for 'View Count' based on 'mean_sentiment_score'</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>t_stat_sentiment, p_value_sentiment <span class="op">=</span> ttest_ind(high_sentiment, low_sentiment)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== T-test for View Count Based on Mean Sentiment Score ==="</span>)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"T-statistic: </span><span class="sc">{</span>t_stat_sentiment<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"p-value: </span><span class="sc">{</span>p_value_sentiment<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+=== T-test for View Count Based on Mean Sentiment Score ===
+T-statistic: -2.6437887108864815
+p-value: 0.008544340977117903</code></pre>
+</div>
+</div>
+<p>As for T-test: View Count vs Mean Sentiment Score,p-value of 0.0085, which is less than 0.05, suggesting that differences in sentiment scores do indeed make a significant difference in viewings. The negative t-value further implies that there may be a negative correlation.</p>
+<p><strong>Data Visualization and Storytelling</strong>:</p>
+<ul>
+<li><strong>Visual Summary</strong>:</li>
+<li>Present key insights using charts and visualizations (e.g., Matplotlib, Seaborn, Plotly).</li>
+<li>Ensure all visualizations are well-labeled and easy to interpret.</li>
+</ul>
+<div id="cell-30" class="cell" data-execution_count="103">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Statistical Tests and Visualizations for Engagement Metrics</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> analyze_engagement_metrics():</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate engagement rate</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'engagement_rate'</span>] <span class="op">=</span> (df[<span class="st">'Like Count'</span>] <span class="op">+</span> df[<span class="st">'Comment Count'</span>]) <span class="op">/</span> df[<span class="st">'View Count'</span>] <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create visualization for engagement metrics</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">12</span>))</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Scatter plot: Views vs Likes with regression line</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    sns.regplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'View Count'</span>, y<span class="op">=</span><span class="st">'Like Count'</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>,<span class="dv">0</span>])</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>,<span class="dv">0</span>].set_title(<span class="st">'Correlation: Views vs Likes'</span>)</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate correlation</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    correlation <span class="op">=</span> df[<span class="st">'View Count'</span>].corr(df[<span class="st">'Like Count'</span>])</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Correlation between Views and Likes: </span><span class="sc">{</span>correlation<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Box plot: Engagement rate by genre</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>    sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'genre'</span>, y<span class="op">=</span><span class="st">'engagement_rate'</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>,<span class="dv">1</span>])</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>,<span class="dv">1</span>].set_title(<span class="st">'Engagement Rate by Genre'</span>)</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>,<span class="dv">1</span>].tick_labels <span class="op">=</span> rotation<span class="op">=</span><span class="dv">45</span></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Violin plot: Sentiment distribution by genre</span></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>    sns.violinplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'genre'</span>, y<span class="op">=</span><span class="st">'Mean Sentiment Score'</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>,<span class="dv">0</span>])</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>,<span class="dv">0</span>].set_title(<span class="st">'Sentiment Distribution by Genre'</span>)</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>,<span class="dv">0</span>].tick_labels <span class="op">=</span> rotation<span class="op">=</span><span class="dv">45</span></span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Scatter plot: Duration vs Views</span></span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>    sns.scatterplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'Duration_seconds'</span>, y<span class="op">=</span><span class="st">'View Count'</span>, hue<span class="op">=</span><span class="st">'genre'</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>,<span class="dv">1</span>])</span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>,<span class="dv">1</span>].set_title(<span class="st">'Duration vs Views by Genre'</span>)</span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fig</span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> analyze_engagement_metrics()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Correlation between Views and Likes: 0.931</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="main_files/figure-html/cell-15-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In the terms of music genre, we can observe some interesting trends.Hip-hop has higher interaction rates but lower sentiment scores, indicates that despite frequent and positive viewer reactions and interactions to Hip-hop MVs, the comments or sentiment expressed in these videos may be more negatively charged. On the other hand, Jazz has lower view count but higher affective sentiment score, suggesting that despite fewer plays of this type of video, viewers generally rate its content more favorably, with more positive affective tendencies. This also reflects the fact that Jazz’s viewer base, although smaller, has a higher appreciation of the content.</p>
+<p>For Pop, the view count is very high and the affective scores are at a medium level, showing that Pop music has a wide acceptance and popularity among viewers, and although the emotional expression is not as extreme as that of Jazz, it is still able to attract a large number of viewers.Rock, on the other hand, exhibits a more stable interaction rate and medium affective scores, which means that the Rock category has a relatively balanced audience base with a stable level of interaction, but its affective responses and affective scores are more positive. level is stable, but its emotional response is not as intense as Hip-hop.</p>
+<p>As for Electronic, has a higher number of views but a lower interaction rate, reflecting that although music videos of Electronic music can attract a large number of viewers, the sense of audience engagement and interactive behavior is lower, probably because the audience group of this type of music is less interested in interaction and watches it more as background music.</p>
+<p>All in all, we can conclude that an increase in the view count usually leads to an increase in the like count. Meanwhile, short videos are more likely to inspire user interaction and sharing due to their short and concise nature, which coincides with the current hot trend of short video platforms.</p>
+<p>Despite Jazz’s better performance in sentiment scores and content ratings, its play count is generally low, which indicates that this music style has a more niche audience and is only enjoyed by specific groups. Pop and Electronic music videos, on the other hand, typically have higher plays, suggesting that if one wishes to create music content that is popular and can be distributed quickly, choosing the Pop or Electronic genres will undoubtedly be a more attractive option.</p>
+<p><strong>Conclusions and Next Steps</strong>:</p>
+<ul>
+<li><strong>Summary of EDA Findings</strong>:</li>
+<li>Highlight the main takeaways from the EDA process (key trends, patterns, data quality issues).</li>
+<li><strong>Implications for Modeling</strong>:</li>
+<li>Discuss how your EDA informs the next steps in your project (e.g., feature selection, data transformations).</li>
+<li>Outline any further data cleaning or preparation required before moving into modeling.</li>
+</ul>
+<p>In addition to the findings in the previous section, we can also observe some trends and conclusions. First, both the like and comment rates show a heavily right-skewed distribution, implying that most music videos have a relatively small like count and comment count, while a few videos generate a large number of likes and comments, which is in line with the common pattern of interactions on social platforms: only a very small amount of content generates a wide range of attention and interactions. Meanwhile, the interaction rate is negatively correlated with video duration, which reflects an interesting phenomenon. Longer duration videos tend to lead to a decrease in viewers’ willingness to interact, probably because longer videos tend to fatigue viewers, while shorter videos are more likely to stimulate users’ attention and interaction.</p>
+<p>In the correlation analysis of viewership, we find that it is moderately positively correlated with the number of subscribers, suggesting that the more subscribers a channel has, the higher the view count of the video is usually, which is consistent with our intuitive experience that the more popular a channel is, the more viewers will watch new videos accordingly. On the other hand, view count shows a weak positive correlation with singer_popularity and although this correlation is not strong, it implies that an singer popularity may have some effect on the viewership of his or her videos. It is worth noting that shorter videos are more likely to receive a higher number of views, which is in line with the current characteristics of user behavior on social platforms, especially short video platforms-users prefer to watch short and concise content.</p>
+<p>From the analysis of each music genre, we can also see that the sentiment scores of different genres differ significantly. When we conduct regression analysis, we can use the above observed characteristics as the main variables for modeling. First, genre is a key categorization feature that can effectively help us classify different types of music videos, affecting behaviors such as the view count and engagement rate. Second, video duration is also an important factor, but it may have a non-linear relationship with other features, so the effect of video duration needs to be specifically addressed in the modeling. The number of subscribers, as a reflection of the channel’s popularity, has a direct impact on the number of video views and should be used as one of the important input features. Singer popularity, on the other hand, can further help us analyze and predict video performance, especially when we want to delve into the role of singer influence on video interaction.</p>
 
 
 </section>
