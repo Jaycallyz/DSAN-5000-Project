@@ -59,3 +59,82 @@ Apply clustering techniques (K-Means, DBSCAN, and Hierarchical clustering) to a 
 3. **Conclusion:**
    - Summarize the key findings and their real-world implications in a non-technical way. Focus on the most important results and how they could apply to practical situations.
 
+## PCA
+```{python}
+import pandas as pd
+from sklearn.decomposition import PCA
+from sklearn.manifold import TSNE
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import StandardScaler
+
+# Load the dataset
+df = pd.read_csv('../../data/processed-data/Normalized_Data_with_Sentiments.csv')
+
+# Specify the feature columns
+features = [
+    'Days Since Published', 'View Count', 'Like Count', 'Comment Count',
+    'Subscriber Count', 'Definition', 'Mean Sentiment Score',
+    'Duration_seconds', 'genre_label', 'singer_followers', 'singer_popularity'
+]
+
+# Ensure the target column 'popularity' exists in DataFrame
+if 'Popularity' not in df.columns:
+    raise ValueError("The 'popularity' column is missing from the DataFrame.")
+
+# Split into input (X) and target (y)
+X = df[features]  # Inputs
+y = df['Popularity']  # Target
+
+# Applying PCA
+pca = PCA(n_components=3)  # Reduce to 4 dimensions for visualization
+X_pca = pca.fit_transform(X)
+# How much variance was retained?
+print("Explained Variance Ratio:", pca.explained_variance_ratio_)
+print("Total Variance Explained:", sum(pca.explained_variance_ratio_))
+```
+## t-SNE
+```{python}
+perplexities = [5, 30, 50, 100]
+fig, ax = plt.subplots(2, 2, figsize=(15, 10))
+for i, perplexity in enumerate(perplexities):
+    # Applying t-SNE
+    tsne = TSNE(n_components=2, perplexity=perplexity, n_iter=3000, random_state=42)
+    X_tsne = tsne.fit_transform(X)
+
+    # Plotting
+    ax[i//2, i%2].scatter(X_tsne[:, 0], X_tsne[:, 1], c=y, cmap='viridis', marker='o', alpha=0.5)
+    ax[i//2, i%2].set_title(f't-SNE with Perplexity={perplexity}')
+    ax[i//2, i%2].set_xlabel('t-SNE Feature 1')
+    ax[i//2, i%2].set_ylabel('t-SNE Feature 2')
+
+plt.tight_layout()
+plt.show()
+```
+
+## Evaluation and Comparison: PCA vs. t-SNE
+
+### Effectiveness in Preserving Data Structure
+
+- **PCA:** The PCA visualization shows a somewhat linear distribution of the data points, focusing on the major directions of data variance. It effectively captures the global structure of the data, emphasizing the spread along the directions of highest variance.
+
+- **t-SNE:** In contrast, the t-SNE visualization exhibits a more scattered and differentiated structure with distinct clusters. This indicates t-SNE's superior capability in capturing local structures within the data, potentially revealing intrinsic patterns that PCA might overlook.
+
+#### Visualization Capabilities
+
+- **PCA:** Provides a simplified overview, projecting the data into lower dimensions while trying to preserve the variance. It's effective for quick explorations of the data to identify gross underlying patterns but might miss finer details.
+
+- **t-SNE:** Produces more visually distinct clusters, making it easier to identify groups and patterns within the data. This makes t-SNE a better tool for tasks requiring detailed pattern recognition and cluster analysis.
+
+#### Trade-offs and Scenarios
+
+- **PCA:**
+  - **Pros:** Less computationally intensive, suitable for larger datasets, provides a quick overview.
+  - **Cons:** Might miss non-linear relationships between features.
+  - **Best for:** Preliminary data analysis, reducing dimensionality for linear data, or when computational resources are limited.
+
+- **t-SNE:**
+  - **Pros:** Captures complex non-linear relationships, excellent for identifying clusters and local patterns.
+  - **Cons:** Computationally expensive, sensitive to parameter settings (like perplexity), not suitable for very large datasets.
+  - **Best for:** Detailed exploratory data analysis, when clusters or local patterns within the data are of interest, and computational resources are adequate.
+
+Both PCA and t-SNE offer valuable insights, but their applicability depends on the specific needs of the analysis. PCA can serve as a good starting point for linear dimensionality reduction, while t-SNE is more suited for in-depth analysis requiring detailed cluster identification.
