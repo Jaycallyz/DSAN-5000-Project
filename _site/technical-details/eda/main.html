@@ -188,9 +188,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a>
   <ul class="collapse">
   <li><a href="#suggested-page-structure" id="toc-suggested-page-structure" class="nav-link" data-scroll-target="#suggested-page-structure">Suggested page structure</a></li>
+  </ul></li>
+  <li><a href="#introduction-and-motivation" id="toc-introduction-and-motivation" class="nav-link" data-scroll-target="#introduction-and-motivation">Introduction and Motivation:</a></li>
+  <li><a href="#overview-of-methods" id="toc-overview-of-methods" class="nav-link" data-scroll-target="#overview-of-methods">Overview of Methods</a>
+  <ul class="collapse">
   <li><a href="#what-to-address" id="toc-what-to-address" class="nav-link" data-scroll-target="#what-to-address">What to address</a></li>
   </ul></li>
   <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  <li><a href="#conclusions-and-next-steps" id="toc-conclusions-and-next-steps" class="nav-link" data-scroll-target="#conclusions-and-next-steps">Conclusions and Next Steps:</a></li>
   </ul>
 </nav>
     </div>
@@ -225,13 +230,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="suggested-page-structure">Suggested page structure</h2>
 <p>Here’s one suggested structure for organizing your technical pages. You can adjust this as needed:</p>
 <p><code>Audience</code>:Remember that these are written for a technical audience. Assume they have completed the DSAN program, but would appreciate refreshers of the important concepts.</p>
+</section>
+</section>
+<section id="introduction-and-motivation" class="level1">
+<h1>Introduction and Motivation:</h1>
+<p>This eda section focuses primarily on examining the relationship between track popularity, mv’s view count and youtube related factors. By analyzing the trends and correlations between these variables, we want to find which YouTube factors have a significant impact on Spotify track popularity,view count? This analysis can help us better understand the cross-platform interaction mechanism of the music market and provide data support for music promotion strategies.</p>
+</section>
+<section id="overview-of-methods" class="level1">
+<h1>Overview of Methods</h1>
+<p>For Univariate Analysis, we use summary statistics to provide an overview of central tendencies and spread. Distributions were visualized using histograms with KDE (Kernel Density Estimation) overlays for key metrics such as the logarithm of View Count, like_ratio, comment_ratio and singer_popularity. For categorical variables, the distribution of music genres is examined using a bar plot, highlighting the frequency of each genre.</p>
+<p>For Bivariate and Multivariate Analysis, we employ correlation analysis, visualization, and statistical summarization to explore relationships in the dataset. It calculates a correlation matrix to identify linear relationships between numerical variables and uses a heatmap for visualization. Scatterplots analyze pairwise relationships like logarithmic popularity and like count, days since published and subscriber count, and engagement rate versus duration, with genre as a categorical hue. A boxplot examines the distribution of singer popularity across genres. Cross-tabulation categorizes singer popularity into three levels (low, medium, high) and calculates genre-wise percentages, while groupby summarization provides mean values of key metrics by genre.</p>
+<p>For Data Distribution and Normalization, We use skewness and kurtosis to assess the distribution of numeric variables. For heavily skewed data, log transformation was applied to reduce skewness. Normalization techniques were implemented, including Min-Max scaling to scale values between 0 and 1 and Z-score normalization to standardize data with a mean of 0 and a standard deviation of 1. The impact of these transformations was visualized using histograms for original, Min-Max scaled, and Z-score normalized distributions, highlighting changes in data distribution.</p>
+<p>For Statistical Insights, Our method includes ANOVA and T-tests. One-way ANOVA was applied to compare means of ‘View Count’ across different genres, ‘Popularity’ across various durations, and ‘View Count’ across like ratio bins, providing F-statistics and p-values to assess significant differences. Additionally, a T-test was conducted to evaluate’View Count’ based on the median of ‘Mean Sentiment Score.’</p>
+<p>For Visual Summary, An engagement rate was calculated as the combined percentage of likes and comments relative to views. To explore relationships, scatter plots with regression lines were used to assess the correlation between popularity and likes, while a box plot examined engagement rates across genres. A violin plot visualized the distribution of sentiment scores by genre, and a scatter plot highlighted the relationship between video duration and views, categorized by genre.</p>
 <ul>
-<li><strong>Introduction and Motivation:</strong> Briefly outline your plan. What are you doing on this page, and why? Provide context and explain the goals of your analysis.</li>
-<li><strong>Overview of Methods:</strong> Give a concise explanation of the methods used. For example, if using K-Means clustering, describe what it is, how it works, the inputs and outputs, and key hyperparameters.</li>
 <li><strong>Code:</strong> Include the code you used to implement your workflow.</li>
 <li><strong>Summary and Interpretation of Results:</strong> Summarize your findings, interpret the results, and discuss their technical implications.</li>
 </ul>
-</section>
 <section id="what-to-address" class="level2">
 <h2 class="anchored" data-anchor-id="what-to-address">What to address</h2>
 <p>The following is a list of some of the things you should address on this page. This list is not exhaustive, and you should use your judgment to decide what is most relevant to your project.</p>
@@ -372,7 +387,7 @@ min           21.000000             -0.336767
 max         4835.000000              0.817367  </code></pre>
 </div>
 </div>
-<div id="cell-7" class="cell">
+<div id="cell-7" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># subplot1: Distribution of Log10(View Count)</span></span>
@@ -447,9 +462,9 @@ max         4835.000000              0.817367  </code></pre>
 <li>Visualize with heatmaps or pair plots and discuss any strong correlations.</li>
 </ul></li>
 </ul>
-<div id="cell-12" class="cell">
+<div id="cell-12" class="cell" data-execution_count="106">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>numeric_cols <span class="op">=</span> [<span class="st">'singer_popularity'</span>, <span class="st">'Days Since Published'</span>, <span class="st">'Subscriber Count'</span>, </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                  <span class="st">'View Count'</span>, <span class="st">'like_ratio'</span>,<span class="st">'comment_ratio'</span>, <span class="st">'Duration_seconds'</span>, <span class="st">'Mean Sentiment Score'</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                  <span class="st">'View Count'</span>, <span class="st">'like_ratio'</span>,<span class="st">'comment_ratio'</span>, <span class="st">'Duration_seconds'</span>, <span class="st">'Mean Sentiment Score'</span>,<span class="st">'Popularity'</span>]</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>correlation_matrix <span class="op">=</span> df[numeric_cols].corr()</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create correlation heatmap</span></span>
@@ -469,7 +484,7 @@ max         4835.000000              0.817367  </code></pre>
 </div>
 </div>
 </div>
-<p>From this plot, we observe three key positive correlations: A strong relationship between the rate of likes and comments (0.72) suggests that sticky subscriber behaviors such as likes and comments are closely related; A moderate correlation between the number of subscribers and the number of views (0.45) indicates that channels with a higher number of subscribers tend to get more views Another moderate correlation (0.41) shows that more popular artists tend to attract more channel subscribers.</p>
+<p>From this plot, we observe three key positive correlations: A strong relationship between the rate of likes and comments (0.72) suggests that sticky subscriber behaviors such as likes and comments are closely related. And correlation (0.72) between Singer_popularity and Popularity: reflects the consistency of the scoring system, suggesting that the two metrics may be measuring similar popularity dimensions A moderate correlation between the number of subscribers and the number of views (0.45) indicates that channels with a higher number of subscribers tend to get more views. Another moderate correlation (0.41) shows that more popular artists tend to attract more channel subscribers.</p>
 <p>For negative correlations: A strong negative correlation (-0.56) between days of posting and the likes ratio demonstrates that videos posted for a longer period of time tend to have a lower likes ratio; A weak negative correlation (-0.30) between Singer_popularity and the average sentiment score interestingly suggests that more popular singers may receive lower sentiment scores in comments, which might be due to an increase in negative feedback as their popularity grows.</p>
 <p>In addition, Singer_popularity showed significant correlations with several features, making these features valuable predictors for assessing singer popularity.</p>
 <ul>
@@ -479,18 +494,18 @@ max         4835.000000              0.817367  </code></pre>
 <li>Visualize with scatter plots, box plots, or violin plots.</li>
 </ul></li>
 </ul>
-<div id="cell-15" class="cell" data-execution_count="48">
+<div id="cell-15" class="cell" data-execution_count="108">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Feature Pairing Analysis</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Log10(View Count) vs Log10(Like Count) by Genre</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Log10(Popularity) vs Log10(Like Count) by Genre</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>df, </span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                x<span class="op">=</span>np.log10(df[<span class="st">'View Count'</span>]), </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                x<span class="op">=</span>np.log10(df[<span class="st">'Popularity'</span>]), </span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                y<span class="op">=</span>np.log10(df[<span class="st">'Like Count'</span>]),</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                hue<span class="op">=</span><span class="st">'genre'</span>,</span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                ax<span class="op">=</span>axes[<span class="dv">0</span>, <span class="dv">0</span>])</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_title(<span class="st">'Log10(View Count) vs Log10(Like Count) by Genre'</span>)</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_xlabel(<span class="st">'Log10(View Count)'</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_title(<span class="st">'Log10(Popularity) vs Log10(Like Count) by Genre'</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_xlabel(<span class="st">'Log10(Popularity)'</span>)</span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_ylabel(<span class="st">'Log10(Like Count)'</span>)</span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Days Since Published vs Subscriber Count</span></span>
@@ -529,7 +544,7 @@ max         4835.000000              0.817367  </code></pre>
 <div class="cell-output cell-output-stderr">
 <pre><code>/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: divide by zero encountered in log10
   result = getattr(ufunc, method)(*inputs, **kwargs)
-/var/folders/qx/qwpm5zm52fzd9w3sfybpybzh0000gn/T/ipykernel_35679/4266964686.py:43: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
+/var/folders/qx/qwpm5zm52fzd9w3sfybpybzh0000gn/T/ipykernel_35679/2832034967.py:43: UserWarning: set_ticklabels() should only be used with a fixed number of ticks, i.e. after set_ticks() or using a FixedLocator.
   axes[1, 1].set_xticklabels(axes[1, 1].get_xticklabels(), rotation=45)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -540,7 +555,7 @@ max         4835.000000              0.817367  </code></pre>
 </div>
 </div>
 </div>
-<p>From plot Log10(View Count) vs Log10(Like Count), we can observe a strong positive correlation across all genres; Jazz music has generally low view count and like count, Pop, Hip-hop and Electronic music dominate in the high view count area, and the number of likes and view counts basically increase in a positive proportion, suggesting a consistent user behavior. The number of likes and views are basically increasing proportionally, indicating the consistency of user behavior.</p>
+<p>From plot Log10(Popularity) and Log10(Like Count) show a strong positive correlation between genres.Jazz has a lower popularity and like count, concentrated in the lower left corner of the plot. In contrast, Pop, Hip-hop and Electronic music occupy the upper right region, with higher popularity and more likes, while Rock is more evenly distributed. Overall, the relationship is close to linear on a logarithmic scale, indicating that the more popular a song is, the more the number of likes increases exponentially, with some fluctuations.</p>
 <p>From plot days to release vs.&nbsp;number of subscribers (Log10), we observe that, similar to the chart of Log10 (number of views) vs.&nbsp;number of subscribers (number of likes), jazz have significantly fewer subscribers than other genres. In contrast, pop, hip-hop, rock, and electronic music typically have higher subscriber counts. The relationship between the time span of publication and the number of subscribers is not very clear and the distribution is spread out. Notably, from the dispersed distribution, the relatively low number of subscribers in the pop, hip-hop and electronic music genres compared to the other genres suggests that publication time has little effect on the number of subscribers.</p>
 <p>From plot Duration vs Engagement Rate, it can be observed that the engagement rate of most music videos is concentrated in the range of 0-4%, and the video duration is mainly concentrated in less than 1,000 seconds, which is shorter video may be more likely to get a higher engagement rate.</p>
 <p>From plot Singer Popularity Distribution, it can be observed that Hip-hop and Pop singers have the highest median popularity, Jazz singers have the lowest popularity distribution and the largest dispersion, and Electronic and Rock singers are at a medium level of popularity.</p>
@@ -550,7 +565,7 @@ max         4835.000000              0.817367  </code></pre>
 <li>For categorical variables, use crosstabs to explore relationships and visualize them with grouped bar plots.</li>
 </ul></li>
 </ul>
-<div id="cell-18" class="cell" data-execution_count="50">
+<div id="cell-18" class="cell" data-execution_count="109">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Cross-tabulation Analysis</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a cross-tab of genre and popularity categories</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'popularity_category'</span>] <span class="op">=</span> pd.qcut(df[<span class="st">'singer_popularity'</span>], </span>
@@ -619,7 +634,7 @@ rock                        0.37  </code></pre>
 <li>Apply normalization or scaling techniques (e.g., min-max scaling, z-score).</li>
 <li>Document and visualize the impact of normalization.</li>
 </ul>
-<div id="cell-21" class="cell">
+<div id="cell-21" class="cell" data-execution_count="110">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler, MinMaxScaler</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Calculate Skewness and Kurtosis</span></span>
@@ -672,10 +687,15 @@ Log Transformation Applied to Duration_seconds
 
 Mean Sentiment Score:
 Skewness: -0.09
-Kurtosis: -0.36</code></pre>
+Kurtosis: -0.36
+
+Popularity:
+Skewness: -1.27
+Kurtosis: 1.42
+Log Transformation Applied to Popularity</code></pre>
 </div>
 </div>
-<div id="cell-22" class="cell" data-execution_count="70">
+<div id="cell-22" class="cell" data-execution_count="111">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Normalization (Min-Max and Z-score scaling)</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>scaler_minmax <span class="op">=</span> MinMaxScaler()</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>scaler_standard <span class="op">=</span> StandardScaler()</span>
@@ -688,7 +708,7 @@ Kurtosis: -0.36</code></pre>
 <span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>df_standard <span class="op">=</span> df.copy()</span>
 <span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>df_standard[numeric_cols] <span class="op">=</span> scaler_standard.fit_transform(df_standard[numeric_cols])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-23" class="cell" data-execution_count="79">
+<div id="cell-23" class="cell" data-execution_count="112">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Visualize the impact of normalization for all numeric columns</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">13</span>,<span class="dv">12</span>))</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -724,27 +744,39 @@ Kurtosis: -0.36</code></pre>
 <li>Conduct basic statistical tests (e.g., T-tests, ANOVA, chi-square) to explore relationships between variables.</li>
 <li>Summarize the statistical results and their implications for your analysis.</li>
 </ul>
-<div id="cell-25" class="cell" data-execution_count="102">
+<div id="cell-25" class="cell" data-execution_count="118">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA test for view counts across genres</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> f_oneway</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>genres <span class="op">=</span> df[<span class="st">'Genre'</span>].unique()</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>genre_views <span class="op">=</span> [df[df[<span class="st">'Genre'</span>] <span class="op">==</span> genre][<span class="st">'View Count'</span>] <span class="cf">for</span> genre <span class="kw">in</span> genres]</span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>f_stat, p_value <span class="op">=</span> f_oneway(<span class="op">*</span>genre_views)</span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== One-way ANOVA Test for View Count Across Genres ==="</span>)</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"F-statistic: </span><span class="sc">{</span>f_stat<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"F-statistic: </span><span class="sc">{</span>f_stat<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"p-value: </span><span class="sc">{</span>p_value<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>like_ratio_bins <span class="op">=</span> df[<span class="st">'like_ratio'</span>].unique()</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>like_ratio_views <span class="op">=</span> [df[df[<span class="st">'like_ratio'</span>] <span class="op">==</span> like_ratio][<span class="st">'View Count'</span>] <span class="cf">for</span> like_ratio <span class="kw">in</span> like_ratio_bins]</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>f_stat_like_ratio, p_value_like_ratio <span class="op">=</span> f_oneway(<span class="op">*</span>like_ratio_views)</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== One-way ANOVA Test for View Count Across Like Ratio ==="</span>)</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"F-statistic: </span><span class="sc">{</span>f_stat_like_ratio<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"p-value: </span><span class="sc">{</span>p_value_like_ratio<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>genres <span class="op">=</span> df[<span class="st">'Duration_seconds'</span>].unique()</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>genre_views <span class="op">=</span> [df[df[<span class="st">'Duration_seconds'</span>] <span class="op">==</span> genre][<span class="st">'Popularity'</span>] <span class="cf">for</span> genre <span class="kw">in</span> genres]</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>f_stat, p_value <span class="op">=</span> f_oneway(<span class="op">*</span>genre_views)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== One-way ANOVA Test for Popularity Across Duration_seconds==="</span>)</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"F-statistic: </span><span class="sc">{</span>f_stat<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"p-value: </span><span class="sc">{</span>p_value<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>like_ratio_bins <span class="op">=</span> df[<span class="st">'like_ratio'</span>].unique()</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>like_ratio_views <span class="op">=</span> [df[df[<span class="st">'like_ratio'</span>] <span class="op">==</span> like_ratio][<span class="st">'View Count'</span>] <span class="cf">for</span> like_ratio <span class="kw">in</span> like_ratio_bins]</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>f_stat_like_ratio, p_value_like_ratio <span class="op">=</span> f_oneway(<span class="op">*</span>like_ratio_views)</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== One-way ANOVA Test for View Count Across Like Ratio ==="</span>)</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"F-statistic: </span><span class="sc">{</span>f_stat_like_ratio<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"p-value: </span><span class="sc">{</span>p_value_like_ratio<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 === One-way ANOVA Test for View Count Across Genres ===
-F-statistic: 11.9445
+F-statistic: 11.944468793592273
 p-value: 3.871891640564041e-09
+
+=== One-way ANOVA Test for Popularity Across Duration_seconds===
+F-statistic: 1.1090156863397904
+p-value: 0.24201725292066867
 
 === One-way ANOVA Test for View Count Across Like Ratio ===
 F-statistic: 12.005339777316456
@@ -752,8 +784,9 @@ p-value: 0.07990432736153048</code></pre>
 </div>
 </div>
 <p>For the one-way ANOVA: Genres vs View Count the results showed an F-value of 11.9445 while the p-value was 3.87e-09, which is much less than 0.05. This indicates that there is a statistically significant difference in video viewership across music genres.</p>
+<p>For the one-way ANOVA: Popularity vs Duration_seconds, the results showed an F-value of 1.1090 while the p-value was 0.2420, which is greater than 0.05. This indicates that there is no statistically significant difference in song popularity across different durations.</p>
 <p>For the one-way ANOVA: Like Ratio vs View Count , an F value of 12.0053 was obtained, but the p-value was 0.0799, which is greater than 0.05, which suggests that there may be a certain correlation between the LIKE Ratio and the amount of viewing, but from a statistical point of view, this difference is not statistically significant.</p>
-<div id="cell-27" class="cell">
+<div id="cell-27" class="cell" data-execution_count="100">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># T-test for 'View Count' based on 'mean_sentiment_score'</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> ttest_ind</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -780,7 +813,7 @@ p-value: 0.008544340977117903</code></pre>
 <li>Present key insights using charts and visualizations (e.g., Matplotlib, Seaborn, Plotly).</li>
 <li>Ensure all visualizations are well-labeled and easy to interpret.</li>
 </ul>
-<div id="cell-30" class="cell" data-execution_count="103">
+<div id="cell-30" class="cell" data-execution_count="120">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Statistical Tests and Visualizations for Engagement Metrics</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> analyze_engagement_metrics():</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate engagement rate</span></span>
@@ -790,12 +823,12 @@ p-value: 0.008544340977117903</code></pre>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">12</span>))</span>
 <span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Scatter plot: Views vs Likes with regression line</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    sns.regplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'View Count'</span>, y<span class="op">=</span><span class="st">'Like Count'</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>,<span class="dv">0</span>])</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>,<span class="dv">0</span>].set_title(<span class="st">'Correlation: Views vs Likes'</span>)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    sns.regplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'Popularity'</span>, y<span class="op">=</span><span class="st">'Like Count'</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>,<span class="dv">0</span>])</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>,<span class="dv">0</span>].set_title(<span class="st">'Correlation: Popularity vs Likes'</span>)</span>
 <span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate correlation</span></span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    correlation <span class="op">=</span> df[<span class="st">'View Count'</span>].corr(df[<span class="st">'Like Count'</span>])</span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Correlation between Views and Likes: </span><span class="sc">{</span>correlation<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    correlation <span class="op">=</span> df[<span class="st">'Popularity'</span>].corr(df[<span class="st">'Like Count'</span>])</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Correlation between Popularity and Likes: </span><span class="sc">{</span>correlation<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
 <span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Box plot: Engagement rate by genre</span></span>
 <span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>    sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'genre'</span>, y<span class="op">=</span><span class="st">'engagement_rate'</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>,<span class="dv">1</span>])</span>
@@ -818,7 +851,7 @@ p-value: 0.008544340977117903</code></pre>
 <span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> analyze_engagement_metrics()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-Correlation between Views and Likes: 0.931</code></pre>
+Correlation between Popularity and Likes: 0.361</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -831,9 +864,11 @@ Correlation between Views and Likes: 0.931</code></pre>
 <p>In the terms of music genre, we can observe some interesting trends.Hip-hop has higher interaction rates but lower sentiment scores, indicates that despite frequent and positive viewer reactions and interactions to Hip-hop MVs, the comments or sentiment expressed in these videos may be more negatively charged. On the other hand, Jazz has lower view count but higher affective sentiment score, suggesting that despite fewer plays of this type of video, viewers generally rate its content more favorably, with more positive affective tendencies. This also reflects the fact that Jazz’s viewer base, although smaller, has a higher appreciation of the content.</p>
 <p>For Pop, the view count is very high and the affective scores are at a medium level, showing that Pop music has a wide acceptance and popularity among viewers, and although the emotional expression is not as extreme as that of Jazz, it is still able to attract a large number of viewers.Rock, on the other hand, exhibits a more stable interaction rate and medium affective scores, which means that the Rock category has a relatively balanced audience base with a stable level of interaction, but its affective responses and affective scores are more positive. level is stable, but its emotional response is not as intense as Hip-hop.</p>
 <p>As for Electronic, has a higher number of views but a lower interaction rate, reflecting that although music videos of Electronic music can attract a large number of viewers, the sense of audience engagement and interactive behavior is lower, probably because the audience group of this type of music is less interested in interaction and watches it more as background music.</p>
-<p>All in all, we can conclude that an increase in the view count usually leads to an increase in the like count. Meanwhile, short videos are more likely to inspire user interaction and sharing due to their short and concise nature, which coincides with the current hot trend of short video platforms.</p>
+<p>All in all, we can conclude that Popularity is not the only factor that predicts the number of likes.. Meanwhile, short videos are more likely to inspire user interaction and sharing due to their short and concise nature, which coincides with the current hot trend of short video platforms.</p>
 <p>Despite Jazz’s better performance in sentiment scores and content ratings, its play count is generally low, which indicates that this music style has a more niche audience and is only enjoyed by specific groups. Pop and Electronic music videos, on the other hand, typically have higher plays, suggesting that if one wishes to create music content that is popular and can be distributed quickly, choosing the Pop or Electronic genres will undoubtedly be a more attractive option.</p>
-<p><strong>Conclusions and Next Steps</strong>:</p>
+</section>
+<section id="conclusions-and-next-steps" class="level1">
+<h1>Conclusions and Next Steps:</h1>
 <ul>
 <li><strong>Summary of EDA Findings</strong>:</li>
 <li>Highlight the main takeaways from the EDA process (key trends, patterns, data quality issues).</li>
