@@ -55,3 +55,178 @@ Please break this page into a "regression" section, "binary classification" sect
 1. **Result Interpretation**: Interpret the results obtained from the analysis.
 2. **Model Performance Comparison**: Compare the performance of different models.
 3. **Insights Gained**: Share insights learned from the analysis.
+
+# Regression
+## Introduction and Motivation
+
+This analysis aims to explore the factors influencing the popularity of content on a digital platform. We will use various regression models to predict popularity based on multiple features extracted from our dataset.
+
+## Overview of Methods
+
+We will use Support Vector Regression (SVR) and linear models like Ridge and Lasso regression. 
+
+```python
+import pandas as pd
+from sklearn.svm import SVR
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.inspection import permutation_importance
+from sklearn.model_selection import train_test_split
+
+# Load the dataset
+df = pd.read_csv('../../data/processed-data/Normalized_Data_with_Sentiments.csv')
+
+# Specify the feature columns
+features = [
+    'Days Since Published', 'View Count', 'Like Count', 'Comment Count',
+    'Subscriber Count', 'Definition', 'Mean Sentiment Score',
+    'Duration_seconds', 'genre_label', 'singer_followers', 'singer_popularity'
+]
+
+# Ensure the target column 'popularity' exists in DataFrame
+if 'Popularity' not in df.columns:
+    raise ValueError("The 'popularity' column is missing from the DataFrame.")
+
+# Split into input (X) and target (y)
+X = df[features]  # Inputs
+y = df['Popularity']  # Target
+
+# Split data into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Assuming the SVR model is already trained as svr_model
+svr_model = SVR(kernel='rbf', C=100, gamma='auto')
+svr_model.fit(X_train, y_train)
+
+# Predict on the testing data
+y_pred = svr_model.predict(X_test)
+# Calculate mean squared error and R^2 score
+mse = mean_squared_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+
+print(f"Mean Squared Error: {mse}, R^2 Score: {r2}")
+
+# Perform permutation importance
+perm_importance = permutation_importance(svr_model, X_test, y_test, n_repeats=30, random_state=42)
+
+# Get importance scores
+importance_scores = perm_importance.importances_mean
+
+# Print feature importance
+print("Feature importances:")
+for i, feature in enumerate(features):
+    print(f"{feature}: {importance_scores[i]}")
+```
+
+## Conclusion 
+
+| Model            | MSE                      | R² Score                 |
+|------------------|--------------------------|--------------------------|
+| SVR              | 99.74699515216331        | 0.568546463925952        |
+| Linear Regression| 123.52107678768438       | 0.46571217229730644      |
+| Ridge Regression | 125.61840469866303       | 0.4566402243943334       |
+| Lasso Regression | 124.26131518891665       | 0.46251028661381044      |
+
+Feature importances from SVR: 
+- Days Since Published: 0.14590051030422282
+- View Count: 0.0689113148502238
+- Like Count: 0.06300639647560934
+- Comment Count: 0.004829835437846231
+- Subscriber Count: 0.15936065653760564
+- Definition: 0.05992188839233011
+- Mean Sentiment Score: 0.037774091955604584
+- Duration_seconds: 0.00110286673615743
+- genre_label: 0.1581978297916415
+- singer_followers: 0.0360773423716881
+- singer_popularity: 0.6712934520249385
+
+```{python}
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(10, 6))
+plt.barh(features, importance_scores, color='skyblue')
+plt.xlabel('Importance Score')
+plt.title('Feature Importance Scores')
+plt.gca().invert_yaxis()  # Invert y-axis to have the highest score on top
+plt.show()
+```
+
+### Result Interpretation
+The Support Vector Regression (SVR) model outperformed the linear models in terms of Mean Squared Error (MSE) and R² score. The lower MSE and higher R² of the SVR indicate better performance in fitting the data compared to the Linear, Ridge, and Lasso regressions. The R² scores suggest that the SVR model was able to explain approximately 56.85% of the variance in the dataset, which is more than the approximately 46.57% by the Linear Regression, 45.66% by Ridge, and 46.25% by Lasso Regression.
+
+### Insights
+From the SVR model's permutation importance, 'singer_popularity' emerged as the most influential feature, significantly impacting the prediction of a song's popularity. This suggests that more popular singers tend to have more popular songs, highlighting the influence of an artist's existing reputation on new releases.
+
+
+# Binary Classification
+
+## Introduction and Motivation
+
+The goal of this section is to predict whether a song is considered "popular" using binary classification methods. We aim to understand the features that significantly influence song popularity on digital platforms.
+
+
+## Overview of Methods
+
+In this section, we focus on Logistic Regression for binary classification. Logistic Regression is chosen for its ability to provide probabilities for outcomes and its interpretability.
+
+```python
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+from imblearn.under_sampling import RandomUnderSampler
+from sklearn.model_selection import train_test_split
+
+# Assume df is your DataFrame and the preprocessing has been done to define 'is_popular'
+features = [
+    'Days Since Published', 'View Count', 'Like Count', 'Comment Count',
+    'Subscriber Count', 'Definition', 'Mean Sentiment Score',
+    'Duration_seconds', 'genre_label', 'singer_followers', 'singer_popularity'
+]
+X = df[features]
+y = df['is_popular']
+
+# Splitting the dataset and under-sampling
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+rus = RandomUnderSampler(random_state=42)
+X_resampled, y_resampled = rus.fit_resample(X_train, y_train)
+
+# Logistic Regression model
+lr_model = LogisticRegression(random_state=42, max_iter=1000)
+lr_model.fit(X_resampled, y_resampled)
+
+# Making predictions and evaluating the model
+y_pred = lr_model.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+conf_matrix = confusion_matrix(y_test, y_pred)
+class_report = classification_report(y_test, y_pred)
+
+print("Logistic Regression Model Evaluation")
+print("Accuracy:", accuracy)
+print("Confusion Matrix:\n", conf_matrix)
+print("Classification Report:\n", class_report)
+```
+
+## Results
+The Logistic Regression model showed an accuracy of 77.33%, with a detailed classification report indicating precision, recall, and F1-score for both classes.
+
+### Model Performance Summary
+
+Comparison of model performance metrics for different classification models used in predicting song popularity:
+
+| Model                  | Accuracy | Precision | Recall | F1-Score |
+|------------------------|----------|-----------|--------|----------|
+| **Logistic Regression**| 77.33%   | 0.96 (False), 0.35 (True) | 0.77 (False), 0.80 (True) | 0.85 (False), 0.48 (True) |
+| **SVM (Best Kernel)**  | 75.00%   | 0.91 (False), 0.26 (True) | 0.78 (False), 0.50 (True) | 0.84 (False), 0.34 (True) |
+| **Random Forest**      | 71.00%   | 0.92 (False), 0.25 (True) | 0.72 (False), 0.60 (True) | 0.81 (False), 0.35 (True) |
+
+
+## Conclusion
+The Logistic Regression model, adjusted for class imbalance via under-sampling, provided satisfactory classification results, proving effective for identifying popular songs.
+
+## Result Interpretation
+The model was particularly strong in identifying non-popular songs (class 'False') with high precision and recall. And it has a higher recall score on popular songs compared to other models.
+
+## Model Performance Comparison
+This model was compared to other binary classification models such as SVM and Random Forest. Logistic Regression was chosen for its balance between performance and interpretability in this specific context. And it has a higher recall score on popular songs compared to other models.
+
+
+# Multi-class Classification
+##
