@@ -195,7 +195,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#what-to-address" id="toc-what-to-address" class="nav-link" data-scroll-target="#what-to-address">What to address</a></li>
   </ul></li>
   <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
-  <li><a href="#conclusions-and-next-steps" id="toc-conclusions-and-next-steps" class="nav-link" data-scroll-target="#conclusions-and-next-steps">Conclusions and Next Steps:</a></li>
+  <li><a href="#conclusions-and-next-steps" id="toc-conclusions-and-next-steps" class="nav-link" data-scroll-target="#conclusions-and-next-steps">Conclusions and Next Steps</a></li>
   </ul>
 </nav>
     </div>
@@ -324,7 +324,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>If you’re using a package for code organization, you can import it at this point. However, make sure that the <strong>actual workflow steps</strong>—including data processing, analysis, and other key tasks—are conducted and clearly demonstrated on this page. The goal is to show the technical flow of your project, highlighting how the code is executed to achieve your results.</p>
 <p>If relevant, link to additional documentation or external references that explain any complex components. This section should give readers a clear view of how the project is implemented from a technical perspective.</p>
 <p>Remember, this page is a technical narrative, NOT just a notebook with a collection of code cells, include in-line Prose, to describe what is going on.</p>
-<div id="cell-3" class="cell" data-execution_count="23">
+<div id="cell-3" class="cell" data-execution_count="121">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -333,7 +333,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">"../../data/processed-data/Updated_Data_with_Sentiments.csv"</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(file_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-4" class="cell" data-execution_count="24">
+<div id="cell-4" class="cell" data-execution_count="122">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># include interaction metrics (like count/view count %, comment count/ view count%) as factors</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'like_ratio'</span>] <span class="op">=</span> df[<span class="st">'Like Count'</span>] <span class="op">/</span> df[<span class="st">'View Count'</span>] <span class="op">*</span><span class="dv">100</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'comment_ratio'</span>] <span class="op">=</span> df[<span class="st">'Comment Count'</span>] <span class="op">/</span> df[<span class="st">'View Count'</span>] <span class="op">*</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -346,7 +346,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Visualize distributions using histograms or density plots.</li>
 </ul></li>
 </ul>
-<div id="cell-6" class="cell" data-execution_count="25">
+<div id="cell-6" class="cell" data-execution_count="123">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>numeric_cols <span class="op">=</span> [<span class="st">'singer_popularity'</span>, <span class="st">'Days Since Published'</span>, <span class="st">'Subscriber Count'</span>, </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                  <span class="st">'View Count'</span>, <span class="st">'Like Count'</span>, <span class="st">'Comment Count'</span>, <span class="st">'like_ratio'</span>, </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                  <span class="st">'comment_ratio'</span>, <span class="st">'Duration_seconds'</span>, <span class="st">'Mean Sentiment Score'</span>]</span>
@@ -387,7 +387,7 @@ min           21.000000             -0.336767
 max         4835.000000              0.817367  </code></pre>
 </div>
 </div>
-<div id="cell-7" class="cell" data-execution_count="43">
+<div id="cell-7" class="cell" data-execution_count="124">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># subplot1: Distribution of Log10(View Count)</span></span>
@@ -431,14 +431,14 @@ max         4835.000000              0.817367  </code></pre>
 <li>Present frequency counts and visualize distributions using bar charts or pie charts.</li>
 </ul></li>
 </ul>
-<div id="cell-10" class="cell" data-execution_count="41">
+<div id="cell-10" class="cell" data-execution_count="125">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Genre distribution</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>genre_counts <span class="op">=</span> df[<span class="st">'genre'</span>].value_counts()</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span>genre_counts.index, y<span class="op">=</span>genre_counts.values)</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Distribution of Music Genres'</span>)</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="41">
+<div class="cell-output cell-output-display" data-execution_count="125">
 <pre><code>([0, 1, 2, 3, 4],
  [Text(0, 0, 'rock'),
   Text(1, 0, 'pop'),
@@ -462,7 +462,7 @@ max         4835.000000              0.817367  </code></pre>
 <li>Visualize with heatmaps or pair plots and discuss any strong correlations.</li>
 </ul></li>
 </ul>
-<div id="cell-12" class="cell" data-execution_count="106">
+<div id="cell-12" class="cell" data-execution_count="126">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>numeric_cols <span class="op">=</span> [<span class="st">'singer_popularity'</span>, <span class="st">'Days Since Published'</span>, <span class="st">'Subscriber Count'</span>, </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                  <span class="st">'View Count'</span>, <span class="st">'like_ratio'</span>,<span class="st">'comment_ratio'</span>, <span class="st">'Duration_seconds'</span>, <span class="st">'Mean Sentiment Score'</span>,<span class="st">'Popularity'</span>]</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>correlation_matrix <span class="op">=</span> df[numeric_cols].corr()</span>
@@ -494,7 +494,7 @@ max         4835.000000              0.817367  </code></pre>
 <li>Visualize with scatter plots, box plots, or violin plots.</li>
 </ul></li>
 </ul>
-<div id="cell-15" class="cell" data-execution_count="108">
+<div id="cell-15" class="cell" data-execution_count="127">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Feature Pairing Analysis</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -565,7 +565,7 @@ max         4835.000000              0.817367  </code></pre>
 <li>For categorical variables, use crosstabs to explore relationships and visualize them with grouped bar plots.</li>
 </ul></li>
 </ul>
-<div id="cell-18" class="cell" data-execution_count="109">
+<div id="cell-18" class="cell" data-execution_count="128">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Cross-tabulation Analysis</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a cross-tab of genre and popularity categories</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'popularity_category'</span>] <span class="op">=</span> pd.qcut(df[<span class="st">'singer_popularity'</span>], </span>
@@ -634,7 +634,7 @@ rock                        0.37  </code></pre>
 <li>Apply normalization or scaling techniques (e.g., min-max scaling, z-score).</li>
 <li>Document and visualize the impact of normalization.</li>
 </ul>
-<div id="cell-21" class="cell" data-execution_count="110">
+<div id="cell-21" class="cell" data-execution_count="129">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler, MinMaxScaler</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Calculate Skewness and Kurtosis</span></span>
@@ -695,7 +695,7 @@ Kurtosis: 1.42
 Log Transformation Applied to Popularity</code></pre>
 </div>
 </div>
-<div id="cell-22" class="cell" data-execution_count="111">
+<div id="cell-22" class="cell" data-execution_count="130">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Normalization (Min-Max and Z-score scaling)</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>scaler_minmax <span class="op">=</span> MinMaxScaler()</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>scaler_standard <span class="op">=</span> StandardScaler()</span>
@@ -708,7 +708,7 @@ Log Transformation Applied to Popularity</code></pre>
 <span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>df_standard <span class="op">=</span> df.copy()</span>
 <span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>df_standard[numeric_cols] <span class="op">=</span> scaler_standard.fit_transform(df_standard[numeric_cols])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-23" class="cell" data-execution_count="112">
+<div id="cell-23" class="cell" data-execution_count="131">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Visualize the impact of normalization for all numeric columns</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">13</span>,<span class="dv">12</span>))</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -744,7 +744,7 @@ Log Transformation Applied to Popularity</code></pre>
 <li>Conduct basic statistical tests (e.g., T-tests, ANOVA, chi-square) to explore relationships between variables.</li>
 <li>Summarize the statistical results and their implications for your analysis.</li>
 </ul>
-<div id="cell-25" class="cell" data-execution_count="118">
+<div id="cell-25" class="cell" data-execution_count="132">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA test for view counts across genres</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> f_oneway</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>genres <span class="op">=</span> df[<span class="st">'Genre'</span>].unique()</span>
@@ -786,7 +786,7 @@ p-value: 0.07990432736153048</code></pre>
 <p>For the one-way ANOVA: Genres vs View Count the results showed an F-value of 11.9445 while the p-value was 3.87e-09, which is much less than 0.05. This indicates that there is a statistically significant difference in video viewership across music genres.</p>
 <p>For the one-way ANOVA: Popularity vs Duration_seconds, the results showed an F-value of 1.1090 while the p-value was 0.2420, which is greater than 0.05. This indicates that there is no statistically significant difference in song popularity across different durations.</p>
 <p>For the one-way ANOVA: Like Ratio vs View Count , an F value of 12.0053 was obtained, but the p-value was 0.0799, which is greater than 0.05, which suggests that there may be a certain correlation between the LIKE Ratio and the amount of viewing, but from a statistical point of view, this difference is not statistically significant.</p>
-<div id="cell-27" class="cell" data-execution_count="100">
+<div id="cell-27" class="cell" data-execution_count="133">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># T-test for 'View Count' based on 'mean_sentiment_score'</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> ttest_ind</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -813,7 +813,7 @@ p-value: 0.008544340977117903</code></pre>
 <li>Present key insights using charts and visualizations (e.g., Matplotlib, Seaborn, Plotly).</li>
 <li>Ensure all visualizations are well-labeled and easy to interpret.</li>
 </ul>
-<div id="cell-30" class="cell" data-execution_count="120">
+<div id="cell-30" class="cell" data-execution_count="134">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Statistical Tests and Visualizations for Engagement Metrics</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> analyze_engagement_metrics():</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate engagement rate</span></span>
@@ -868,7 +868,7 @@ Correlation between Popularity and Likes: 0.361</code></pre>
 <p>Despite Jazz’s better performance in sentiment scores and content ratings, its play count is generally low, which indicates that this music style has a more niche audience and is only enjoyed by specific groups. Pop and Electronic music videos, on the other hand, typically have higher plays, suggesting that if one wishes to create music content that is popular and can be distributed quickly, choosing the Pop or Electronic genres will undoubtedly be a more attractive option.</p>
 </section>
 <section id="conclusions-and-next-steps" class="level1">
-<h1>Conclusions and Next Steps:</h1>
+<h1>Conclusions and Next Steps</h1>
 <ul>
 <li><strong>Summary of EDA Findings</strong>:</li>
 <li>Highlight the main takeaways from the EDA process (key trends, patterns, data quality issues).</li>
