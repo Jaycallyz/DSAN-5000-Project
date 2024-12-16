@@ -59,6 +59,7 @@ Apply clustering techniques (K-Means, DBSCAN, and Hierarchical clustering) to a 
 3. **Conclusion:**
    - Summarize the key findings and their real-world implications in a non-technical way. Focus on the most important results and how they could apply to practical situations.
 
+# Dimensionality Reduction
 ## PCA
 ```{python}
 import pandas as pd
@@ -86,12 +87,13 @@ X = df[features]  # Inputs
 y = df['Popularity']  # Target
 
 # Applying PCA
-pca = PCA(n_components=3)  # Reduce to 4 dimensions for visualization
+pca = PCA(n_components=3)  # Reduce to 3 dimensions for visualization
 X_pca = pca.fit_transform(X)
 # How much variance was retained?
 print("Explained Variance Ratio:", pca.explained_variance_ratio_)
 print("Total Variance Explained:", sum(pca.explained_variance_ratio_))
 ```
+
 ## t-SNE
 ```{python}
 perplexities = [5, 30, 50, 100]
@@ -110,6 +112,8 @@ for i, perplexity in enumerate(perplexities):
 plt.tight_layout()
 plt.show()
 ```
+
+From the plot, we can observe perplexities=50 has a better performance so we chose it as the parameter for dimension reduction.
 
 ## Evaluation and Comparison: PCA vs. t-SNE
 
@@ -137,4 +141,91 @@ plt.show()
   - **Cons:** Computationally expensive, sensitive to parameter settings (like perplexity), not suitable for very large datasets.
   - **Best for:** Detailed exploratory data analysis, when clusters or local patterns within the data are of interest, and computational resources are adequate.
 
-Both PCA and t-SNE offer valuable insights, but their applicability depends on the specific needs of the analysis. PCA can serve as a good starting point for linear dimensionality reduction, while t-SNE is more suited for in-depth analysis requiring detailed cluster identification.
+For the data given, t-SNE has the better performance for dimentionality reduction and for future classification task.
+
+# Clustering Methods
+
+In this part of the analysis, three clustering techniques—K-Means, DBSCAN, and Hierarchical Clustering—were applied to the dataset that was preprocessed using PCA and t-SNE for dimensionality reduction. This approach allows us to compare how each clustering method performs on data transformed by these techniques, offering insights into their different use cases and effectiveness.
+
+## K-Means Clustering
+K-Means clustering was applied to both PCA and t-SNE processed data. The algorithm partitions the data into K mutually exclusive clusters by assigning each data point to the cluster with the nearest mean. This method is effective in producing spherical clusters where the centroid represents the mean of the cluster's points. The number of clusters, K, was set to 3 based on domain knowledge and preliminary analysis.
+
+## DBSCAN
+DBSCAN (Density-Based Spatial Clustering of Applications with Noise) was utilized to identify arbitrarily shaped clusters based on density. It categorizes data points into clusters when they are closely packed together, while points in low-density areas are labeled as noise. This method is particularly effective for data with noise and outliers.
+
+## Hierarchical Clustering
+Hierarchical clustering was performed using the Ward method, which minimizes the total within-cluster variance. At each step, the pair of clusters with the minimum between-cluster distance are merged. This method is well-suited for identifying hierarchical relationships between clusters.
+
+## Results Section
+
+### Visualizing Cluster Results
+The clustering results from K-Means, DBSCAN, and Hierarchical clustering were visualized using scatter plots, clearly labeled with clusters identified from PCA and t-SNE processed data. Each visualization helps in understanding the cluster distribution and separation.
+```{python}
+import numpy as np
+from sklearn.cluster import KMeans, DBSCAN
+from sklearn.cluster import AgglomerativeClustering
+import matplotlib.pyplot as plt
+
+# K-Means Clustering
+kmeans = KMeans(n_clusters=3, random_state=42)
+kmeans_tsne = kmeans.fit(X_tsne)
+kmeans_tsne_labels = kmeans_tsne.labels_
+
+# DBSCAN
+dbscan = DBSCAN(eps=1, min_samples=5)
+dbscan_tsne = dbscan.fit(X_tsne)
+dbscan_tsne_labels = dbscan_tsne.labels_
+
+# Hierarchical Clustering
+hierarchical = AgglomerativeClustering(n_clusters=3)
+hierarchical_tsne = hierarchical.fit(X_tsne)
+hierarchical_tsne_labels = hierarchical_tsne.labels_
+
+# Plotting the results
+fig, axes = plt.subplots(1, 3, figsize=(18, 5))
+
+# K-Means Plot
+axes[0].scatter(X_tsne[:, 0], X_tsne[:, 1], c=kmeans_tsne_labels, cmap='viridis', marker='o')
+axes[0].set_title('K-Means Clustering on t-SNE Data')
+axes[0].set_xlabel('t-SNE Axis 1')
+axes[0].set_ylabel('t-SNE Axis 2')
+
+# DBSCAN Plot
+axes[1].scatter(X_tsne[:, 0], X_tsne[:, 1], c=dbscan_tsne_labels, cmap='viridis', marker='o')
+axes[1].set_title('DBSCAN Clustering on t-SNE Data')
+axes[1].set_xlabel('t-SNE Axis 1')
+axes[1].set_ylabel('t-SNE Axis 2')
+
+# Hierarchical Plot
+axes[2].scatter(X_tsne[:, 0], X_tsne[:, 1], c=hierarchical_tsne_labels, cmap='viridis', marker='o')
+axes[2].set_title('Hierarchical Clustering on t-SNE Data')
+axes[2].set_xlabel('t-SNE Axis 1')
+axes[2].set_ylabel('t-SNE Axis 2')
+
+plt.tight_layout()
+plt.show()
+```
+
+### Results Insights
+
+1. **K-Means Clustering**:
+   - K-Means with `n_clusters=3` segmented the data into three distinct groups. The clusters are relatively well-separated with slight overlap, indicating a clear grouping pattern in the dataset.
+
+2. **DBSCAN Clustering**:
+   - DBSCAN with `eps=1` and `min_samples=5` identified varying densities within the dataset. This method has successfully differentiated the dense core groups from sparser outliers, which are not included in any cluster and are labeled as noise. But there is overlap between different groups.
+
+3. **Hierarchical Clustering**:
+   - Hierarchical clustering revealed three main clusters, with results similar to K-Means but differing slightly in the cluster boundaries. 
+
+### Performance Comparison
+
+- **Silhouette Scores**:
+  - K-Means achieved the highest Silhouette Score of 0.463882, suggesting a good level of separation and cohesion within clusters.
+  - Hierarchical Clustering followed closely with a Silhouette Score of 0.456777.
+  - DBSCAN had a lower Silhouette Score of 0.3538208, indicating more overlap or less distinct clustering compared to the other methods.
+
+So K-Means has the best performance on the t-sne processed dataset.
+
+### Conclusion
+From the visualization, we can see there is chance for the dataset to be classified into groups, indicating there may be differences beween different songs for their popularity according to our features given. And in the future this can be used for popularity forecast.
+
