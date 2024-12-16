@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -151,26 +185,43 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a>
-  <ul class="collapse">
-  <li><a href="#suggested-page-structure" id="toc-suggested-page-structure" class="nav-link" data-scroll-target="#suggested-page-structure">Suggested page structure</a></li>
+  <li><a href="#suggested-page-structure" id="toc-suggested-page-structure" class="nav-link active" data-scroll-target="#suggested-page-structure">Suggested page structure</a></li>
   <li><a href="#what-to-address" id="toc-what-to-address" class="nav-link" data-scroll-target="#what-to-address">What to address</a>
   <ul class="collapse">
   <li><a href="#part-1-dimensionality-reduction" id="toc-part-1-dimensionality-reduction" class="nav-link" data-scroll-target="#part-1-dimensionality-reduction">Part 1: Dimensionality Reduction</a></li>
   <li><a href="#part-2-clustering-methods" id="toc-part-2-clustering-methods" class="nav-link" data-scroll-target="#part-2-clustering-methods">Part 2: Clustering Methods</a></li>
   </ul></li>
+  <li><a href="#pca" id="toc-pca" class="nav-link" data-scroll-target="#pca">PCA</a></li>
+  <li><a href="#t-sne" id="toc-t-sne" class="nav-link" data-scroll-target="#t-sne">t-SNE</a></li>
+  <li><a href="#evaluation-and-comparison-pca-vs.-t-sne" id="toc-evaluation-and-comparison-pca-vs.-t-sne" class="nav-link" data-scroll-target="#evaluation-and-comparison-pca-vs.-t-sne">Evaluation and Comparison: PCA vs.&nbsp;t-SNE</a>
+  <ul class="collapse">
+  <li><a href="#effectiveness-in-preserving-data-structure" id="toc-effectiveness-in-preserving-data-structure" class="nav-link" data-scroll-target="#effectiveness-in-preserving-data-structure">Effectiveness in Preserving Data Structure</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Instructions</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="instructions" class="level1">
-<h1>Instructions</h1>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
 <p><code>Note</code>: You should remove these instructions once you have read and understood them. They should not be included in your final submission.</p>
 <p><code>Remember:</code> Exactly what do you put on this page will be specific you your project and data. Some things might “make more sense” on one page rather than another, depending on your workflow. Organize your project in a logical way that makes the most sense to you.</p>
 <section id="suggested-page-structure" class="level2">
@@ -235,6 +286,116 @@ ul.task-list li input[type="checkbox"] {
 <li>Summarize the key findings and their real-world implications in a non-technical way. Focus on the most important results and how they could apply to practical situations.</li>
 </ul></li>
 </ol>
+</section>
+</section>
+<section id="pca" class="level2">
+<h2 class="anchored" data-anchor-id="pca">PCA</h2>
+<div id="6da270d6" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.manifold <span class="im">import</span> TSNE</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../../data/processed-data/Normalized_Data_with_Sentiments.csv'</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the feature columns</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> [</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Days Since Published'</span>, <span class="st">'View Count'</span>, <span class="st">'Like Count'</span>, <span class="st">'Comment Count'</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Subscriber Count'</span>, <span class="st">'Definition'</span>, <span class="st">'Mean Sentiment Score'</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Duration_seconds'</span>, <span class="st">'genre_label'</span>, <span class="st">'singer_followers'</span>, <span class="st">'singer_popularity'</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure the target column 'popularity' exists in DataFrame</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'Popularity'</span> <span class="kw">not</span> <span class="kw">in</span> df.columns:</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"The 'popularity' column is missing from the DataFrame."</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Split into input (X) and target (y)</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df[features]  <span class="co"># Inputs</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df[<span class="st">'Popularity'</span>]  <span class="co"># Target</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Applying PCA</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">3</span>)  <span class="co"># Reduce to 4 dimensions for visualization</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>X_pca <span class="op">=</span> pca.fit_transform(X)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># How much variance was retained?</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Explained Variance Ratio:"</span>, pca.explained_variance_ratio_)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total Variance Explained:"</span>, <span class="bu">sum</span>(pca.explained_variance_ratio_))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Explained Variance Ratio: [0.35411601 0.1606999  0.12194563]
+Total Variance Explained: 0.636761534701488</code></pre>
+</div>
+</div>
+</section>
+<section id="t-sne" class="level2">
+<h2 class="anchored" data-anchor-id="t-sne">t-SNE</h2>
+<div id="52e3f920" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>perplexities <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">30</span>, <span class="dv">50</span>, <span class="dv">100</span>]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">10</span>))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, perplexity <span class="kw">in</span> <span class="bu">enumerate</span>(perplexities):</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Applying t-SNE</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    tsne <span class="op">=</span> TSNE(n_components<span class="op">=</span><span class="dv">2</span>, perplexity<span class="op">=</span>perplexity, n_iter<span class="op">=</span><span class="dv">3000</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    X_tsne <span class="op">=</span> tsne.fit_transform(X)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Plotting</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    ax[i<span class="op">//</span><span class="dv">2</span>, i<span class="op">%</span><span class="dv">2</span>].scatter(X_tsne[:, <span class="dv">0</span>], X_tsne[:, <span class="dv">1</span>], c<span class="op">=</span>y, cmap<span class="op">=</span><span class="st">'viridis'</span>, marker<span class="op">=</span><span class="st">'o'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    ax[i<span class="op">//</span><span class="dv">2</span>, i<span class="op">%</span><span class="dv">2</span>].set_title(<span class="ss">f't-SNE with Perplexity=</span><span class="sc">{</span>perplexity<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    ax[i<span class="op">//</span><span class="dv">2</span>, i<span class="op">%</span><span class="dv">2</span>].set_xlabel(<span class="st">'t-SNE Feature 1'</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    ax[i<span class="op">//</span><span class="dv">2</span>, i<span class="op">%</span><span class="dv">2</span>].set_ylabel(<span class="st">'t-SNE Feature 2'</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/sklearn/manifold/_t_sne.py:1164: FutureWarning: 'n_iter' was renamed to 'max_iter' in version 1.5 and will be removed in 1.7.
+  warnings.warn(
+/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/sklearn/manifold/_t_sne.py:1164: FutureWarning: 'n_iter' was renamed to 'max_iter' in version 1.5 and will be removed in 1.7.
+  warnings.warn(
+/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/sklearn/manifold/_t_sne.py:1164: FutureWarning: 'n_iter' was renamed to 'max_iter' in version 1.5 and will be removed in 1.7.
+  warnings.warn(
+/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/sklearn/manifold/_t_sne.py:1164: FutureWarning: 'n_iter' was renamed to 'max_iter' in version 1.5 and will be removed in 1.7.
+  warnings.warn(</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="instructions_files/figure-html/cell-3-output-2.png" width="1430" height="950" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="evaluation-and-comparison-pca-vs.-t-sne" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation-and-comparison-pca-vs.-t-sne">Evaluation and Comparison: PCA vs.&nbsp;t-SNE</h2>
+<section id="effectiveness-in-preserving-data-structure" class="level3">
+<h3 class="anchored" data-anchor-id="effectiveness-in-preserving-data-structure">Effectiveness in Preserving Data Structure</h3>
+<ul>
+<li><p><strong>PCA:</strong> The PCA visualization shows a somewhat linear distribution of the data points, focusing on the major directions of data variance. It effectively captures the global structure of the data, emphasizing the spread along the directions of highest variance.</p></li>
+<li><p><strong>t-SNE:</strong> In contrast, the t-SNE visualization exhibits a more scattered and differentiated structure with distinct clusters. This indicates t-SNE’s superior capability in capturing local structures within the data, potentially revealing intrinsic patterns that PCA might overlook.</p></li>
+</ul>
+<section id="visualization-capabilities" class="level4">
+<h4 class="anchored" data-anchor-id="visualization-capabilities">Visualization Capabilities</h4>
+<ul>
+<li><p><strong>PCA:</strong> Provides a simplified overview, projecting the data into lower dimensions while trying to preserve the variance. It’s effective for quick explorations of the data to identify gross underlying patterns but might miss finer details.</p></li>
+<li><p><strong>t-SNE:</strong> Produces more visually distinct clusters, making it easier to identify groups and patterns within the data. This makes t-SNE a better tool for tasks requiring detailed pattern recognition and cluster analysis.</p></li>
+</ul>
+</section>
+<section id="trade-offs-and-scenarios" class="level4">
+<h4 class="anchored" data-anchor-id="trade-offs-and-scenarios">Trade-offs and Scenarios</h4>
+<ul>
+<li><strong>PCA:</strong>
+<ul>
+<li><strong>Pros:</strong> Less computationally intensive, suitable for larger datasets, provides a quick overview.</li>
+<li><strong>Cons:</strong> Might miss non-linear relationships between features.</li>
+<li><strong>Best for:</strong> Preliminary data analysis, reducing dimensionality for linear data, or when computational resources are limited.</li>
+</ul></li>
+<li><strong>t-SNE:</strong>
+<ul>
+<li><strong>Pros:</strong> Captures complex non-linear relationships, excellent for identifying clusters and local patterns.</li>
+<li><strong>Cons:</strong> Computationally expensive, sensitive to parameter settings (like perplexity), not suitable for very large datasets.</li>
+<li><strong>Best for:</strong> Detailed exploratory data analysis, when clusters or local patterns within the data are of interest, and computational resources are adequate.</li>
+</ul></li>
+</ul>
+<p>Both PCA and t-SNE offer valuable insights, but their applicability depends on the specific needs of the analysis. PCA can serve as a good starting point for linear dimensionality reduction, while t-SNE is more suited for in-depth analysis requiring detailed cluster identification.</p>
 
 
 </section>

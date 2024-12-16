@@ -65,7 +65,7 @@ This analysis aims to explore the factors influencing the popularity of content 
 
 We will use Support Vector Regression (SVR) and linear models like Ridge and Lasso regression. 
 
-```python
+```{python}
 import pandas as pd
 from sklearn.svm import SVR
 from sklearn.metrics import mean_squared_error, r2_score
@@ -229,4 +229,17 @@ This model was compared to other binary classification models such as SVM and Ra
 
 
 # Multi-class Classification
-##
+## Introduction and Motivation
+The goal of this multi- class classification is to predict the interaction rate (like ratio= like count/ view count) of youtube mv. We want to predict the interaction rate of the content by features such as number of days since posting and number of comments.
+
+This analysis firstly hopes to improve data analysis and model selection capabilities, and secondly tries to help content creators optimize their creation strategies.
+
+
+## Overview of Methods
+Multiple classification algorithms were used to predict the popularity (like ratio) of short video content. The like ratio was first categorized into three categories: low (≤0.7), medium (0.7-1.6), and high (>1.6), and then predicted using three models: logistic regression, decision tree, and random forest. To address data imbalance, SMOTE oversampling technique was used. The input features of the model included nine variables such as days of posting/comments, number of subscribers, sentiment score, video duration, number of creator followers, and popularity. The decision tree model was hyper-parametrically optimized by grid search (GridSearchCV) and the model performance was evaluated using cross-validation. This combination of methods enables comprehensive assessment and prediction of video content popularity, providing data support for content creation and platform operation.
+
+
+## Code
+
+
+- **Summary and Interpretation of Results:** Summarize your findings, interpret the results, and discuss their technical implications.
