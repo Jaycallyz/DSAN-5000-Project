@@ -1376,34 +1376,34 @@
     "href": "technical-details/progress-log.html#member-2xinzhou-li",
     "title": "Progress log",
     "section": "Member-2:Xinzhou Li",
-    "text": "Member-2:Xinzhou Li\nClick here to open\nWeekly project contribution log:\nT: 12-15-2024\n\nCompleted final report section\n\nCompleted supervised classification modeling\nCompleted unsupervised learning classification section\n\nF: 12-14-2024\n\nStarted supervised classification modeling\nCompleted regression modeling\n\nTh: 12-13-2024\n\nStarted data cleaning on Youtube data and did regression modeling\n\nW: 12-12-2024\n\nConfirmed data source in group meeting and began data collection on Youtube\n\nT: 12-11-2024\n\nHeld group meeting to decide on project topic due to changes in Spotify API permissions\n\nT: 12-09-2024\n\nDid the first version of Youtube data collection\n\nW: 11-21-2024\n\nParticipated in group discussion to decide on project topic and data source"
+    "text": "Member-2:Xinzhou Li\nClick here to open\nProvide their name, a link to their “About Me” page.\nAlso, describe a log of their project roles.\nWeekly project contribution log:\nW: 10-16-2024 （星期，和日期）从近到远的顺序罗列\n\nAttend first group meeting"
   },
   {
-    "objectID": "technical-details/unsupervised-learning/instructions.html#k-means-clustering",
-    "href": "technical-details/unsupervised-learning/instructions.html#k-means-clustering",
-    "title": "Dimensionality Reduction",
-    "section": "K-Means Clustering",
-    "text": "K-Means Clustering\nK-Means clustering was applied to both PCA and t-SNE processed data. The algorithm partitions the data into K mutually exclusive clusters by assigning each data point to the cluster with the nearest mean. This method is effective in producing spherical clusters where the centroid represents the mean of the cluster’s points. The number of clusters, K, was set to 3 based on domain knowledge and preliminary analysis."
+    "objectID": "technical-details/progress-log.html#member-1-yiqin-zhou",
+    "href": "technical-details/progress-log.html#member-1-yiqin-zhou",
+    "title": "Progress log",
+    "section": "Member-1: Yiqin Zhou",
+    "text": "Member-1: Yiqin Zhou\nClick here to open\nWeekly project contribution log: T: 12-15-2024\n\nCompleted final report section\n\nCompleted progess- log section\n\nCompleted unsupervised learning multi-class classification section\n\nF: 12-14-2024\n\nCompleted EDA section\n\nTh: 12-13-2024\n\nCompleted data collection\n\nW: 12-12-2024\n\nConfirmed data source in group meeting and began data collection\n\nT: 12-11-2024\n\nHeld group meeting to decide on project topic due to changes in Spotify API permissions\n\nW: 11-21-2024\n\nParticipated in group discussion to decide on project topic and data source"
   },
   {
-    "objectID": "technical-details/unsupervised-learning/instructions.html#dbscan",
-    "href": "technical-details/unsupervised-learning/instructions.html#dbscan",
-    "title": "Dimensionality Reduction",
-    "section": "DBSCAN",
-    "text": "DBSCAN\nDBSCAN (Density-Based Spatial Clustering of Applications with Noise) was utilized to identify arbitrarily shaped clusters based on density. It categorizes data points into clusters when they are closely packed together, while points in low-density areas are labeled as noise. This method is particularly effective for data with noise and outliers."
+    "objectID": "technical-details/progress-log.html#member-2-xinzhou-li",
+    "href": "technical-details/progress-log.html#member-2-xinzhou-li",
+    "title": "Progress log",
+    "section": "Member-2: Xinzhou Li",
+    "text": "Member-2: Xinzhou Li\nClick here to open\nProvide their name, a link to their “About Me” page.\nAlso, describe a log of their project roles.\nWeekly project contribution log:\nW: 10-16-2024 （星期，和日期）从近到远的顺序罗列\n\nAttend first group meeting"
   },
   {
-    "objectID": "technical-details/unsupervised-learning/instructions.html#hierarchical-clustering",
-    "href": "technical-details/unsupervised-learning/instructions.html#hierarchical-clustering",
-    "title": "Dimensionality Reduction",
-    "section": "Hierarchical Clustering",
-    "text": "Hierarchical Clustering\nHierarchical clustering was performed using the Ward method, which minimizes the total within-cluster variance. At each step, the pair of clusters with the minimum between-cluster distance are merged. This method is well-suited for identifying hierarchical relationships between clusters."
+    "objectID": "index.html#project-summary",
+    "href": "index.html#project-summary",
+    "title": "Landing page",
+    "section": "Project Summary",
+    "text": "Project Summary\nThe aim of this project is to analyze the popularity of YouTube’s music video with Youtube’s mv features, combined with the corresponding Spotify’s artist popularity and and the corresponding track popularity and explore these features and YouTube music videos’ popularity through regression analysis, binary and multiclassification analyses, unsupervised learning, interaction rate, etc."
   },
   {
-    "objectID": "technical-details/unsupervised-learning/instructions.html#results-section",
-    "href": "technical-details/unsupervised-learning/instructions.html#results-section",
-    "title": "Dimensionality Reduction",
-    "section": "Results Section",
-    "text": "Results Section\n\nVisualizing Cluster Results\nThe clustering results from K-Means, DBSCAN, and Hierarchical clustering were visualized using scatter plots, clearly labeled with clusters identified from PCA and t-SNE processed data. Each visualization helps in understanding the cluster distribution and separation.\n\nimport numpy as np\nfrom sklearn.cluster import KMeans, DBSCAN\nfrom sklearn.cluster import AgglomerativeClustering\nimport matplotlib.pyplot as plt\n\n# K-Means Clustering\nkmeans = KMeans(n_clusters=3, random_state=42)\nkmeans_tsne = kmeans.fit(X_tsne)\nkmeans_tsne_labels = kmeans_tsne.labels_\n\n# DBSCAN\ndbscan = DBSCAN(eps=1, min_samples=5)\ndbscan_tsne = dbscan.fit(X_tsne)\ndbscan_tsne_labels = dbscan_tsne.labels_\n\n# Hierarchical Clustering\nhierarchical = AgglomerativeClustering(n_clusters=3)\nhierarchical_tsne = hierarchical.fit(X_tsne)\nhierarchical_tsne_labels = hierarchical_tsne.labels_\n\n# Plotting the results\nfig, axes = plt.subplots(1, 3, figsize=(18, 5))\n\n# K-Means Plot\naxes[0].scatter(X_tsne[:, 0], X_tsne[:, 1], c=kmeans_tsne_labels, cmap='viridis', marker='o')\naxes[0].set_title('K-Means Clustering on t-SNE Data')\naxes[0].set_xlabel('t-SNE Axis 1')\naxes[0].set_ylabel('t-SNE Axis 2')\n\n# DBSCAN Plot\naxes[1].scatter(X_tsne[:, 0], X_tsne[:, 1], c=dbscan_tsne_labels, cmap='viridis', marker='o')\naxes[1].set_title('DBSCAN Clustering on t-SNE Data')\naxes[1].set_xlabel('t-SNE Axis 1')\naxes[1].set_ylabel('t-SNE Axis 2')\n\n# Hierarchical Plot\naxes[2].scatter(X_tsne[:, 0], X_tsne[:, 1], c=hierarchical_tsne_labels, cmap='viridis', marker='o')\naxes[2].set_title('Hierarchical Clustering on t-SNE Data')\naxes[2].set_xlabel('t-SNE Axis 1')\naxes[2].set_ylabel('t-SNE Axis 2')\n\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n\nResults Insights\n\nK-Means Clustering:\n\nK-Means with n_clusters=3 segmented the data into three distinct groups. The clusters are relatively well-separated with slight overlap, indicating a clear grouping pattern in the dataset.\n\nDBSCAN Clustering:\n\nDBSCAN with eps=1 and min_samples=5 identified varying densities within the dataset. This method has successfully differentiated the dense core groups from sparser outliers, which are not included in any cluster and are labeled as noise. But there is overlap between different groups.\n\nHierarchical Clustering:\n\nHierarchical clustering revealed three main clusters, with results similar to K-Means but differing slightly in the cluster boundaries.\n\n\n\n\nPerformance Comparison\n\nSilhouette Scores:\n\nK-Means achieved the highest Silhouette Score of 0.463882, suggesting a good level of separation and cohesion within clusters.\nHierarchical Clustering followed closely with a Silhouette Score of 0.456777.\nDBSCAN had a lower Silhouette Score of 0.3538208, indicating more overlap or less distinct clustering compared to the other methods.\n\n\nSo K-Means has the best performance on the t-sne processed dataset.\n\n\nConclusion\nFrom the visualization, we can see there is chance for the dataset to be classified into groups, indicating there may be differences beween different songs for their popularity according to our features given. And in the future this can be used for popularity forecast."
+    "objectID": "index.html#research-questions",
+    "href": "index.html#research-questions",
+    "title": "Landing page",
+    "section": "Research Questions",
+    "text": "Research Questions\n\nIs there a relationship between video features (such as mean sentiment score，comment count, subscriber count, and publishing time) and YouTube video views?\nHow can we predict YouTube video views based on Spotify’s singer popularity and track popularity?\nHow can sentiment analysis (sentiment score range: -0.5 to 0.2) help evaluate the interaction level between the video and its audience?\nHow can we predict the Like/View ratio (engagement rate) based on video features such as comment count, duration_seconds, etc.?\nHow do video features like mean sentiment score impact the likelihood of a video receiving high views?"
   }
 ]

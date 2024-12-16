@@ -19,7 +19,7 @@ title: "Progress log"
 * [x] Write the final report
 
 
-## Member-1:Yiqin Zhou
+## Member-1: Yiqin Zhou
 [Click here to open](../technical-details/aboutme_yz.html)
 
 **Weekly project contribution log:**
@@ -51,7 +51,7 @@ title: "Progress log"
 
 
 
-## Member-2:Xinzhou Li
+## Member-2: Xinzhou Li
 
 [Click here to open](../technical-details/aboutme_xinzhouli.html)
 
