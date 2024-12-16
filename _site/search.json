@@ -732,14 +732,14 @@
     "href": "technical-details/progress-log.html",
     "title": "Progress log",
     "section": "",
-    "text": "Use this page to track your progress and keep a log of your contributions to the project, please update this each time you work on your project, it is generally a good habit to adopt.\nIf you are working as a team, at the end, you can duplicate the project and add it to your individual portfolio websites. If you do, you MUST retain attribution to your teammates. Removing attribution would constitute plagiarism."
+    "text": "Confirm the project topic\nConfirm the data sources\nCollect data using YouTube API\nCollect data using Spotify API\nClean the data\nNormalize the data\nPerform Exploratory Data Analysis (EDA)\nImplement regression analysis\nImplement binary classification\nImplement multi-class classification\nWork on unsupervised learning (e.g., clustering, dimensionality reduction)\nUpdate progress log regularly\nWork on the LLM (Language Model) part of the project\nWrite the final report"
   },
   {
     "objectID": "technical-details/progress-log.html#to-do",
     "href": "technical-details/progress-log.html#to-do",
     "title": "Progress log",
-    "section": "To-do",
-    "text": "To-do\n\nConfirm the project topic\nConfirm the data sources\nCollect data using YouTube API\nCollect data using Spotify API\nClean the data\nNormalize the data\nPerform Exploratory Data Analysis (EDA)\nImplement regression analysis\nImplement binary classification\nImplement multi-class classification\nWork on unsupervised learning (e.g., clustering, dimensionality reduction)\nUpdate progress log regularly\nWork on the LLM (Language Model) part of the project\nWrite the final report"
+    "section": "",
+    "text": "Confirm the project topic\nConfirm the data sources\nCollect data using YouTube API\nCollect data using Spotify API\nClean the data\nNormalize the data\nPerform Exploratory Data Analysis (EDA)\nImplement regression analysis\nImplement binary classification\nImplement multi-class classification\nWork on unsupervised learning (e.g., clustering, dimensionality reduction)\nUpdate progress log regularly\nWork on the LLM (Language Model) part of the project\nWrite the final report"
   },
   {
     "objectID": "technical-details/progress-log.html#member-1",
@@ -1376,7 +1376,7 @@
     "href": "technical-details/progress-log.html#member-2xinzhou-li",
     "title": "Progress log",
     "section": "Member-2:Xinzhou Li",
-    "text": "Member-2:Xinzhou Li\nClick here to open\nProvide their name, a link to their “About Me” page.\nAlso, describe a log of their project roles.\nWeekly project contribution log:\nW: 10-16-2024 （星期，和日期）从近到远的顺序罗列\n\nAttend first group meeting"
+    "text": "Member-2:Xinzhou Li\nClick here to open\nWeekly project contribution log:\nT: 12-15-2024\n\nCompleted final report section\n\nCompleted supervised classification modeling\nCompleted unsupervised learning classification section\n\nF: 12-14-2024\n\nStarted supervised classification modeling\nCompleted regression modeling\n\nTh: 12-13-2024\n\nStarted data cleaning on Youtube data and did regression modeling\n\nW: 12-12-2024\n\nConfirmed data source in group meeting and began data collection on Youtube\n\nT: 12-11-2024\n\nHeld group meeting to decide on project topic due to changes in Spotify API permissions\n\nT: 12-09-2024\n\nDid the first version of Youtube data collection\n\nW: 11-21-2024\n\nParticipated in group discussion to decide on project topic and data source"
   },
   {
     "objectID": "technical-details/unsupervised-learning/instructions.html#k-means-clustering",
