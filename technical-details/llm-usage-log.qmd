@@ -14,7 +14,10 @@ LLM tools were used in the following way for the tasks below
   - YouTube video view counts and the associated variables that impact popularity.
 
 * After generating these ideas, LLM was consulted to evaluate their feasibility and relevance for the project. The model helped us refine these topics by providing insights on potential challenges and opportunities.
+
 * Additionally, LLM assisted in drafting a detailed project plan, including timelines and milestones, to ensure an organized workflow and a feasible approach for execution.
+
+* Brainstorm for exploratory data analysis and determine what to include
 
 
 ## Writing: 
@@ -22,6 +25,10 @@ LLM tools were used in the following way for the tasks below
 * Reformating text from bulleted lists into proses 
 * Proofreading
 * Text summarization for literature review 
+* Concepts for unsupervised learning
+* Suggestions for comparing models
 
 ## Code: 
 * Code commenting and explanatory documentation 
+* Debugging
+* Improving visualization effects
