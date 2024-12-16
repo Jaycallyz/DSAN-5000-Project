@@ -8,7 +8,14 @@ LLM tools were used in the following way for the tasks below
 
 ## Brainstorming
 
-* To create the initial idea, LLM tools were used to brainstorm ideas and provide feedback and refine the project plan.
+* LLM tools were used to brainstorm initial ideas for research topics. Potential topics considered include:
+  - Amazon purchase and review behavior analysis.
+  - Spotify music streaming data and factors influencing play counts.
+  - YouTube video view counts and the associated variables that impact popularity.
+
+* After generating these ideas, LLM was consulted to evaluate their feasibility and relevance for the project. The model helped us refine these topics by providing insights on potential challenges and opportunities.
+* Additionally, LLM assisted in drafting a detailed project plan, including timelines and milestones, to ensure an organized workflow and a feasible approach for execution.
+
 
 ## Writing: 
 
@@ -17,5 +24,4 @@ LLM tools were used in the following way for the tasks below
 * Text summarization for literature review 
 
 ## Code: 
-
 * Code commenting and explanatory documentation 
