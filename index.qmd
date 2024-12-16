@@ -1,88 +1,6 @@
 ---
 title: "Landing page"
 ---
-
-**Audio instructions:**
-
-If you want, you can listen to the instructions:
-
-<audio controls><source src="audio/landing-page-instructions.mp3" type="audio/mpeg"></audio>
-
-<sup> **Source**: Text-to-speech conversion done with Amazon Polly on AWS </sup>
-
-`Note`: These audio instructions should not be included in your final submission or repository, once you are done wiht them, please delete the files and remove them from the website. 
-
-## Getting Started
-
-To begin the project, first read the instruction document ([click here](instructions/overview.qmd)). This document is also accessible from the navigation bar.
-
-Once you’ve completed that, you can proceed with the instructions found throughout the website.
-
-## What to Include on This Page
-
-This is the landing page for your project. Content from this page can be reused in sections of your final report.
-
-### Create an "About You" Page  
-
-- Develop your "About You" page. You can reuse content from previous assignments.
-- You can include the content here or on a separate page.
-   - It’s recommended to create one "About You" page for all DSAN projects, with links to your various class projects.
-
-### Create a Landing Page for Your Project  
-
-- Summarize your topic, its significance, related work, and the questions you plan to explore.
-- Draft an introduction with at least **5 research questions**. These may evolve as your project progresses, since data science is an iterative process.
-- Include your data science questions on this page.
-
-### Literature review
-
-Once you decide on a topic, you should `ALWAYS START WITH A LITERATURE REVIEW`, this is particularly important for academic projects.
-
-The literature review is the most important part of most projects. 
-
-It allows you to; 
-
-* 1. Determine what is already known and what has already been tried, so that you `don't re-invent the wheel`.
-* 2. It makes you more of a subject matter expert, allowing you to `ask the right questions`, `target impactful projects`, and `communicate with other professionals`.
-
-> Doing a project that you think will change the world, only to find at the end that a very similar version of your project was already done in the 1980's, isn't a great use of time.
-
-In this section, please do a literature review and cite at least **3 academic publications** per group member, and include **internal academic citations**.
-
-**Optional**: Consider using LLM tools to 10X your literature review, e.g. instead of focusing on 3 papers, aim for 30 or more
-
-By following these steps, you can 10X the efficiency of your literature review process, gaining more insights while minimizing the time spent on manual reading.
-
-1. **Expand Your Literature Search**  
-   Aim to gather a larger pool of papers. Use academic databases (Google Scholar, arXiv, etc.) to find relevant studies and ensure a broad scope.
-
-2. **Skim the Abstracts**  
-   Read the abstracts of each paper to quickly understand their focus and identify those most relevant to your topic. Prioritize these papers for deeper analysis.
-
-3. **Use LLM Tools for Summarization**  
-   Upload the selected papers to an LLM tool capable of text summarization. Have it condense the main points of each paper into a concise, manageable summary (e.g., condense hundreds of pages into a 10-page summary). Carefully review this summary to absorb the key insights.
-
-4. **Leverage Interactive LLM Tools**  
-   Use tools like NotebookLM or other AI-based text digesters to ask specific, targeted questions about the papers:
-   - Example questions:
-     - "In the papers uploaded, did any of them explore XYZ?"
-     - "Which paper is most closely related to the following project idea: [explain idea]?"
-   These tools will help you quickly extract relevant information without re-reading entire papers.
-
-
-## Additional Ideas for things to include 
-
-- **Audience**: Who is this for? Data professionals, businesses, researchers, or curious readers.
-- **Headline**: A captivating title introducing the data science theme (e.g., "Unlocking Insights Through Data Stories").
-- **Introduction**: A brief, engaging overview of what the website offers (e.g., data-driven stories, insights, or case studies).
-- **Questions You Are Addressing**: What do you hope to learn?
-- **Motivation**: Explain why this topic matters, highlighting the importance of data in solving real-world problems.
-- **Key Topics**: List the main focus areas (e.g., machine learning, data visualization, predictive modeling).
-- **Use Cases/Examples**: A brief teaser of compelling stories or case studies you’ve worked on.
-- **Call to Action**: Invite visitors to explore the content, follow along, or contact you for more information.
-- **Visual/Infographic**: Add a simple graphic or visual element to make the page more dynamic.
-
-
 # About Us
 - [Yiqin Zhou](../technical-details/aboutme_yz.html)
 - [Xinzhou Li](../technical-details/aboutme_xinzhouli.html)
@@ -99,5 +17,31 @@ The aim of this project is to analyze the popularity of YouTube's music video wi
 * How can we predict the Like/View ratio (engagement rate) based on video features such as comment count, duration_seconds, etc.?
 * How do video features like mean sentiment score impact the likelihood of a video receiving high views?
 
+# Literature
+## Literature Review
 
- 
+In recent years, the rapid expansion of video-sharing platforms like Youtube has triggered a wide range of research aimed at understanding the factors that influence video popularity, viewer engagement, and content analysis. Lots of studies have explored different aspects of YouTube dynamics, such as the discovery of persistent tags and trending videos, to better understand user behavior.
+
+Dokuz (2024) proposed a method for identifying popular and persistent tags from a dataset of trending videos on YouTube, revealing trends in the user-video relationship and how video tags influence YouTube comments for engagement and visibility analysis, which is also a prominent area of research as it provides valuable insights into viewers' reactions and opinions about video content.Khin Nyunt and Naw Thiri Khin (2024) investigated how the combination of sentiment analysis and trend analysis can guide aspiring youtube users to choose a successful career path.Similaet al. (2024) focused on sentiment analysis techniques applied to YouTube comments to provide valuable insights into users' opinions on videos. Their study highlights how sentiment analysis can be used to predict video performance, as positive sentiment is often associated with higher engagement.
+
+Additionally, artificial intelligence and deep learning are becoming more prevalent in analyzing YouTube comments.Meghana (2024) provides a comprehensive overview of sentiment analysis techniques, evaluating how advances in Natural Language Processing (NLP) can improve the accuracy of sentiment categorization and address challenges such as multi-lingual comments and context sensitivity. These studies help to understand how content features and user responses interact to shape the success of YouTube videos.
+
+## References
+1. Dokuz, Y. (2024). Discovering popular and persistent tags from YouTube trending video big dataset. Multimedia Tools and Applications, 83, 10779–10797.
+2. Khin Nyunt, N. T., & Khin, T. (2024). YouTube Career Analysis with the Combination of Trending Analysis and Sentiments Analysis. ESS Open Archive.
+3. Meghana, K. (2024). Artificial Intelligence and Sentiment Analysis in YouTube Comments: A Comprehensive Overview. 2nd International Conference on Intelligent Data Communication Technologies and Internet of Things (IDCIoT), 1565-1572.
+4. Giri, R., Sirsath, M., & Kanakia, H. T. (2024). YouTube Comments Sentiment Analysis. IEEE 9th International Conference for Convergence in Technology (I2CT), Pune, India, 1-4.
+5. Dasovich-Wilson, J. N., Thompson, M., & Saarikallio, S. (2024). The characteristics of music video experiences and their relationship to future listening outcomes. Psychology of Music, 0(0).
+6. Efe, I. E., Tesch, C., & Subedi, P. (2024). YouTube as a source of patient information on awake craniotomy: Analysis of content quality and user engagement. World Neurosurgery: X, 21, 100249.
+
+# Additional Ideas for things to include 
+
+- **Audience**: Who is this for? Data professionals, businesses, researchers, or curious readers.
+- **Headline**: A captivating title introducing the data science theme (e.g., "Unlocking Insights Through Data Stories").
+- **Introduction**: A brief, engaging overview of what the website offers (e.g., data-driven stories, insights, or case studies).
+- **Questions You Are Addressing**: What do you hope to learn?
+- **Motivation**: Explain why this topic matters, highlighting the importance of data in solving real-world problems.
+- **Key Topics**: List the main focus areas (e.g., machine learning, data visualization, predictive modeling).
+- **Use Cases/Examples**: A brief teaser of compelling stories or case studies you’ve worked on.
+- **Call to Action**: Invite visitors to explore the content, follow along, or contact you for more information.
+- **Visual/Infographic**: Add a simple graphic or visual element to make the page more dynamic.
