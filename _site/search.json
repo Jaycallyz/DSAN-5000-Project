@@ -739,7 +739,7 @@
     "href": "technical-details/progress-log.html#to-do",
     "title": "Progress log",
     "section": "To-do",
-    "text": "To-do\n\nExplore possible topics by brainstorming with GPT\nwrite a technical methods sections for K-means\nwrite a technical methods sections for PCA\n\n… etc"
+    "text": "To-do\n\nConfirm the project topic\nConfirm the data sources\nCollect data using YouTube API\nCollect data using Spotify API\nClean the data\nNormalize the data\nPerform Exploratory Data Analysis (EDA)\nImplement regression analysis\nImplement binary classification\nImplement multi-class classification\nWork on unsupervised learning (e.g., clustering, dimensionality reduction)\nUpdate progress log regularly\nWork on the LLM (Language Model) part of the project\nWrite the final report"
   },
   {
     "objectID": "technical-details/progress-log.html#member-1",
@@ -753,7 +753,7 @@
     "href": "technical-details/progress-log.html#member-2",
     "title": "Progress log",
     "section": "Member-2",
-    "text": "Member-2\nProvide their name, a link to their “About Me” page.\nAlso, describe a log of their project roles.\nWeekly project contribution log:\nW: 10-16-2024\n\nAttend first group meeting"
+    "text": "Member-2\nProvide their name, a link to their “About Me” page.\nAlso, describe a log of their project roles.\nWeekly project contribution log:\nW: 10-16-2024 （星期，和日期）从近到远的顺序罗列\n\nAttend first group meeting"
   },
   {
     "objectID": "technical-details/unsupervised-learning/instructions.html",
@@ -1320,7 +1320,7 @@
     "href": "technical-details/supervised-learning/main.html#code",
     "title": "Supervised Learning",
     "section": "Code",
-    "text": "Code\n\nSummary and Interpretation of Results: Summarize your findings, interpret the results, and discuss their technical implications."
+    "text": "Code\nlogistic regression\nX = df[features]\ny = df['Like Ratio Category']\n\n# Data set splitting\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n\n# Feature standardization\nscaler = StandardScaler()\nX_train_scaled = scaler.fit_transform(X_train)\nX_test_scaled = scaler.transform(X_test)\n\nsmote = SMOTE(random_state=42)\nX_train_resampled, y_train_resampled = smote.fit_resample(X_train_scaled, y_train)\n\n\n# Initialize the Logistic Regression model (One-vs-Rest for multi-class)\nmodel = LogisticRegression(multi_class='ovr', max_iter=1000, random_state=42)\n\n# Train the model\nmodel.fit(X_train_scaled, y_train)\n\n# Predict on the test set\ny_pred = model.predict(X_test_scaled)\n\nX_scaled = scaler.fit_transform(X)  # Fit and transform the entire dataset\n\n# Cross-validation to get a better estimate of the model performance\ncross_val_scores = cross_val_score(model, X_scaled, y, cv=5)\nprint(\"\\nCross-validation scores:\", cross_val_scores)\nprint(\"\\nMean cross-validation score:\", cross_val_scores.mean())\n\n# Evaluate the model\nprint(\"Accuracy:\", accuracy_score(y_test, y_pred))\nprint(\"\\nClassification Report:\\n\", classification_report(y_test, y_pred))\n#param_grid\nparam_grid_refined = {\n    'max_depth': [3,4,5],  \n    'min_samples_split': [8,10,15],\n    'min_samples_leaf': [3,4,5,6],   \n    'criterion': ['entropy'],        \n    'class_weight': ['balanced']  \n}\n\ngrid_search_refined = GridSearchCV(\n    DecisionTreeClassifier(random_state=42),\n    param_grid_refined,\n    cv=5,\n    scoring='f1_macro', \n    n_jobs=-1\n)\n\n# train mode\ngrid_search_refined.fit(X_train_scaled, y_train)\n\nprint(\"Refined Best parameters:\", grid_search_refined.best_params_)\nprint(\"Refined Best cross-validation score:\", grid_search_refined.best_score_)\n\nbest_model_refined = DecisionTreeClassifier(\n    **grid_search_refined.best_params_\n)\n\nbest_model_refined.fit(X_train_scaled, y_train)\n\ny_pred_refined = best_model_refined.predict(X_test_scaled)\nprint(\"\\nRefined Test set accuracy:\", accuracy_score(y_test, y_pred_refined))\nprint(\"\\nRefined Classification Report:\\n\", classification_report(y_test, y_pred_refined))\nrandom forest\nf_model = RandomForestClassifier(n_estimators=100)\n\n# Train the model\nrf_model.fit(X_train_scaled, y_train)\n\n# Predict on the test set\ny_pred_rf = rf_model.predict(X_test_scaled)\n\n# Evaluate the model\nprint(\"Random Forest Accuracy:\", accuracy_score(y_test, y_pred_rf))\nprint(\"\\nRandom Forest Classification Report:\\n\", classification_report(y_test, y_pred_rf))\n\n# Cross-validation to get a better estimate of the model performance\ncross_val_scores_rf = cross_val_score(rf_model, X_train_scaled, y_train, cv=5)\nprint(\"\\nRandom Forest Cross-validation scores:\", cross_val_scores_rf)\nprint(\"\\nMean cross-validation score (Random Forest):\", cross_val_scores_rf.mean())"
   },
   {
     "objectID": "technical-details/supervised-learning/instructions.html#result",
@@ -1349,5 +1349,33 @@
     "title": "Instructions",
     "section": "Model performance Result",
     "text": "Model performance Result\nComparison of Model Performance Metrics for Different Classification Models Used in Predicting like_ratio (Multi-Class Classification)\n\n\n\n\n\n\n\n\n\n\nModel\nAccuracy\nPrecision\nRecall\nF1-Score\n\n\n\n\nLogistic Regression\n77.33%\n0.64 (High), 0.86 (Low), 0.73 (Medium)\n0.82 (High), 0.86 (Low), 0.66 (Medium)\n0.72 (High), 0.86 (Low), 0.69 (Medium)\n\n\nDecision Tree\n74.67%\n0.56 (High), 0.85 (Low), 0.74 (Medium)\n0.91 (High), 0.83 (Low), 0.59 (Medium)\n0.69 (High), 0.84 (Low), 0.65 (Medium)\n\n\nRandom Forest\n78.67%\n0.69 (High), 0.88 (Low), 0.73 (Medium)\n0.82 (High), 0.80 (Low), 0.76 (Medium)\n0.75 (High), 0.84 (Low), 0.75 (Medium)\n\n\n\nCross-Validation Scores\n\n\n\n\n\n\n\n\nModel\nCross-Validation Scores\nMean Cross-Validation Score\n\n\n\n\nLogistic Regression\n[0.6533, 0.6133, 0.8133, 0.72, 0.4667]\n0.6533\n\n\nDecision Tree\nRefined Best CV: [0.6208 (balanced parameters)]\n0.6208\n\n\nRandom Forest\n[0.75, 0.6833, 0.6833, 0.7, 0.7833]\n0.72\n\n\n\n\nResult Interpretation\nWe can see from the table that the Random Forest model is the most effective model for predicting the like_ratio, achieving the highest accuracy (78.67%) and a balanced performance in terms of Precision, Recall, and F1-Score across all classes (High, Low, and Medium). Its average cross-validation score is 0.72, demonstrating good generalization.\nThe Logistic regression model is second effective one with an overall accuracy of 77.33%. While the low rank Precision (0.86) is strong, the medium rank Recall (0.66) performed relatively weakly. Nonetheless, the model is metrically consistent, showing its suitability for applications that require interpretability and stable performance.\nFor the Decision Tree model, it has the lowest overall accuracy (74.67%). While it performs well in recognizing high levels with a recall of 0.91, it performs poorly in recognizing intermediate levels where it has the lowest accuracy (0.74) and recall (0.59). But it can distinguish between high & low cases well."
+  },
+  {
+    "objectID": "technical-details/supervised-learning/main.html#result",
+    "href": "technical-details/supervised-learning/main.html#result",
+    "title": "Supervised Learning",
+    "section": "Result",
+    "text": "Result\n\nModel performance Result\nComparison of Model Performance Metrics for Different Classification Models Used in Predicting like_ratio (Multi-Class Classification)\n\n\n\n\n\n\n\n\n\n\nModel\nAccuracy\nPrecision\nRecall\nF1-Score\n\n\n\n\nLogistic Regression\n77.33%\n0.64 (High), 0.86 (Low), 0.73 (Medium)\n0.82 (High), 0.86 (Low), 0.66 (Medium)\n0.72 (High), 0.86 (Low), 0.69 (Medium)\n\n\nDecision Tree\n74.67%\n0.56 (High), 0.85 (Low), 0.74 (Medium)\n0.91 (High), 0.83 (Low), 0.59 (Medium)\n0.69 (High), 0.84 (Low), 0.65 (Medium)\n\n\nRandom Forest\n78.67%\n0.69 (High), 0.88 (Low), 0.73 (Medium)\n0.82 (High), 0.80 (Low), 0.76 (Medium)\n0.75 (High), 0.84 (Low), 0.75 (Medium)\n\n\n\nCross-Validation Scores\n\n\n\n\n\n\n\n\nModel\nCross-Validation Scores\nMean Cross-Validation Score\n\n\n\n\nLogistic Regression\n[0.6533, 0.6133, 0.8133, 0.72, 0.4667]\n0.6533\n\n\nDecision Tree\nRefined Best CV: [0.6208 (balanced parameters)]\n0.6208\n\n\nRandom Forest\n[0.75, 0.6833, 0.6833, 0.7, 0.7833]\n0.72\n\n\n\n\n\nResult Interpretation\nWe can see from the table that the Random Forest model is the most effective model for predicting the like_ratio, achieving the highest accuracy (78.67%) and a balanced performance in terms of Precision, Recall, and F1-Score across all classes (High, Low, and Medium). Its average cross-validation score is 0.72, demonstrating good generalization.\nThe Logistic regression model is second effective one with an overall accuracy of 77.33%. While the low rank Precision (0.86) is strong, the medium rank Recall (0.66) performed relatively weakly. Nonetheless, the model is metrically consistent, showing its suitability for applications that require interpretability and stable performance.\nFor the Decision Tree model, it has the lowest overall accuracy (74.67%). While it performs well in recognizing high levels with a recall of 0.91, it performs poorly in recognizing intermediate levels where it has the lowest accuracy (0.74) and recall (0.59). But it can distinguish between high & low cases well."
+  },
+  {
+    "objectID": "technical-details/supervised-learning/main.html#insights-1",
+    "href": "technical-details/supervised-learning/main.html#insights-1",
+    "title": "Supervised Learning",
+    "section": "Insights",
+    "text": "Insights\nFrom the results, we can find that the Random Forest model shows the best balance of accuracy, precision, recall, and F1 value in predicting the like_ratio of songs, especially in the medium class (Medium). This indicates that Random Forest has a strong ability in dealing with multi-categorization problems. The Logistic Regression model, on the other hand, has high precision and recall in identifying the low like_ratio category, suggesting that it is more effective in distinguishing between low popularity songs. while the Decision Tree model’s perform is not so good as we expected among all these three models, with low recall especially in the Medium category, suggesting that it may be unsuitable for dealing with such a complex multi-class classification task\nThis multi-class classification enables me to better understand the advantages and limitations of different models in multi-class classification tasks, and teach me lesson that we should choose the right model for future projects based on the specific needs of the task."
+  },
+  {
+    "objectID": "technical-details/progress-log.html#member-1yiqin-zhou",
+    "href": "technical-details/progress-log.html#member-1yiqin-zhou",
+    "title": "Progress log",
+    "section": "Member-1:Yiqin Zhou",
+    "text": "Member-1:Yiqin Zhou\nClick here to open\nWeekly project contribution log: T: 12-15-2024\n\nCompleted final report section\n\nCompleted progess- log section\n\nCompleted unsupervised learning multi-class classification section\n\nF: 12-14-2024\n\nCompleted EDA section\n\nTh: 12-13-2024\n\nCompleted data collection\n\nW: 12-12-2024\n\nConfirmed data source in group meeting and began data collection\n\nT: 12-11-2024\n\nHeld group meeting to decide on project topic due to changes in Spotify API permissions\n\nW: 11-21-2024\n\nParticipated in group discussion to decide on project topic and data source"
+  },
+  {
+    "objectID": "technical-details/progress-log.html#member-2xinzhou-li",
+    "href": "technical-details/progress-log.html#member-2xinzhou-li",
+    "title": "Progress log",
+    "section": "Member-2:Xinzhou Li",
+    "text": "Member-2:Xinzhou Li\nClick here to open\nProvide their name, a link to their “About Me” page.\nAlso, describe a log of their project roles.\nWeekly project contribution log:\nW: 10-16-2024 （星期，和日期）从近到远的顺序罗列\n\nAttend first group meeting"
   }
 ]
