@@ -1,9 +1,6 @@
 ---
 title: "Landing page"
 ---
-
-可以同步吗
-
 # About Us
 - [Yiqin Zhou](../technical-details/aboutme_yz.html)
 - [Xinzhou Li](../technical-details/aboutme_xinzhouli.html)
