@@ -145,7 +145,7 @@
         "- singer_followers: 0.0360773423716881\n",
         "- singer_popularity: 0.6712934520249385\n"
       ],
-      "id": "72050c95"
+      "id": "94be832a"
     },
     {
       "cell_type": "code",
@@ -160,7 +160,7 @@
         "plt.gca().invert_yaxis()  # Invert y-axis to have the highest score on top\n",
         "plt.show()"
       ],
-      "id": "e0741b31",
+      "id": "a2b6431f",
       "execution_count": null,
       "outputs": []
     },
@@ -249,7 +249,7 @@
         "# Multi-class Classification\n",
         "##"
       ],
-      "id": "cb274a14"
+      "id": "0d179d35"
     }
   ],
   "metadata": {
