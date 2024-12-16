@@ -81,3 +81,23 @@ By following these steps, you can 10X the efficiency of your literature review p
 - **Use Cases/Examples**: A brief teaser of compelling stories or case studies you’ve worked on.
 - **Call to Action**: Invite visitors to explore the content, follow along, or contact you for more information.
 - **Visual/Infographic**: Add a simple graphic or visual element to make the page more dynamic.
+
+
+# About Us
+- [Yiqin Zhou](../technical-details/aboutme_yz.html)
+- [Xinzhou Li](../technical-details/aboutme_xinzhouli.html)
+
+# Exploring YouTube Video Popularity through Data Science  
+## Project Summary
+
+The aim of this project is to analyze the popularity of YouTube's music video with Youtube's mv features, combined with the corresponding Spotify's artist popularity and and the corresponding track popularity and explore these features and YouTube music videos' popularity through regression analysis, binary and multiclassification analyses, unsupervised learning, interaction rate, etc.
+
+## Research Questions
+* Is there a relationship between video features (such as mean sentiment score，comment count, subscriber count, and publishing time) and YouTube video views?
+* How can we predict YouTube video views based on Spotify's singer popularity and track popularity?
+* How can sentiment analysis (sentiment score range: -0.5 to 0.2) help evaluate the interaction level between the video and its audience?
+* How can we predict the Like/View ratio (engagement rate) based on video features such as comment count, duration_seconds, etc.?
+* How do video features like mean sentiment score impact the likelihood of a video receiving high views?
+
+
+ 

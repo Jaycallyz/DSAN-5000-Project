@@ -1377,5 +1377,33 @@
     "title": "Progress log",
     "section": "Member-2:Xinzhou Li",
     "text": "Member-2:Xinzhou Li\nClick here to open\nProvide their name, a link to their “About Me” page.\nAlso, describe a log of their project roles.\nWeekly project contribution log:\nW: 10-16-2024 （星期，和日期）从近到远的顺序罗列\n\nAttend first group meeting"
+  },
+  {
+    "objectID": "technical-details/progress-log.html#member-1-yiqin-zhou",
+    "href": "technical-details/progress-log.html#member-1-yiqin-zhou",
+    "title": "Progress log",
+    "section": "Member-1: Yiqin Zhou",
+    "text": "Member-1: Yiqin Zhou\nClick here to open\nWeekly project contribution log: T: 12-15-2024\n\nCompleted final report section\n\nCompleted progess- log section\n\nCompleted unsupervised learning multi-class classification section\n\nF: 12-14-2024\n\nCompleted EDA section\n\nTh: 12-13-2024\n\nCompleted data collection\n\nW: 12-12-2024\n\nConfirmed data source in group meeting and began data collection\n\nT: 12-11-2024\n\nHeld group meeting to decide on project topic due to changes in Spotify API permissions\n\nW: 11-21-2024\n\nParticipated in group discussion to decide on project topic and data source"
+  },
+  {
+    "objectID": "technical-details/progress-log.html#member-2-xinzhou-li",
+    "href": "technical-details/progress-log.html#member-2-xinzhou-li",
+    "title": "Progress log",
+    "section": "Member-2: Xinzhou Li",
+    "text": "Member-2: Xinzhou Li\nClick here to open\nProvide their name, a link to their “About Me” page.\nAlso, describe a log of their project roles.\nWeekly project contribution log:\nW: 10-16-2024 （星期，和日期）从近到远的顺序罗列\n\nAttend first group meeting"
+  },
+  {
+    "objectID": "index.html#project-summary",
+    "href": "index.html#project-summary",
+    "title": "Landing page",
+    "section": "Project Summary",
+    "text": "Project Summary\nThe aim of this project is to analyze the popularity of YouTube’s music video with Youtube’s mv features, combined with the corresponding Spotify’s artist popularity and and the corresponding track popularity and explore these features and YouTube music videos’ popularity through regression analysis, binary and multiclassification analyses, unsupervised learning, interaction rate, etc."
+  },
+  {
+    "objectID": "index.html#research-questions",
+    "href": "index.html#research-questions",
+    "title": "Landing page",
+    "section": "Research Questions",
+    "text": "Research Questions\n\nIs there a relationship between video features (such as mean sentiment score，comment count, subscriber count, and publishing time) and YouTube video views?\nHow can we predict YouTube video views based on Spotify’s singer popularity and track popularity?\nHow can sentiment analysis (sentiment score range: -0.5 to 0.2) help evaluate the interaction level between the video and its audience?\nHow can we predict the Like/View ratio (engagement rate) based on video features such as comment count, duration_seconds, etc.?\nHow do video features like mean sentiment score impact the likelihood of a video receiving high views?"
   }
 ]
