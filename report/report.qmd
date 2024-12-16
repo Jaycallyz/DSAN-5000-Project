@@ -61,14 +61,18 @@ At the same time, this data can also help agencies assess the development potent
 This comprehensive analysis employs advanced data analytics techniques across both YouTube and Spotify to uncover how video views and song popularity influence each other. By integrating insights from these platforms, we have identified significant cross-platform effects where YouTube metrics considerably impact Spotify's track popularity. Leveraging this synergy provides actionable strategies for content creators and marketers to enhance their reach and engagement across media, ultimately boosting profitability and expanding market presence while increasing overall audience engagement.
 
 ## Appendix
-Additional statistical analyses, detailed correlation matrices, and extended visual summaries are available to provide deeper insights into the specific mechanics of cross-platform content interaction and audience behavior dynamics.
+### Citation
 
-Citation:
 1. Dokuz, Y. (2024). Discovering popular and persistent tags from YouTube trending video big dataset. Multimedia Tools and Applications, 83, 10779–10797.
+
 2. Khin Nyunt, N. T., & Khin, T. (2024). YouTube Career Analysis with the Combination of Trending Analysis and Sentiments Analysis. ESS Open Archive.
+
 3. Meghana, K. (2024). Artificial Intelligence and Sentiment Analysis in YouTube Comments: A Comprehensive Overview. 2nd International Conference on Intelligent Data Communication Technologies and Internet of Things (IDCIoT), 1565-1572.
+
 4. Giri, R., Sirsath, M., & Kanakia, H. T. (2024). YouTube Comments Sentiment Analysis. IEEE 9th International Conference for Convergence in Technology (I2CT), Pune, India, 1-4.
+
 5. Dasovich-Wilson, J. N., Thompson, M., & Saarikallio, S. (2024). The characteristics of music video experiences and their relationship to future listening outcomes. Psychology of Music, 0(0).
+
 6. Efe, I. E., Tesch, C., & Subedi, P. (2024). YouTube as a source of patient information on awake craniotomy: Analysis of content quality and user engagement. World Neurosurgery: X, 21, 100249.
 
 
