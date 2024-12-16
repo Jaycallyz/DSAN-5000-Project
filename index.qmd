@@ -8,12 +8,12 @@ title: "Landing page"
 # Exploring YouTube Video Popularity through Data Science  
 ## Project Summary
 
-The aim of this project is to analyze the popularity of YouTube's music video with Youtube's mv features, combined with the corresponding Spotify's artist popularity and and the corresponding track popularity and explore these features and YouTube music videos' popularity through regression analysis, binary and multiclassification analyses, unsupervised learning, interaction rate, etc.
+The aim of this project is to analyze the popularity of YouTube's music video with Youtube's mv features, combined with the corresponding Spotify's artist popularity and the corresponding track popularity, also explore these features and YouTube music videos' popularity through regression analysis, binary and multiclassification analyses, unsupervised learning, interaction rate, etc.
 
 ## Research Questions
 * Is there a relationship between video features (such as mean sentiment score，comment count, subscriber count, and publishing time) and YouTube video views?
-* How can we predict YouTube video views based on Spotify's singer popularity and track popularity?
-* How can sentiment analysis (sentiment score range: -0.5 to 0.2) help evaluate the interaction level between the video and its audience?
+* How can we predict Spotify's track popularity based on singer popularity and YouTube video views or other related features?
+* Can sentiment analysis (sentiment score range: -0.5 to 0.2) help evaluate the interaction level between the video and its audience?
 * How can we predict the Like/View ratio (engagement rate) based on video features such as comment count, duration_seconds, etc.?
 * How do video features like mean sentiment score impact the likelihood of a video receiving high views?
 
@@ -36,12 +36,9 @@ Additionally, artificial intelligence and deep learning are becoming more preval
 
 # Additional Ideas for things to include 
 
-- **Audience**: Who is this for? Data professionals, businesses, researchers, or curious readers.
-- **Headline**: A captivating title introducing the data science theme (e.g., "Unlocking Insights Through Data Stories").
-- **Introduction**: A brief, engaging overview of what the website offers (e.g., data-driven stories, insights, or case studies).
-- **Questions You Are Addressing**: What do you hope to learn?
-- **Motivation**: Explain why this topic matters, highlighting the importance of data in solving real-world problems.
-- **Key Topics**: List the main focus areas (e.g., machine learning, data visualization, predictive modeling).
-- **Use Cases/Examples**: A brief teaser of compelling stories or case studies you’ve worked on.
-- **Call to Action**: Invite visitors to explore the content, follow along, or contact you for more information.
-- **Visual/Infographic**: Add a simple graphic or visual element to make the page more dynamic.
+- **Audience**: For data professionals, business analysts, and digital marketing strategists.
+- **Headline**: Unlocking the Power of Cross-Platform Synergy
+- **Introduction**: We offer insights into how data-driven strategies can enhance content visibility and viewer engagement on YouTube and Spotify.
+- **Motivation**: EThis analysis is crucial for content creators and marketers aiming to optimize their digital strategy in a highly competitive space.
+- **Key Topics**: Machine learning, Youtube & Spotify features, and data visualization
+- **Call to Action**: We can help music industry practitioners better understand and grasp the market. Music producers, companies and singer teams can analyze the correlation between YouTube and Spotify platforms to allocate marketing budgets more rationally and produce more targeted content based on the characteristics of different platforms.
