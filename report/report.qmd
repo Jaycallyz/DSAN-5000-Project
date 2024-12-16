@@ -121,7 +121,10 @@ Finally, it can be seen that singer popularity shows significant correlations wi
 For plot Distribution of Log10(View Count), it shows normal distribution characteristics. We can conclude that most of the videos have view counts between 10^7-10^9. For plot Like Ratio Distribution, it shows right skewed distribution. The Like Ratio of most videos is concentrated between 0-2%. For plot Comment Ratio Distribution, it shows a strong right-skewed distribution. Most videos have a comment ratio of less than 0.2%. For plot Singer Popularity Distribution, it ranges from 40-100 scores. There is a clear peak at around 80.
 
 ## Business Implications
-Understanding these cross-platform dynamics can guide strategic decisions for content promotion, targeting efforts on the most impactful YouTube metrics to enhance Spotify performance. This approach is essential for maximizing marketing ROI and broadening audience reach.
+
+This project aims to help music industry practitioners better understand and grasp the market. Music producers, companies and singer teams can analyze the correlation between YouTube and Spotify platforms to allocate marketing budgets more rationally and produce more targeted content based on the characteristics of different platforms.
+
+At the same time, this data can also help agencies assess the development potential of singers on Youtube, Spotify, meanwhile customize more appropriate content strategies for artists. Plus, music platform operators can draw on these analytics to improve their recommendation algorithms and optimize their content layout to enhance user experience. In addition, the data can also help industry players have a better acknowledge of the trends of the music market and understand the differences in user preferences across different platforms, so that they can formulate more accurate marketing strategies.
 
 ## Recommendations
 - **Targeted Marketing Campaigns:** Focus promotional efforts on artists and genres that exhibit strong cross-platform synergy.
