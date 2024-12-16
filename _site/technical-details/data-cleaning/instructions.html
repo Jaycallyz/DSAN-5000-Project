@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,10 +70,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -188,12 +188,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#suggested-page-structure" id="toc-suggested-page-structure" class="nav-link active" data-scroll-target="#suggested-page-structure">Suggested page structure</a></li>
-  <li><a href="#general-comments" id="toc-general-comments" class="nav-link" data-scroll-target="#general-comments">General comments:</a></li>
-  <li><a href="#what-to-address" id="toc-what-to-address" class="nav-link" data-scroll-target="#what-to-address">What to address</a></li>
-  <li><a href="#data-cleaning-and-preprocessing-documentation" id="toc-data-cleaning-and-preprocessing-documentation" class="nav-link" data-scroll-target="#data-cleaning-and-preprocessing-documentation">Data Cleaning and Preprocessing Documentation</a>
-  <ul class="collapse">
-  <li><a href="#introduction-and-motivation" id="toc-introduction-and-motivation" class="nav-link" data-scroll-target="#introduction-and-motivation">Introduction and Motivation</a></li>
+  <li><a href="#introduction-and-motivation" id="toc-introduction-and-motivation" class="nav-link active" data-scroll-target="#introduction-and-motivation">Introduction and Motivation</a></li>
   <li><a href="#overview-of-methods" id="toc-overview-of-methods" class="nav-link" data-scroll-target="#overview-of-methods">Overview of Methods</a></li>
   <li><a href="#code-implementation-and-description" id="toc-code-implementation-and-description" class="nav-link" data-scroll-target="#code-implementation-and-description">Code Implementation and Description</a>
   <ul class="collapse">
@@ -206,7 +201,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#data-storage" id="toc-data-storage" class="nav-link" data-scroll-target="#data-storage">Data Storage</a></li>
   </ul></li>
   <li><a href="#summary-and-interpretation-of-results" id="toc-summary-and-interpretation-of-results" class="nav-link" data-scroll-target="#summary-and-interpretation-of-results">Summary and Interpretation of Results</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -215,7 +209,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Instructions</h1>
+<h1 class="title">Data Cleaning and Preprocessing</h1>
 </div>
 
 
@@ -232,77 +226,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><code>Note</code>: You should remove these instructions once you have read and understood them. They should not be included in your final submission.</p>
-<p><code>Remember:</code> Exactly what do you on this page will be specific you your project and data. Some things might “make more sense” on other pages, depending on your workflow, for example, you might feel that normalization and scaling should be included in a later section, dealing with machine learning, rather than here, that is totally fine. Organize your project in the way that makes the most sense to you.</p>
-<section id="suggested-page-structure" class="level2">
-<h2 class="anchored" data-anchor-id="suggested-page-structure">Suggested page structure</h2>
-<p>Here’s one suggested structure for organizing your technical pages. You can adjust this as needed:</p>
-<p><code>Audience</code>:Remember that these are written for a technical audience. Assume they have completed the DSAN program, but would appreciate refreshers of the important concepts.</p>
-<ul>
-<li><strong>Introduction and Motivation:</strong> Briefly outline your plan. What are you doing on this page, and why? Provide context and explain the goals of your analysis.</li>
-<li><strong>Overview of Methods:</strong> Give a concise explanation of the methods used. For example, if using K-Means clustering, describe what it is, how it works, the inputs and outputs, and key hyperparameters.</li>
-<li><strong>Code:</strong> Include the code you used to implement your workflow.</li>
-<li><strong>Summary and Interpretation of Results:</strong> Summarize your findings, interpret the results, and discuss their technical implications.</li>
-</ul>
-</section>
-<section id="general-comments" class="level2">
-<h2 class="anchored" data-anchor-id="general-comments">General comments:</h2>
-<ul>
-<li><strong>Iterative Process</strong>: Data cleaning is often not a one-time process. As your analysis progresses, you may need to revisit the cleaning phase, and re-run the code, to adjust to new insights or requirements.</li>
-<li><strong>Clarity and Reproducibility</strong>: Ensure your documentation is clear and thorough. Others should be able to follow your steps and achieve the same results.</li>
-<li><strong>Visualizations</strong>: Use before-and-after visualizations to illustrate the impact of your cleaning steps, making the process more intuitive and transparent.</li>
-</ul>
-<p>By the end of this phase, your cleaned data should be well-documented and ready for further stages, such as <strong>Exploratory Data Analysis (EDA)</strong> and <strong>Machine Learning</strong>.</p>
-</section>
-<section id="what-to-address" class="level2">
-<h2 class="anchored" data-anchor-id="what-to-address">What to address</h2>
-<p>The following is a list of some of the things you should address on this page. This list is not exhaustive, and you should use your judgment to decide what is most relevant to your project.</p>
-<p>The <strong>Data Cleaning</strong> page of your portfolio is where you document the process of transforming your raw data into a usable format. Data cleaning is essential for ensuring the quality of your analysis, and this page should serve as a clear and reproducible guide for anyone reviewing your work. It also provides transparency, allowing others to trace the steps you took to prepare your data.</p>
-<p>The following is a guide to help you get started with possible thing to address on this page .</p>
-<ul>
-<li><strong>Description of the Data Cleaning Process</strong>: Explain the steps you took to clean and preprocess the data.</li>
-<li><strong>Code Documentation</strong>: Provide the code used in the data cleaning process (link to GitHub or embed the code directly).</li>
-<li><strong>Provide examples of data before and after cleaning</strong>: e.g.&nbsp;with df.head() or df.describe()</li>
-<li><strong>Raw and Cleaned Data Links</strong>: Ensure your page links to both the original (raw) dataset and the cleaned dataset. (please keep organized and store the cleaned data in <code>data/processed-data</code>, or similar location which doesn’t get synced to GitHub)</li>
-</ul>
-<p>Possible things to include:</p>
-<p><strong>Introduction to Data Cleaning</strong>:</p>
-<ul>
-<li>Provide a brief explanation of the data cleaning phase, its importance in preparing the data for further analysis (EDA, modeling), and its iterative nature.</li>
-<li>Mention that data cleaning may need to be revisited as the project evolves and analysis goals change.</li>
-</ul>
-<p><strong>Managing Missing Data</strong>:</p>
-<ul>
-<li><strong>Identify Missing Values</strong>: Explain how you identified missing data and where it occurred.</li>
-<li><strong>Handling Missing Data</strong>: Describe how missing values were addressed (e.g., imputation, removal of rows/columns).</li>
-<li><strong>Visualize Missing Data</strong>: Include visualizations (e.g., heatmaps) showing missing values before and after handling them.</li>
-</ul>
-<p><strong>Outlier Detection and Treatment</strong>:</p>
-<ul>
-<li><strong>Identify Outliers</strong>: Describe the methods you used to detect outliers in the dataset.</li>
-<li><strong>Addressing Outliers</strong>: Explain how outliers were treated (e.g., removal, transformation, or retaining them for analysis).</li>
-<li><strong>Visualize Outliers</strong>: Use visualizations (e.g., box plots) to show how outliers were managed.</li>
-</ul>
-<p><strong>Data Type Correction and Formatting</strong>:</p>
-<ul>
-<li><strong>Review Data Types</strong>: Summarize the types of variables (numerical, categorical, date-time, etc.) and ensure they are correctly formatted.</li>
-<li><strong>Transformation</strong>: Document any transformations performed, such as converting date formats, handling categorical variables, or encoding labels.</li>
-<li><strong>Impact of Changes</strong>: Briefly explain why these changes were necessary for accurate analysis.</li>
-</ul>
-<p><strong>Normalization and Scaling</strong>:</p>
-<ul>
-<li><strong>Data Distribution Analysis</strong>: Check and discuss the distribution of numerical variables (e.g., skewness).</li>
-<li><strong>Normalization Techniques</strong>: Describe any normalization or scaling techniques used (e.g., min-max scaling, z-score normalization).</li>
-<li><strong>Before-and-After Visualizations</strong>: Provide visualizations comparing the data before and after scaling or normalization.</li>
-</ul>
-<p><strong>Subsetting the Data</strong>:</p>
-<ul>
-<li><strong>Data Filtering</strong>: Explain any subsetting or filtering of the data (e.g., selecting quantitative or qualitative columns).</li>
-<li><strong>Rationale</strong>: Justify why you chose to work with a particular subset of the data.</li>
-</ul>
-</section>
-<section id="data-cleaning-and-preprocessing-documentation" class="level1">
-<h1>Data Cleaning and Preprocessing Documentation</h1>
 <section id="introduction-and-motivation" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-and-motivation">Introduction and Motivation</h2>
 <p>This document outlines the steps taken to clean and preprocess the data from a dataset containing view/like/comment counts, relevant comments and populariy value from Spotify and YouTube. The primary goal is to prepare the data for sentiment analysis and further statistical modeling, focusing on extracting meaningful insights about song popularity and engagement.</p>
@@ -316,7 +239,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="data-reading" class="level3">
 <h3 class="anchored" data-anchor-id="data-reading">Data Reading</h3>
 <p>The raw data is loaded from a CSV file using Pandas, which provides a convenient framework for data manipulation in Python.</p>
-<div id="8e72c02c" class="cell" data-execution_count="1">
+<div id="dece861e" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../../data/raw-data/spotify_youtube.csv'</span>, encoding<span class="op">=</span><span class="st">'iso-8859-1'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -510,7 +433,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="before-and-after-visualizations" class="level3">
 <h3 class="anchored" data-anchor-id="before-and-after-visualizations">Before-and-After Visualizations</h3>
-<div id="10ecf983" class="cell" data-execution_count="2">
+<div id="24ffee4c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -543,21 +466,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="instructions_files/figure-html/cell-3-output-1.png" width="1142" height="470" class="figure-img"></p>
+<p><img src="instructions_files/figure-html/cell-3-output-1.png" width="1141" height="468" class="figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="instructions_files/figure-html/cell-3-output-2.png" width="1142" height="470" class="figure-img"></p>
+<p><img src="instructions_files/figure-html/cell-3-output-2.png" width="1141" height="468" class="figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="instructions_files/figure-html/cell-3-output-3.png" width="1142" height="470" class="figure-img"></p>
+<p><img src="instructions_files/figure-html/cell-3-output-3.png" width="1141" height="468" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -568,7 +491,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="data-storage">Data Storage</h3>
 <p>The processed data is saved back to a CSV file, ensuring that all modifications are preserved for subsequent analysis.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">'../../data/processed-data/Normalized_Data_with_Sentiments.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="fa340f0c" class="cell" data-execution_count="3">
+<div id="f46688b3" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../../data/processed-data/Normalized_Data_with_Sentiments.csv'</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
@@ -900,7 +823,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 </section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -985,6 +907,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1095,6 +1019,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
