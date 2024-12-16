@@ -74,7 +74,7 @@ These are just examples, you can use any structure that is suitable for your pro
 - **Emphasize Impact**: Always link data insights to business outcomes.
 
 ## Executive Summary
-This analysis utilizes advanced data analytics techniques across both YouTube and Spotify to understand how video views and song popularity influence each other. By integrating these platforms, we discovered significant cross-platform effects where YouTube's metrics notably influence Spotify's track popularity. This cross-platform synergy offers strategies to enhance content engagement across media, with potential to increase overall audience engagement by up to 20%.
+**Unlocking the Power of Cross-Platform Synergy**—This analysis utilizes advanced data analytics techniques across both YouTube and Spotify to understand how video views and song popularity influence each other. By integrating these platforms, we discovered significant cross-platform effects where YouTube's metrics notably influence Spotify's track popularity. This cross-platform synergy offers strategies to enhance content engagement across media, with potential to increase overall audience engagement.
 
 ## Objective
 Our project aims to quantitatively assess how YouTube music video (MV) characteristics affect the popularity of corresponding songs on Spotify. This cross-platform analysis helps in understanding which factors most significantly affect song popularity on Spotify when correlated with YouTube performance metrics.
@@ -86,8 +86,39 @@ Our project aims to quantitatively assess how YouTube music video (MV) character
 - **Genre Impact:** Specific genres that perform well on YouTube also see high stream numbers on Spotify, indicating similar audience preferences across platforms.
 
 ## Visualizations
-- **Correlation Heatmap:** Showcases the strength of relationships between YouTube views, likes, and Spotify popularity metrics.
-- **Cross-Platform Performance Graphs:** Comparative line graphs demonstrate how variations in YouTube engagement metrics impact Spotify popularity scores.
+
+- **Feature Importance:**
+
+![](../visualization/feature_importance.png)
+From the plot, we can see the most influential factor is Singer Popularity, markedly outstripping others like Subscriber Count and Genre Label. Features like View Count, Like Count, and Comment Count demonstrate moderate importance.
+
+- **Distribution of Popularity:**
+
+![](../visualization/popularity_boxplot.png)
+The box plot shows the distribution of popularity scores mainly concentrated around the median near 70, indicating high overall popularity. The narrow interquartile range suggests little variability, with several outliers highlighting items of significantly lower popularity.
+
+- **Distribution of like_ratio:**
+
+![](../visualization/like_ratio.png)
+This plot shows the distribution of like ratio ,and this is a clear right-skewed distribution, meaning that most videos have like ratios clustered in the lower region, with a long tail on the right side, indicating that a few videos have unusually high like ratios. This is a reflection of the fact that most music videos have a close and low like ratio, which may represent a “normal” level of interaction. Only a few videos have a particularly high like rate, and these are likely to be “viral” or particularly successful videos.
+
+- **Correlation Heatmap:** 
+
+![](../visualization/heatmap.png)
+Positive correlation: Like rate and comment rate are highly correlated (0.72), indicating that users' interactive behaviors (likes and comments) are closely related.
+Singer popularity is highly correlated with platform popularity (0.72), indicating consistency in popularity measures between the two platforms
+The number of subscriptions is moderately correlated with the number of views (0.45), the more subscribers, the higher the number of views
+Singer popularity is also moderately correlated with channel subscriptions (0.41)
+
+Negative correlation: days since release is strongly negatively correlated with likes (-0.56), indicating that the longer the video has been released, the lower the likes are
+Singer popularity is weakly negatively correlated with comment sentiment score (-0.30), possibly indicating that more popular singers receive more negative comments
+
+Finally, it can be seen that singer popularity shows significant correlations with several features that can be used as important predictors of singer popularity.
+
+- **Distribution of Key YouTube Music Video Metrics**
+
+![](../visualization/eda_all.png)
+For plot Distribution of Log10(View Count), it shows normal distribution characteristics. We can conclude that most of the videos have view counts between 10^7-10^9. For plot Like Ratio Distribution, it shows right skewed distribution. The Like Ratio of most videos is concentrated between 0-2%. For plot Comment Ratio Distribution, it shows a strong right-skewed distribution. Most videos have a comment ratio of less than 0.2%. For plot Singer Popularity Distribution, it ranges from 40-100 scores. There is a clear peak at around 80.
 
 ## Business Implications
 Understanding these cross-platform dynamics can guide strategic decisions for content promotion, targeting efforts on the most impactful YouTube metrics to enhance Spotify performance. This approach is essential for maximizing marketing ROI and broadening audience reach.
@@ -98,7 +129,17 @@ Understanding these cross-platform dynamics can guide strategic decisions for co
 - **Data-Driven Content Creation:** Utilize insights from data to tailor content that resonates well across both platforms, optimizing both video and music production to cater to proven audience preferences.
 
 ## Conclusion
-Our comprehensive analysis provides actionable insights into the interconnected nature of content popularity across YouTube and Spotify. By strategically leveraging these insights, content creators and marketers can enhance their reach and engagement, ultimately boosting profitability and market presence.
+This comprehensive analysis employs advanced data analytics techniques across both YouTube and Spotify to uncover how video views and song popularity influence each other. By integrating insights from these platforms, we have identified significant cross-platform effects where YouTube metrics considerably impact Spotify's track popularity. Leveraging this synergy provides actionable strategies for content creators and marketers to enhance their reach and engagement across media, ultimately boosting profitability and expanding market presence while increasing overall audience engagement.
 
 ## Appendix
 Additional statistical analyses, detailed correlation matrices, and extended visual summaries are available to provide deeper insights into the specific mechanics of cross-platform content interaction and audience behavior dynamics.
+
+Citation:
+1. Dokuz, Y. (2024). Discovering popular and persistent tags from YouTube trending video big dataset. Multimedia Tools and Applications, 83, 10779–10797.
+2. Khin Nyunt, N. T., & Khin, T. (2024). YouTube Career Analysis with the Combination of Trending Analysis and Sentiments Analysis. ESS Open Archive.
+3. Meghana, K. (2024). Artificial Intelligence and Sentiment Analysis in YouTube Comments: A Comprehensive Overview. 2nd International Conference on Intelligent Data Communication Technologies and Internet of Things (IDCIoT), 1565-1572.
+4. Giri, R., Sirsath, M., & Kanakia, H. T. (2024). YouTube Comments Sentiment Analysis. IEEE 9th International Conference for Convergence in Technology (I2CT), Pune, India, 1-4.
+5. Dasovich-Wilson, J. N., Thompson, M., & Saarikallio, S. (2024). The characteristics of music video experiences and their relationship to future listening outcomes. Psychology of Music, 0(0).
+6. Efe, I. E., Tesch, C., & Subedi, P. (2024). YouTube as a source of patient information on awake craniotomy: Analysis of content quality and user engagement. World Neurosurgery: X, 21, 100249.
+
+

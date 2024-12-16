@@ -243,7 +243,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="executive-summary" class="level2">
 <h2 class="anchored" data-anchor-id="executive-summary">Executive Summary</h2>
-<p>This analysis utilizes advanced data analytics techniques across both YouTube and Spotify to understand how video views and song popularity influence each other. By integrating these platforms, we discovered significant cross-platform effects where YouTube’s metrics notably influence Spotify’s track popularity. This cross-platform synergy offers strategies to enhance content engagement across media, with potential to increase overall audience engagement by up to 20%.</p>
+<p><strong>Unlocking the Power of Cross-Platform Synergy</strong>—This analysis utilizes advanced data analytics techniques across both YouTube and Spotify to understand how video views and song popularity influence each other. By integrating these platforms, we discovered significant cross-platform effects where YouTube’s metrics notably influence Spotify’s track popularity. This cross-platform synergy offers strategies to enhance content engagement across media, with potential to increase overall audience engagement by up to 20%.</p>
 </section>
 <section id="objective" class="level2">
 <h2 class="anchored" data-anchor-id="objective">Objective</h2>
@@ -261,9 +261,27 @@ ul.task-list li input[type="checkbox"] {
 <section id="visualizations" class="level2">
 <h2 class="anchored" data-anchor-id="visualizations">Visualizations</h2>
 <ul>
-<li><strong>Correlation Heatmap:</strong> Showcases the strength of relationships between YouTube views, likes, and Spotify popularity metrics.</li>
-<li><strong>Cross-Platform Performance Graphs:</strong> Comparative line graphs demonstrate how variations in YouTube engagement metrics impact Spotify popularity scores.</li>
+<li><strong>Feature Importance:</strong></li>
 </ul>
+<p><img src="../visualization/feature_importance.png" class="img-fluid"> From the plot, we can see the most influential factor is Singer Popularity, markedly outstripping others like Subscriber Count and Genre Label. Features like View Count, Like Count, and Comment Count demonstrate moderate importance.</p>
+<ul>
+<li><strong>Distribution of Popularity:</strong></li>
+</ul>
+<p><img src="../visualization/popularity_boxplot.png" class="img-fluid"> The box plot shows the distribution of popularity scores mainly concentrated around the median near 70, indicating high overall popularity. The narrow interquartile range suggests little variability, with several outliers highlighting items of significantly lower popularity.</p>
+<ul>
+<li><strong>Distribution of like_ratio:</strong></li>
+</ul>
+<p><img src="../visualization/like_ratio.png" class="img-fluid"> This plot shows the distribution of like ratio ,and this is a clear right-skewed distribution, meaning that most videos have like ratios clustered in the lower region, with a long tail on the right side, indicating that a few videos have unusually high like ratios. This is a reflection of the fact that most music videos have a close and low like ratio, which may represent a “normal” level of interaction. Only a few videos have a particularly high like rate, and these are likely to be “viral” or particularly successful videos.</p>
+<ul>
+<li><strong>Correlation Heatmap:</strong></li>
+</ul>
+<p><img src="../visualization/heatmap.png" class="img-fluid"> Positive correlation: Like rate and comment rate are highly correlated (0.72), indicating that users’ interactive behaviors (likes and comments) are closely related. Singer popularity is highly correlated with platform popularity (0.72), indicating consistency in popularity measures between the two platforms The number of subscriptions is moderately correlated with the number of views (0.45), the more subscribers, the higher the number of views Singer popularity is also moderately correlated with channel subscriptions (0.41)</p>
+<p>Negative correlation: days since release is strongly negatively correlated with likes (-0.56), indicating that the longer the video has been released, the lower the likes are Singer popularity is weakly negatively correlated with comment sentiment score (-0.30), possibly indicating that more popular singers receive more negative comments</p>
+<p>Finally, it can be seen that singer popularity shows significant correlations with several features that can be used as important predictors of singer popularity.</p>
+<ul>
+<li><strong>Distribution of Key YouTube Music Video Metrics</strong></li>
+</ul>
+<p><img src="../visualization/eda_all.png" class="img-fluid"> For plot Distribution of Log10(View Count), it shows normal distribution characteristics. We can conclude that most of the videos have view counts between 10<sup>7-10</sup>9. For plot Like Ratio Distribution, it shows right skewed distribution. The Like Ratio of most videos is concentrated between 0-2%. For plot Comment Ratio Distribution, it shows a strong right-skewed distribution. Most videos have a comment ratio of less than 0.2%. For plot Singer Popularity Distribution, it ranges from 40-100 scores. There is a clear peak at around 80.</p>
 </section>
 <section id="business-implications" class="level2">
 <h2 class="anchored" data-anchor-id="business-implications">Business Implications</h2>
@@ -284,6 +302,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="appendix" class="level2">
 <h2 class="anchored" data-anchor-id="appendix">Appendix</h2>
 <p>Additional statistical analyses, detailed correlation matrices, and extended visual summaries are available to provide deeper insights into the specific mechanics of cross-platform content interaction and audience behavior dynamics.</p>
+<p>Citation: 1. Dokuz, Y. (2024). Discovering popular and persistent tags from YouTube trending video big dataset. Multimedia Tools and Applications, 83, 10779–10797. 2. Khin Nyunt, N. T., &amp; Khin, T. (2024). YouTube Career Analysis with the Combination of Trending Analysis and Sentiments Analysis. ESS Open Archive. 3. Meghana, K. (2024). Artificial Intelligence and Sentiment Analysis in YouTube Comments: A Comprehensive Overview. 2nd International Conference on Intelligent Data Communication Technologies and Internet of Things (IDCIoT), 1565-1572. 4. Giri, R., Sirsath, M., &amp; Kanakia, H. T. (2024). YouTube Comments Sentiment Analysis. IEEE 9th International Conference for Convergence in Technology (I2CT), Pune, India, 1-4. 5. Dasovich-Wilson, J. N., Thompson, M., &amp; Saarikallio, S. (2024). The characteristics of music video experiences and their relationship to future listening outcomes. Psychology of Music, 0(0). 6. Efe, I. E., Tesch, C., &amp; Subedi, P. (2024). YouTube as a source of patient information on awake craniotomy: Analysis of content quality and user engagement. World Neurosurgery: X, 21, 100249.</p>
 
 
 </section>
