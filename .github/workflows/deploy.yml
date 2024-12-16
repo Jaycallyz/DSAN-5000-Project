@@ -16,7 +16,7 @@ jobs:
       - name: Configure Git for HTTPS and PAT
         run: |
           git config --global credential.helper store
-          git remote set-url origin https://<your-username>:${{ secrets.GITHUB_TOKEN }}@github.com/dsan-5000/project-xinzhouli00.git
+          git remote set-url origin https://Jaycallyz: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@github.com/dsan-5000/project-xinzhouli00.git
 
       - name: Clone repository
         run: |
@@ -34,3 +34,4 @@ jobs:
             find ~/github -type f -exec chmod 644 {} \;
             find ~/github -type d -exec chmod 755 {} \;
           '
+
