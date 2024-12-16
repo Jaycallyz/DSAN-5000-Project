@@ -1,0 +1,36 @@
+name: Deploy to GU Domains
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '0 */6 * * *'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Configure Git for HTTPS and PAT
+        run: |
+          git config --global credential.helper store
+          git remote set-url origin https://<your-username>:${{ secrets.GITHUB_TOKEN }}@github.com/dsan-5000/project-xinzhouli00.git
+
+      - name: Clone repository
+        run: |
+          git clone https://github.com/dsan-5000/project-xinzhouli00.git
+          cd project-xinzhouli00
+          git pull origin main
+
+      - name: Deploy to GU Domains
+        run: |
+          rsync -avz --delete ./ yiqinzho@domains.georgetown.edu:~/github/
+
+      - name: Set file permissions
+        run: |
+          ssh yiqinzho@domains.georgetown.edu '
+            find ~/github -type f -exec chmod 644 {} \;
+            find ~/github -type d -exec chmod 755 {} \;
+          '
