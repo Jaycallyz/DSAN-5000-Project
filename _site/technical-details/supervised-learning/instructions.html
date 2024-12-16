@@ -185,7 +185,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#suggested-page-structure" id="toc-suggested-page-structure" class="nav-link active" data-scroll-target="#suggested-page-structure">Suggested page structure</a></li>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a>
+  <ul class="collapse">
+  <li><a href="#suggested-page-structure" id="toc-suggested-page-structure" class="nav-link" data-scroll-target="#suggested-page-structure">Suggested page structure</a></li>
   <li><a href="#what-to-address" id="toc-what-to-address" class="nav-link" data-scroll-target="#what-to-address">What to address</a></li>
   <li><a href="#data-preprocessing" id="toc-data-preprocessing" class="nav-link" data-scroll-target="#data-preprocessing">Data Preprocessing</a></li>
   <li><a href="#model-selection" id="toc-model-selection" class="nav-link" data-scroll-target="#model-selection">Model Selection</a></li>
@@ -193,6 +195,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#model-evaluation-metrics" id="toc-model-evaluation-metrics" class="nav-link" data-scroll-target="#model-evaluation-metrics">Model Evaluation Metrics</a></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
   <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
+  </ul></li>
   <li><a href="#regression" id="toc-regression" class="nav-link" data-scroll-target="#regression">Regression</a>
   <ul class="collapse">
   <li><a href="#introduction-and-motivation" id="toc-introduction-and-motivation" class="nav-link" data-scroll-target="#introduction-and-motivation">Introduction and Motivation</a></li>
@@ -215,32 +218,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#result-interpretation-1" id="toc-result-interpretation-1" class="nav-link" data-scroll-target="#result-interpretation-1">Result Interpretation</a></li>
   <li><a href="#model-performance-comparison" id="toc-model-performance-comparison" class="nav-link" data-scroll-target="#model-performance-comparison">Model Performance Comparison</a></li>
   </ul></li>
-  <li><a href="#multi-class-classification" id="toc-multi-class-classification" class="nav-link" data-scroll-target="#multi-class-classification">Multi-class Classification</a></li>
+  <li><a href="#multi-class-classification" id="toc-multi-class-classification" class="nav-link" data-scroll-target="#multi-class-classification">Multi-class Classification</a>
+  <ul class="collapse">
+  <li><a href="#introduction-and-motivation-2" id="toc-introduction-and-motivation-2" class="nav-link" data-scroll-target="#introduction-and-motivation-2">Introduction and Motivation</a></li>
+  <li><a href="#overview-of-methods-2" id="toc-overview-of-methods-2" class="nav-link" data-scroll-target="#overview-of-methods-2">Overview of Methods</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  <li><a href="#result" id="toc-result" class="nav-link" data-scroll-target="#result">Result</a>
+  <ul class="collapse">
+  <li><a href="#model-performance-result" id="toc-model-performance-result" class="nav-link" data-scroll-target="#model-performance-result">Model performance Result</a></li>
+  <li><a href="#result-interpretation-2" id="toc-result-interpretation-2" class="nav-link" data-scroll-target="#result-interpretation-2">Result Interpretation</a></li>
+  </ul></li>
+  <li><a href="#insights-1" id="toc-insights-1" class="nav-link" data-scroll-target="#insights-1">Insights</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Instructions</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
+<section id="instructions" class="level1">
+<h1>Instructions</h1>
 <p><code>Note</code>: You should remove these instruction once you have read and understood them. They should not be included in your final submission.</p>
 <p><code>Remember:</code> Exactly what do you put on this page will be specific you your project and data. Some things might “make more sense” on one page rather than another, depending on your workflow. Organize your project in a logical way that makes the most sense to you.</p>
 <section id="suggested-page-structure" class="level2">
@@ -305,6 +305,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Insights Gained</strong>: Share insights learned from the analysis.</li>
 </ol>
 </section>
+</section>
 <section id="regression" class="level1">
 <h1>Regression</h1>
 <section id="introduction-and-motivation" class="level2">
@@ -314,8 +315,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="overview-of-methods" class="level2">
 <h2 class="anchored" data-anchor-id="overview-of-methods">Overview of Methods</h2>
 <p>We will use Support Vector Regression (SVR) and linear models like Ridge and Lasso regression.</p>
-<div id="1d28bb6f" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.svm <span class="im">import</span> SVR</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error, r2_score</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.inspection <span class="im">import</span> permutation_importance</span>
@@ -364,22 +364,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Feature importances:"</span>)</span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, feature <span class="kw">in</span> <span class="bu">enumerate</span>(features):</span>
 <span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>feature<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>importance_scores[i]<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Mean Squared Error: 99.74699515216321, R^2 Score: 0.5685464639259524
-Feature importances:
-Days Since Published: 0.1459005103042238
-View Count: 0.0689113148502243
-Like Count: 0.06300639647560942
-Comment Count: 0.004829835437846308
-Subscriber Count: 0.15936065653760553
-Definition: 0.05992188839233135
-Mean Sentiment Score: 0.037774091955604674
-Duration_seconds: 0.0011028667361578036
-genre_label: 0.15819782979164201
-singer_followers: 0.0360773423716888
-singer_popularity: 0.6712934520249385</code></pre>
-</div>
-</div>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
@@ -420,23 +404,14 @@ singer_popularity: 0.6712934520249385</code></pre>
 </tbody>
 </table>
 <p>Feature importances from SVR: - Days Since Published: 0.14590051030422282 - View Count: 0.0689113148502238 - Like Count: 0.06300639647560934 - Comment Count: 0.004829835437846231 - Subscriber Count: 0.15936065653760564 - Definition: 0.05992188839233011 - Mean Sentiment Score: 0.037774091955604584 - Duration_seconds: 0.00110286673615743 - genre_label: 0.1581978297916415 - singer_followers: 0.0360773423716881 - singer_popularity: 0.6712934520249385</p>
-<div id="a2e8449d" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>plt.barh(features, importance_scores, color<span class="op">=</span><span class="st">'skyblue'</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Importance Score'</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Feature Importance Scores'</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>plt.gca().invert_yaxis()  <span class="co"># Invert y-axis to have the highest score on top</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="instructions_files/figure-html/cell-3-output-1.png" width="929" height="523" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>plt.barh(features, importance_scores, color<span class="op">=</span><span class="st">'skyblue'</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Importance Score'</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Feature Importance Scores'</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>plt.gca().invert_yaxis()  <span class="co"># Invert y-axis to have the highest score on top</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="result-interpretation" class="level3">
 <h3 class="anchored" data-anchor-id="result-interpretation">Result Interpretation</h3>
 <p>The Support Vector Regression (SVR) model outperformed the linear models in terms of Mean Squared Error (MSE) and R² score. The lower MSE and higher R² of the SVR indicate better performance in fitting the data compared to the Linear, Ridge, and Lasso regressions. The R² scores suggest that the SVR model was able to explain approximately 56.85% of the variance in the dataset, which is more than the approximately 46.57% by the Linear Regression, 45.66% by Ridge, and 46.25% by Lasso Regression.</p>
@@ -456,39 +431,39 @@ singer_popularity: 0.6712934520249385</code></pre>
 <section id="overview-of-methods-1" class="level2">
 <h2 class="anchored" data-anchor-id="overview-of-methods-1">Overview of Methods</h2>
 <p>In this section, we focus on Logistic Regression for binary classification. Logistic Regression is chosen for its ability to provide probabilities for outcomes and its interpretability.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, confusion_matrix, classification_report</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> imblearn.under_sampling <span class="im">import</span> RandomUnderSampler</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume df is your DataFrame and the preprocessing has been done to define 'is_popular'</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> [</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Days Since Published'</span>, <span class="st">'View Count'</span>, <span class="st">'Like Count'</span>, <span class="st">'Comment Count'</span>,</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Subscriber Count'</span>, <span class="st">'Definition'</span>, <span class="st">'Mean Sentiment Score'</span>,</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Duration_seconds'</span>, <span class="st">'genre_label'</span>, <span class="st">'singer_followers'</span>, <span class="st">'singer_popularity'</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df[features]</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df[<span class="st">'is_popular'</span>]</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Splitting the dataset and under-sampling</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>rus <span class="op">=</span> RandomUnderSampler(random_state<span class="op">=</span><span class="dv">42</span>)</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>X_resampled, y_resampled <span class="op">=</span> rus.fit_resample(X_train, y_train)</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Logistic Regression model</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>lr_model <span class="op">=</span> LogisticRegression(random_state<span class="op">=</span><span class="dv">42</span>, max_iter<span class="op">=</span><span class="dv">1000</span>)</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>lr_model.fit(X_resampled, y_resampled)</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Making predictions and evaluating the model</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> lr_model.predict(X_test)</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>accuracy <span class="op">=</span> accuracy_score(y_test, y_pred)</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>conf_matrix <span class="op">=</span> confusion_matrix(y_test, y_pred)</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>class_report <span class="op">=</span> classification_report(y_test, y_pred)</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Logistic Regression Model Evaluation"</span>)</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Accuracy:"</span>, accuracy)</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Confusion Matrix:</span><span class="ch">\n</span><span class="st">"</span>, conf_matrix)</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Classification Report:</span><span class="ch">\n</span><span class="st">"</span>, class_report)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, confusion_matrix, classification_report</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> imblearn.under_sampling <span class="im">import</span> RandomUnderSampler</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume df is your DataFrame and the preprocessing has been done to define 'is_popular'</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> [</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Days Since Published'</span>, <span class="st">'View Count'</span>, <span class="st">'Like Count'</span>, <span class="st">'Comment Count'</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Subscriber Count'</span>, <span class="st">'Definition'</span>, <span class="st">'Mean Sentiment Score'</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Duration_seconds'</span>, <span class="st">'genre_label'</span>, <span class="st">'singer_followers'</span>, <span class="st">'singer_popularity'</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df[features]</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df[<span class="st">'is_popular'</span>]</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Splitting the dataset and under-sampling</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>rus <span class="op">=</span> RandomUnderSampler(random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>X_resampled, y_resampled <span class="op">=</span> rus.fit_resample(X_train, y_train)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Logistic Regression model</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>lr_model <span class="op">=</span> LogisticRegression(random_state<span class="op">=</span><span class="dv">42</span>, max_iter<span class="op">=</span><span class="dv">1000</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>lr_model.fit(X_resampled, y_resampled)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Making predictions and evaluating the model</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> lr_model.predict(X_test)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>accuracy <span class="op">=</span> accuracy_score(y_test, y_pred)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>conf_matrix <span class="op">=</span> confusion_matrix(y_test, y_pred)</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>class_report <span class="op">=</span> classification_report(y_test, y_pred)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Logistic Regression Model Evaluation"</span>)</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Accuracy:"</span>, accuracy)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Confusion Matrix:</span><span class="ch">\n</span><span class="st">"</span>, conf_matrix)</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Classification Report:</span><span class="ch">\n</span><span class="st">"</span>, class_report)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="results-1" class="level2">
 <h2 class="anchored" data-anchor-id="results-1">Results</h2>
@@ -554,14 +529,195 @@ singer_popularity: 0.6712934520249385</code></pre>
 </section>
 <section id="multi-class-classification" class="level1">
 <h1>Multi-class Classification</h1>
-<ul>
-<li><strong>Introduction and Motivation:</strong> Briefly outline your plan. What are you doing on this page, and why? Provide context and explain the goals of your analysis.</li>
-<li><strong>Overview of Methods:</strong> Give a concise explanation of the methods used. For example, if using K-Means clustering, describe what it is, how it works, the inputs and outputs, and key hyperparameters.</li>
-<li><strong>Code:</strong> Include the code you used to implement your workflow.</li>
-<li><strong>Summary and Interpretation of Results:</strong> Summarize your findings, interpret the results, and discuss their technical implications.</li>
-</ul>
+<section id="introduction-and-motivation-2" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-and-motivation-2">Introduction and Motivation</h2>
+<p>The goal of this multi- class classification is to predict the interaction rate (like ratio= like count/ view count) of youtube mv. We want to predict the interaction rate of the content by features such as number of days since posting and number of comments.</p>
+<p>This analysis firstly hopes to improve data analysis and model selection capabilities, and secondly tries to help content creators optimize their creation strategies.</p>
+</section>
+<section id="overview-of-methods-2" class="level2">
+<h2 class="anchored" data-anchor-id="overview-of-methods-2">Overview of Methods</h2>
+<p>Multiple classification algorithms were used to predict the popularity (like ratio) of short video content. The like ratio was first categorized into three categories: low (≤0.7), medium (0.7-1.6), and high (&gt;1.6), and then predicted using three models: logistic regression, decision tree, and random forest. To address data imbalance, SMOTE oversampling technique was used. The input features of the model included nine variables such as days of posting/comments, number of subscribers, sentiment score, video duration, number of creator followers, and popularity. The decision tree model was hyper-parametrically optimized by grid search (GridSearchCV) and the model performance was evaluated using cross-validation. This combination of methods enables comprehensive assessment and prediction of video content popularity, providing data support for content creation and platform operation.</p>
+</section>
+<section id="code" class="level2">
+<h2 class="anchored" data-anchor-id="code">Code</h2>
+<p>logistic regression</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df[features]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df[<span class="st">'Like Ratio Category'</span>]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Data set splitting</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Feature standardization</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>X_train_scaled <span class="op">=</span> scaler.fit_transform(X_train)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>X_test_scaled <span class="op">=</span> scaler.transform(X_test)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>smote <span class="op">=</span> SMOTE(random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>X_train_resampled, y_train_resampled <span class="op">=</span> smote.fit_resample(X_train_scaled, y_train)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize the Logistic Regression model (One-vs-Rest for multi-class)</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> LogisticRegression(multi_class<span class="op">=</span><span class="st">'ovr'</span>, max_iter<span class="op">=</span><span class="dv">1000</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Train the model</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>model.fit(X_train_scaled, y_train)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict on the test set</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(X_test_scaled)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>X_scaled <span class="op">=</span> scaler.fit_transform(X)  <span class="co"># Fit and transform the entire dataset</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Cross-validation to get a better estimate of the model performance</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>cross_val_scores <span class="op">=</span> cross_val_score(model, X_scaled, y, cv<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Cross-validation scores:"</span>, cross_val_scores)</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Mean cross-validation score:"</span>, cross_val_scores.mean())</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate the model</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Accuracy:"</span>, accuracy_score(y_test, y_pred))</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Classification Report:</span><span class="ch">\n</span><span class="st">"</span>, classification_report(y_test, y_pred))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#param_grid</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>param_grid_refined <span class="op">=</span> {</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'max_depth'</span>: [<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>],  </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'min_samples_split'</span>: [<span class="dv">8</span>,<span class="dv">10</span>,<span class="dv">15</span>],</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'min_samples_leaf'</span>: [<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>],   </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'criterion'</span>: [<span class="st">'entropy'</span>],        </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'class_weight'</span>: [<span class="st">'balanced'</span>]  </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>grid_search_refined <span class="op">=</span> GridSearchCV(</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    DecisionTreeClassifier(random_state<span class="op">=</span><span class="dv">42</span>),</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    param_grid_refined,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    cv<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    scoring<span class="op">=</span><span class="st">'f1_macro'</span>, </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    n_jobs<span class="op">=-</span><span class="dv">1</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># train mode</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>grid_search_refined.fit(X_train_scaled, y_train)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Refined Best parameters:"</span>, grid_search_refined.best_params_)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Refined Best cross-validation score:"</span>, grid_search_refined.best_score_)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>best_model_refined <span class="op">=</span> DecisionTreeClassifier(</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">**</span>grid_search_refined.best_params_</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>best_model_refined.fit(X_train_scaled, y_train)</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>y_pred_refined <span class="op">=</span> best_model_refined.predict(X_test_scaled)</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Refined Test set accuracy:"</span>, accuracy_score(y_test, y_pred_refined))</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Refined Classification Report:</span><span class="ch">\n</span><span class="st">"</span>, classification_report(y_test, y_pred_refined))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>random forest</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>f_model <span class="op">=</span> RandomForestClassifier(n_estimators<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Train the model</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>rf_model.fit(X_train_scaled, y_train)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict on the test set</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>y_pred_rf <span class="op">=</span> rf_model.predict(X_test_scaled)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate the model</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Random Forest Accuracy:"</span>, accuracy_score(y_test, y_pred_rf))</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Random Forest Classification Report:</span><span class="ch">\n</span><span class="st">"</span>, classification_report(y_test, y_pred_rf))</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Cross-validation to get a better estimate of the model performance</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>cross_val_scores_rf <span class="op">=</span> cross_val_score(rf_model, X_train_scaled, y_train, cv<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Random Forest Cross-validation scores:"</span>, cross_val_scores_rf)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Mean cross-validation score (Random Forest):"</span>, cross_val_scores_rf.mean())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="result" class="level2">
+<h2 class="anchored" data-anchor-id="result">Result</h2>
+<section id="model-performance-result" class="level3">
+<h3 class="anchored" data-anchor-id="model-performance-result">Model performance Result</h3>
+<p>Comparison of Model Performance Metrics for Different Classification Models Used in Predicting like_ratio (Multi-Class Classification)</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 7%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Accuracy</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1-Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Logistic Regression</strong></td>
+<td>77.33%</td>
+<td>0.64 (High), 0.86 (Low), 0.73 (Medium)</td>
+<td>0.82 (High), 0.86 (Low), 0.66 (Medium)</td>
+<td>0.72 (High), 0.86 (Low), 0.69 (Medium)</td>
+</tr>
+<tr class="even">
+<td><strong>Decision Tree</strong></td>
+<td>74.67%</td>
+<td>0.56 (High), 0.85 (Low), 0.74 (Medium)</td>
+<td>0.91 (High), 0.83 (Low), 0.59 (Medium)</td>
+<td>0.69 (High), 0.84 (Low), 0.65 (Medium)</td>
+</tr>
+<tr class="odd">
+<td><strong>Random Forest</strong></td>
+<td>78.67%</td>
+<td>0.69 (High), 0.88 (Low), 0.73 (Medium)</td>
+<td>0.82 (High), 0.80 (Low), 0.76 (Medium)</td>
+<td>0.75 (High), 0.84 (Low), 0.75 (Medium)</td>
+</tr>
+</tbody>
+</table>
+<p>Cross-Validation Scores</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 49%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Cross-Validation Scores</th>
+<th>Mean Cross-Validation Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Logistic Regression</strong></td>
+<td>[0.6533, 0.6133, 0.8133, 0.72, 0.4667]</td>
+<td>0.6533</td>
+</tr>
+<tr class="even">
+<td><strong>Decision Tree</strong></td>
+<td>Refined Best CV: [0.6208 (balanced parameters)]</td>
+<td>0.6208</td>
+</tr>
+<tr class="odd">
+<td><strong>Random Forest</strong></td>
+<td>[0.75, 0.6833, 0.6833, 0.7, 0.7833]</td>
+<td>0.72</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="result-interpretation-2" class="level3">
+<h3 class="anchored" data-anchor-id="result-interpretation-2">Result Interpretation</h3>
+<p>We can see from the table that the Random Forest model is the most effective model for predicting the like_ratio, achieving the highest accuracy (78.67%) and a balanced performance in terms of Precision, Recall, and F1-Score across all classes (High, Low, and Medium). Its average cross-validation score is 0.72, demonstrating good generalization.</p>
+<p>The Logistic regression model is second effective one with an overall accuracy of 77.33%. While the low rank Precision (0.86) is strong, the medium rank Recall (0.66) performed relatively weakly. Nonetheless, the model is metrically consistent, showing its suitability for applications that require interpretability and stable performance.</p>
+<p>For the Decision Tree model, it has the lowest overall accuracy (74.67%). While it performs well in recognizing high levels with a recall of 0.91, it performs poorly in recognizing intermediate levels where it has the lowest accuracy (0.74) and recall (0.59). But it can distinguish between high &amp; low cases well.</p>
+</section>
+</section>
+<section id="insights-1" class="level2">
+<h2 class="anchored" data-anchor-id="insights-1">Insights</h2>
+<p>From the results, we can find that the Random Forest model shows the best balance of accuracy, precision, recall, and F1 value in predicting the like_ratio of songs, especially in the medium class (Medium). This indicates that Random Forest has a strong ability in dealing with multi-categorization problems. The Logistic Regression model, on the other hand, has high precision and recall in identifying the low like_ratio category, suggesting that it is more effective in distinguishing between low popularity songs. while the Decision Tree model’s perform is not so good as we expected among all these three models, with low recall especially in the Medium category, suggesting that it may be unsuitable for dealing with such a complex multi-class classification task</p>
+<p>This multi-class classification enables me to better understand the advantages and limitations of different models in multi-class classification tasks, and teach me lesson that we should choose the right model for future projects based on the specific needs of the task.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

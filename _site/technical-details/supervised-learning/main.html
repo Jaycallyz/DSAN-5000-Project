@@ -218,8 +218,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#result-interpretation-1" id="toc-result-interpretation-1" class="nav-link" data-scroll-target="#result-interpretation-1">Result Interpretation</a></li>
   <li><a href="#model-performance-comparison" id="toc-model-performance-comparison" class="nav-link" data-scroll-target="#model-performance-comparison">Model Performance Comparison</a></li>
   </ul></li>
-  <li><a href="#multi-class-classification" id="toc-multi-class-classification" class="nav-link" data-scroll-target="#multi-class-classification">Multi-class Classification</a></li>
+  <li><a href="#multi-class-classification" id="toc-multi-class-classification" class="nav-link" data-scroll-target="#multi-class-classification">Multi-class Classification</a>
+  <ul class="collapse">
+  <li><a href="#introduction-and-motivation-2" id="toc-introduction-and-motivation-2" class="nav-link" data-scroll-target="#introduction-and-motivation-2">Introduction and Motivation</a></li>
+  <li><a href="#overview-of-methods-2" id="toc-overview-of-methods-2" class="nav-link" data-scroll-target="#overview-of-methods-2">Overview of Methods</a></li>
   <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  </ul></li>
+  <li><a href="#code-1" id="toc-code-1" class="nav-link" data-scroll-target="#code-1">Code</a></li>
   </ul>
 </nav>
     </div>
@@ -322,55 +327,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="overview-of-methods" class="level2">
 <h2 class="anchored" data-anchor-id="overview-of-methods">Overview of Methods</h2>
 <p>We will use Support Vector Regression (SVR) and linear models like Ridge and Lasso regression.</p>
-<pre class="{python}"><code>import pandas as pd
-from sklearn.svm import SVR
-from sklearn.metrics import mean_squared_error, r2_score
-from sklearn.inspection import permutation_importance
-from sklearn.model_selection import train_test_split
-
-# Load the dataset
-df = pd.read_csv('../../data/processed-data/Normalized_Data_with_Sentiments.csv')
-
-# Specify the feature columns
-features = [
-    'Days Since Published', 'View Count', 'Like Count', 'Comment Count',
-    'Subscriber Count', 'Definition', 'Mean Sentiment Score',
-    'Duration_seconds', 'genre_label', 'singer_followers', 'singer_popularity'
-]
-
-# Ensure the target column 'popularity' exists in DataFrame
-if 'Popularity' not in df.columns:
-    raise ValueError("The 'popularity' column is missing from the DataFrame.")
-
-# Split into input (X) and target (y)
-X = df[features]  # Inputs
-y = df['Popularity']  # Target
-
-# Split data into training and test sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-# Assuming the SVR model is already trained as svr_model
-svr_model = SVR(kernel='rbf', C=100, gamma='auto')
-svr_model.fit(X_train, y_train)
-
-# Predict on the testing data
-y_pred = svr_model.predict(X_test)
-# Calculate mean squared error and R^2 score
-mse = mean_squared_error(y_test, y_pred)
-r2 = r2_score(y_test, y_pred)
-
-print(f"Mean Squared Error: {mse}, R^2 Score: {r2}")
-
-# Perform permutation importance
-perm_importance = permutation_importance(svr_model, X_test, y_test, n_repeats=30, random_state=42)
-
-# Get importance scores
-importance_scores = perm_importance.importances_mean
-
-# Print feature importance
-print("Feature importances:")
-for i, feature in enumerate(features):
-    print(f"{feature}: {importance_scores[i]}")</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.svm <span class="im">import</span> SVR</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error, r2_score</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.inspection <span class="im">import</span> permutation_importance</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../../data/processed-data/Normalized_Data_with_Sentiments.csv'</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the feature columns</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> [</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Days Since Published'</span>, <span class="st">'View Count'</span>, <span class="st">'Like Count'</span>, <span class="st">'Comment Count'</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Subscriber Count'</span>, <span class="st">'Definition'</span>, <span class="st">'Mean Sentiment Score'</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Duration_seconds'</span>, <span class="st">'genre_label'</span>, <span class="st">'singer_followers'</span>, <span class="st">'singer_popularity'</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure the target column 'popularity' exists in DataFrame</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'Popularity'</span> <span class="kw">not</span> <span class="kw">in</span> df.columns:</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"The 'popularity' column is missing from the DataFrame."</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Split into input (X) and target (y)</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df[features]  <span class="co"># Inputs</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df[<span class="st">'Popularity'</span>]  <span class="co"># Target</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Split data into training and test sets</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming the SVR model is already trained as svr_model</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>svr_model <span class="op">=</span> SVR(kernel<span class="op">=</span><span class="st">'rbf'</span>, C<span class="op">=</span><span class="dv">100</span>, gamma<span class="op">=</span><span class="st">'auto'</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>svr_model.fit(X_train, y_train)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict on the testing data</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> svr_model.predict(X_test)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate mean squared error and R^2 score</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>mse <span class="op">=</span> mean_squared_error(y_test, y_pred)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>r2 <span class="op">=</span> r2_score(y_test, y_pred)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mean Squared Error: </span><span class="sc">{</span>mse<span class="sc">}</span><span class="ss">, R^2 Score: </span><span class="sc">{</span>r2<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform permutation importance</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>perm_importance <span class="op">=</span> permutation_importance(svr_model, X_test, y_test, n_repeats<span class="op">=</span><span class="dv">30</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Get importance scores</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>importance_scores <span class="op">=</span> perm_importance.importances_mean</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Print feature importance</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Feature importances:"</span>)</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, feature <span class="kw">in</span> <span class="bu">enumerate</span>(features):</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>feature<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>importance_scores[i]<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
@@ -411,14 +416,14 @@ for i, feature in enumerate(features):
 </tbody>
 </table>
 <p>Feature importances from SVR: - Days Since Published: 0.14590051030422282 - View Count: 0.0689113148502238 - Like Count: 0.06300639647560934 - Comment Count: 0.004829835437846231 - Subscriber Count: 0.15936065653760564 - Definition: 0.05992188839233011 - Mean Sentiment Score: 0.037774091955604584 - Duration_seconds: 0.00110286673615743 - genre_label: 0.1581978297916415 - singer_followers: 0.0360773423716881 - singer_popularity: 0.6712934520249385</p>
-<pre class="{python}"><code>import matplotlib.pyplot as plt
-
-plt.figure(figsize=(10, 6))
-plt.barh(features, importance_scores, color='skyblue')
-plt.xlabel('Importance Score')
-plt.title('Feature Importance Scores')
-plt.gca().invert_yaxis()  # Invert y-axis to have the highest score on top
-plt.show()</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>plt.barh(features, importance_scores, color<span class="op">=</span><span class="st">'skyblue'</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Importance Score'</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Feature Importance Scores'</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>plt.gca().invert_yaxis()  <span class="co"># Invert y-axis to have the highest score on top</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="result-interpretation" class="level3">
 <h3 class="anchored" data-anchor-id="result-interpretation">Result Interpretation</h3>
 <p>The Support Vector Regression (SVR) model outperformed the linear models in terms of Mean Squared Error (MSE) and R² score. The lower MSE and higher R² of the SVR indicate better performance in fitting the data compared to the Linear, Ridge, and Lasso regressions. The R² scores suggest that the SVR model was able to explain approximately 56.85% of the variance in the dataset, which is more than the approximately 46.57% by the Linear Regression, 45.66% by Ridge, and 46.25% by Lasso Regression.</p>
@@ -536,14 +541,23 @@ plt.show()</code></pre>
 </section>
 <section id="multi-class-classification" class="level1">
 <h1>Multi-class Classification</h1>
+<section id="introduction-and-motivation-2" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-and-motivation-2">Introduction and Motivation</h2>
+<p>The goal of this multi- class classification is to predict the interaction rate (like ratio= like count/ view count) of youtube mv. We want to predict the interaction rate of the content by features such as number of days since posting and number of comments.</p>
+<p>This analysis firstly hopes to improve data analysis and model selection capabilities, and secondly tries to help content creators optimize their creation strategies.</p>
+</section>
+<section id="overview-of-methods-2" class="level2">
+<h2 class="anchored" data-anchor-id="overview-of-methods-2">Overview of Methods</h2>
+<p>Multiple classification algorithms were used to predict the popularity (like ratio) of short video content. The like ratio was first categorized into three categories: low (≤0.7), medium (0.7-1.6), and high (&gt;1.6), and then predicted using three models: logistic regression, decision tree, and random forest. To address data imbalance, SMOTE oversampling technique was used. The input features of the model included nine variables such as days of posting/comments, number of subscribers, sentiment score, video duration, number of creator followers, and popularity. The decision tree model was hyper-parametrically optimized by grid search (GridSearchCV) and the model performance was evaluated using cross-validation. This combination of methods enables comprehensive assessment and prediction of video content popularity, providing data support for content creation and platform operation.</p>
+</section>
+<section id="code" class="level2">
+<h2 class="anchored" data-anchor-id="code">Code</h2>
 <ul>
-<li><strong>Introduction and Motivation:</strong> Briefly outline your plan. What are you doing on this page, and why? Provide context and explain the goals of your analysis.</li>
-<li><strong>Overview of Methods:</strong> Give a concise explanation of the methods used. For example, if using K-Means clustering, describe what it is, how it works, the inputs and outputs, and key hyperparameters.</li>
-<li><strong>Code:</strong> Include the code you used to implement your workflow.</li>
 <li><strong>Summary and Interpretation of Results:</strong> Summarize your findings, interpret the results, and discuss their technical implications.</li>
 </ul>
 </section>
-<section id="code" class="level1">
+</section>
+<section id="code-1" class="level1">
 <h1>Code</h1>
 <p>Provide the source code used for this section of the project here.</p>
 <p>If you’re using a package for code organization, you can import it at this point. However, make sure that the <strong>actual workflow steps</strong>—including data processing, analysis, and other key tasks—are conducted and clearly demonstrated on this page. The goal is to show the technical flow of your project, highlighting how the code is executed to achieve your results.</p>
