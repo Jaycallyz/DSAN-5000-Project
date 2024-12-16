@@ -8,13 +8,57 @@ If you are working as a team, at the end, you can duplicate the project and add 
 
 ## To-do
 
-* [ ] Explore possible topics by brainstorming with GPT 
-* [ ] write a technical methods sections for K-means
-* [ ] write a technical methods sections for PCA
+* [x] Confirm the project topic
+* [x] Confirm the data sources
+* [x] Collect data using YouTube API
+* [x] Collect data using Spotify API
+* [x] Clean the data
+* [x] Normalize the data
+* [x] Perform Exploratory Data Analysis (EDA)
+* [x] Implement regression analysis
+* [x] Implement binary classification
+* [x] Implement multi-class classification
+* [x] Work on unsupervised learning (e.g., clustering, dimensionality reduction)
+* [x] Update progress log regularly
+* [x] Work on the LLM (Language Model) part of the project
+* [x] Write the final report
 
-... etc 
 
-## Member-1:
+## Member-1:Yiqin Zhou
+[Click here to open](../technical-details/aboutme_yz.html)
+
+**Weekly project contribution log:**
+**T: 12-15-2024**
+
+* [x] Completed final report section  
+* [x] Completed progess- log section  
+* [x] Completed unsupervised learning multi-class classification section  
+
+**F: 12-14-2024**  
+
+* [x] Completed EDA section  
+
+**Th: 12-13-2024**  
+
+* [x] Completed data collection  
+
+**W: 12-12-2024**  
+
+* [x] Confirmed data source in group meeting and began data collection  
+
+**T: 12-11-2024**  
+
+* [x] Held group meeting to decide on project topic due to changes in Spotify API permissions  
+
+**W: 11-21-2024**  
+
+* [x] Participated in group discussion to decide on project topic and data source  
+
+
+
+## Member-2:Xinzhou Li
+
+[Click here to open](../technical-details/aboutme_xinzhouli.html)
 
 Provide their name, a link to their "About Me" page.
 
@@ -23,25 +67,6 @@ Also, describe a log of their project roles.
 **Weekly project contribution log:**
 
 
-**T: 10-15-2024** 
-
-* [x] Coordinate with team member to set up weekly meeting time 
-
-
-**M: 10-14-2024** 
-
-* [x] Do a first draft of the project landing page 
-
-
-## Member-2
-
-Provide their name, a link to their "About Me" page.
-
-Also, describe a log of their project roles.
-
-**Weekly project contribution log:**
-
-
-**W: 10-16-2024** 
+**W: 10-16-2024** （星期，和日期）从近到远的顺序罗列
 
 * [x] Attend first group meeting
